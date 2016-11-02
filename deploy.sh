@@ -203,7 +203,7 @@ set_user_id() {
 restore_head() {
   if [[ $previous_branch = "HEAD" ]]; then
     #we weren't on any branch before, so just set HEAD back to the commit it was on
-    git update-ref --no-deref HEAD $commit_hash $deploy_branch
+    git update-ref --update-head-ok --no-deref HEAD $commit_hash $deploy_branch
   else
     git symbolic-ref HEAD refs/heads/$previous_branch
   fi

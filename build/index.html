@@ -1,0 +1,3560 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>LuaView API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;lua&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="lua">lua</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/alibaba/LuaViewSDK'>LuaView In GitHub</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>LuaView 是 <strong>聚划算无线技术团队</strong> 的开源项目，其初衷是为了提升移动端应用动态化能力，提供比H5更好的用户体验，同时做到Android、iOS业务代码共用，减少同一业务的人员重复投入。</p>
+
+<p>目前LuaView已经在聚划算大范围使用，先后经历了聚划算 3.8、6.6、9.9大促，已经服务过千万用户。使用LuaView的客户端能够具备H5同样的动态化能力，做到bug随时修，业务随时上，且在硬件交互，动画等功能上提供比H5更好的体验。</p>
+
+<p>LuaView 使用Lua语言进行代码编写，目前支持两个端：Android和iOS。Android
+端使用LuaJ引擎,iOS端使用LuaC引擎。</p>
+
+<h1 id="design-principles">Design Principles</h1>
+
+<p>几乎所有API既可以作为get函数调用，也可以作为set函数调用</p>
+
+<ul>
+<li>有参数的时候作为set函数调用，并返回对象本身（可供链式调用）</li>
+<li>无参数的时候作为get函数调用，并返还调用返回值</li>
+<li>时间单位是秒，毫秒通过小数来设置</li>
+<li>所有尺寸单位为点（dot），而非真实像素（px）</li>
+<li>容器类包含View的容器方法，非容器类没有View的容器方法</li>
+</ul>
+<pre class="highlight plaintext"><code>如：
+ view.size(100, 100)  -- 设置view的大小为 w=100, h=100，返回view自身
+
+ view.size()  -- 获取view的大小，返回 {w=100, h=100}
+</code></pre>
+
+<h1 id="api-ui">API-UI</h1>
+
+<h2 id="view">View</h2>
+
+<aside class="notice" id="view">
+所有UI组件基类，容器。
+</aside>
+
+<blockquote>
+<p>initParams</p>
+</blockquote>
+<pre class="highlight plaintext"><code>TableView().initParams({
+})
+</code></pre>
+
+<blockquote>
+<p>frame</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.frame(0, 0, 100, 100)
+view.frame()
+</code></pre>
+
+<blockquote>
+<p>padding</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.padding(5, 5, 5, 5)
+</code></pre>
+
+<blockquote>
+<p>backgroundColor</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.backgroundColor(0xff0000, 0.5)
+</code></pre>
+
+<blockquote>
+<p>align</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.align(Align.RIGHT, Align.BOTTOM)
+</code></pre>
+
+<blockquote>
+<p>startAnimation</p>
+</blockquote>
+<pre class="highlight plaintext"><code>anim1 = Animation().alpha(1, 0).duration(1)
+anim2 = Animation().scale(1, 0).duration(2).delay(0.2)
+view.startAnimation(anim1, anim2)
+</code></pre>
+
+<blockquote>
+<p>flexCss</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view = View()
+view.flexCss("margin-left: 10, sizetofit: 1, align-self: center")
+</code></pre>
+
+<blockquote>
+<p>flxLayout</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view = View()
+view.flxLayout(true, function() 
+    print("do something")
+end)
+</code></pre>
+
+<blockquote>
+<p>effects</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.effects(ViewEffect.CLICK) -- 点击特效
+view.effects(ViewEffect.CLICK, 0xff0000, 0.5) -- 点击特效，颜色红色，alpha=0.5
+view.effects(ViewEffect.NONE) -- 无效果
+</code></pre>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>initParams</td>
+<td>table: LuaTable</td>
+<td>-</td>
+<td>Android</td>
+<td>初始化参数</td>
+</tr>
+<tr>
+<td>invalidate</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>强制重绘</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>left: Number<br/>top: Number<br/>right: Number<br/>bottom: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>内边距</td>
+</tr>
+<tr>
+<td>frame</td>
+<td>x: Number<br/>y: Number<br/>width: Number<br/>height: Number</td>
+<td>-</td>
+<td>-</td>
+<td>View尺寸</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>color: Number<br/> alpha: Number<br/></td>
+<td>color, alpha</td>
+<td>-</td>
+<td>背景色&amp;alpha</td>
+</tr>
+<tr>
+<td>size</td>
+<td>width: Number<br/> height: Number<br/></td>
+<td>width, height</td>
+<td>-</td>
+<td>尺寸</td>
+</tr>
+<tr>
+<td>xy</td>
+<td>x: Number<br/> y: Number<br/></td>
+<td>x,y</td>
+<td>-</td>
+<td>x、y坐标</td>
+</tr>
+<tr>
+<td>align</td>
+<td>aligns[]: <a href="#align">Align</a></td>
+<td>-</td>
+<td>-</td>
+<td>设置自身在父容器的布局</td>
+</tr>
+<tr>
+<td>alignLeft</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Top</td>
+</tr>
+<tr>
+<td>alignTop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Top</td>
+</tr>
+<tr>
+<td>alignRight</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Right&amp;Top</td>
+</tr>
+<tr>
+<td>alignBottom</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Bottom</td>
+</tr>
+<tr>
+<td>alignLeftTop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Top</td>
+</tr>
+<tr>
+<td>alignTopLeft</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Top</td>
+</tr>
+<tr>
+<td>alignCenterTop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Center&amp;Top</td>
+</tr>
+<tr>
+<td>alignTopCenter</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Center&amp;Top</td>
+</tr>
+<tr>
+<td>alignRightTop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Right&amp;Top</td>
+</tr>
+<tr>
+<td>alignTopRight</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Right&amp;Top</td>
+</tr>
+<tr>
+<td>alignLeftBottom</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Bottom</td>
+</tr>
+<tr>
+<td>alignBottomLeft</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Bottom</td>
+</tr>
+<tr>
+<td>alignCenterBottom</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Center&amp;Bottom</td>
+</tr>
+<tr>
+<td>alignBottomCenter</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Center&amp;Bottom</td>
+</tr>
+<tr>
+<td>alignRightBottom</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Right&amp;Bottom</td>
+</tr>
+<tr>
+<td>alignBottomRight</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Right&amp;Bottom</td>
+</tr>
+<tr>
+<td>alignCenter</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Center</td>
+</tr>
+<tr>
+<td>alignLeftCenter</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Center</td>
+</tr>
+<tr>
+<td>alignCenterLeft</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Left&amp;Center</td>
+</tr>
+<tr>
+<td>alignRightCenter</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Right&amp;Center</td>
+</tr>
+<tr>
+<td>alignCenterRight</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器Right&amp;Center</td>
+</tr>
+<tr>
+<td>alignCenterHorizontal</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器center in horizontal</td>
+</tr>
+<tr>
+<td>alignHorizontalCenter</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器center in horizontal</td>
+</tr>
+<tr>
+<td>alignCenterVertical</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器center in vertical</td>
+</tr>
+<tr>
+<td>alignVerticalCenter</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>设置自身位于父容器center in vertical</td>
+</tr>
+<tr>
+<td>center</td>
+<td>x: Number<br/> y: Number</td>
+<td>x, y</td>
+<td>-</td>
+<td>中心点坐标</td>
+</tr>
+<tr>
+<td>x</td>
+<td>x: Number</td>
+<td>x</td>
+<td>-</td>
+<td>x坐标</td>
+</tr>
+<tr>
+<td>y</td>
+<td>y: Number</td>
+<td>y</td>
+<td>-</td>
+<td>y坐标</td>
+</tr>
+<tr>
+<td>left</td>
+<td>left: Number</td>
+<td>left</td>
+<td>-</td>
+<td>距离父容器左侧边距</td>
+</tr>
+<tr>
+<td>top</td>
+<td>top: Number</td>
+<td>top</td>
+<td>-</td>
+<td>距离父容器上侧边距</td>
+</tr>
+<tr>
+<td>right</td>
+<td>right: Number</td>
+<td>right</td>
+<td>-</td>
+<td>距离父容器右侧边距</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>bottom: Number</td>
+<td>bottom</td>
+<td>-</td>
+<td>距离父容器底部边距</td>
+</tr>
+<tr>
+<td>width</td>
+<td>width: Number</td>
+<td>width</td>
+<td>-</td>
+<td>宽度</td>
+</tr>
+<tr>
+<td>minWidth</td>
+<td>width: Number</td>
+<td>width</td>
+<td>-</td>
+<td>最小宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>height: Number</td>
+<td>height</td>
+<td>-</td>
+<td>高度</td>
+</tr>
+<tr>
+<td>centerX</td>
+<td>x: Number</td>
+<td>x</td>
+<td>-</td>
+<td>中心点x坐标</td>
+</tr>
+<tr>
+<td>centerY</td>
+<td>y: Number</td>
+<td>y</td>
+<td>-</td>
+<td>中心点y坐标</td>
+</tr>
+<tr>
+<td>visible</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>可见性</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>可见性</td>
+</tr>
+<tr>
+<td>show</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>显示</td>
+</tr>
+<tr>
+<td>isShow</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否可见</td>
+</tr>
+<tr>
+<td>hide</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>隐藏</td>
+</tr>
+<tr>
+<td>isHide</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否隐藏</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>是否可用</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>alpha: Number</td>
+<td>alpha</td>
+<td>-</td>
+<td>透明度</td>
+</tr>
+<tr>
+<td>borderWidth</td>
+<td>width: Number</td>
+<td>width</td>
+<td>-</td>
+<td>边框宽度</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>边框颜色</td>
+</tr>
+<tr>
+<td>clipsToBounds</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>iOS</td>
+<td>View边框是否剪接</td>
+</tr>
+<tr>
+<td>shadowPath</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>iOS</td>
+<td>只对边框外部加阴影</td>
+</tr>
+<tr>
+<td>masksToBounds</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>iOS</td>
+<td>设置边框是否裁剪</td>
+</tr>
+<tr>
+<td>shadowOffset</td>
+<td>v: Number</td>
+<td>v</td>
+<td>iOS</td>
+<td>设置View阴影偏移位置</td>
+</tr>
+<tr>
+<td>shadowRadius</td>
+<td>v: Number</td>
+<td>v</td>
+<td>iOS</td>
+<td>设置View阴影高斯模糊半径</td>
+</tr>
+<tr>
+<td>shadowOpacity</td>
+<td>v: Number</td>
+<td>v</td>
+<td>iOS</td>
+<td>设置View阴影透明度</td>
+</tr>
+<tr>
+<td>shadowColor</td>
+<td>v: Number</td>
+<td>v</td>
+<td>iOS</td>
+<td>设置View阴影颜色</td>
+</tr>
+<tr>
+<td>sizeToFit</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>适应View内容的大小</td>
+</tr>
+<tr>
+<td>addGestureRecognizer</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>添加手势</td>
+</tr>
+<tr>
+<td>removeGestureRecognizer</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>移除手势</td>
+</tr>
+<tr>
+<td>transform3D</td>
+<td>v: Number[]</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置3D变换矩阵</td>
+</tr>
+<tr>
+<td>anchorPoint</td>
+<td>x: Number<br/> y: Number</td>
+<td>-</td>
+<td>-</td>
+<td>锚点</td>
+</tr>
+<tr>
+<td>removeFromSuper</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>从父容器移除</td>
+</tr>
+<tr>
+<td>removeFromParent</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>从父容器移除</td>
+</tr>
+<tr>
+<td>hasFocus</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否有焦点</td>
+</tr>
+<tr>
+<td>requestFocus</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>请求焦点</td>
+</tr>
+<tr>
+<td>clearFocus</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>取消焦点</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td>v: Number</td>
+<td>-</td>
+<td>-</td>
+<td>旋转角度</td>
+</tr>
+<tr>
+<td>rotationXY</td>
+<td>rx: Number<br/>ry: Number</td>
+<td>rx, ry</td>
+<td>-</td>
+<td>根据x坐标和y坐标得到的旋转角度，pivot</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>sx: Number<br/>sy: Number</td>
+<td>sx, sy</td>
+<td>-</td>
+<td>x，y缩放</td>
+</tr>
+<tr>
+<td>scaleX</td>
+<td>sx: Number</td>
+<td>sx</td>
+<td>-</td>
+<td>x坐标缩放</td>
+</tr>
+<tr>
+<td>scaleY</td>
+<td>sy: Number</td>
+<td>sy</td>
+<td>-</td>
+<td>y坐标缩放</td>
+</tr>
+<tr>
+<td>translation</td>
+<td>tx: Number<br/> ty: Number</td>
+<td>x, y</td>
+<td>-</td>
+<td>x、y位移</td>
+</tr>
+<tr>
+<td>translationX</td>
+<td>tx: Number</td>
+<td>tx</td>
+<td>-</td>
+<td>x坐标位移</td>
+</tr>
+<tr>
+<td>translationY</td>
+<td>ty: Number</td>
+<td>ty</td>
+<td>-</td>
+<td>y坐标位移</td>
+</tr>
+<tr>
+<td>bringToFront</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>将view设置到前台</td>
+</tr>
+<tr>
+<td>scrollTo</td>
+<td>sx: Number<br/>sy: Number</td>
+<td>-</td>
+<td>-</td>
+<td>滚动到某个位置</td>
+</tr>
+<tr>
+<td>scrollBy</td>
+<td>sx: Number<br/>sy: Number</td>
+<td>-</td>
+<td>-</td>
+<td>移动一段距离</td>
+</tr>
+<tr>
+<td>scrollX</td>
+<td>sx: Number</td>
+<td>sx</td>
+<td>-</td>
+<td>x方向滚动到某个位置</td>
+</tr>
+<tr>
+<td>offsetX</td>
+<td>sx: Number</td>
+<td>sx</td>
+<td>-</td>
+<td>x方向滚动到某个位置</td>
+</tr>
+<tr>
+<td>scrollY</td>
+<td>sy: Number</td>
+<td>sy</td>
+<td>-</td>
+<td>y方向滚动到某个位置</td>
+</tr>
+<tr>
+<td>offsetY</td>
+<td>sy: Number</td>
+<td>sy</td>
+<td>-</td>
+<td>y方向滚动到某个位置</td>
+</tr>
+<tr>
+<td>scrollXY</td>
+<td>sx: Number<br/> sy: Number</td>
+<td>sx, sy</td>
+<td>-</td>
+<td>x、y方向移动到某个位置</td>
+</tr>
+<tr>
+<td>offsetXY</td>
+<td>sx: Number<br/> sy: Number</td>
+<td>sx, sy</td>
+<td>-</td>
+<td>x、y方向移动到某个位置</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>sx: Number<br/> sy: Number</td>
+<td>sx, sy</td>
+<td>-</td>
+<td>x、y方向移动到某个位置</td>
+</tr>
+<tr>
+<td>showScrollIndicator</td>
+<td>h: Boolean<br/> v: Boolean</td>
+<td>h, v</td>
+<td>-</td>
+<td>设置滚动条是否显示（横向、纵向）</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaTable</td>
+<td>v</td>
+<td>-</td>
+<td>监听view的各种事件</td>
+</tr>
+<tr>
+<td>onClick</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>设置view的点击事件</td>
+</tr>
+<tr>
+<td>onLongClick</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>设置view的长按事件</td>
+</tr>
+<tr>
+<td>adjustSize</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>调整大小以适应内容</td>
+</tr>
+<tr>
+<td>cornerRadius</td>
+<td>radius: Number</td>
+<td>radius</td>
+<td>-</td>
+<td>设置边框圆角半径</td>
+</tr>
+<tr>
+<td>startAnimation</td>
+<td>anims: <a href="#animation">Animation[]</a></td>
+<td>-</td>
+<td>-</td>
+<td>开始播放动画</td>
+</tr>
+<tr>
+<td>stopAnimation</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止动画播放</td>
+</tr>
+<tr>
+<td>isAnimating</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否正在播放动画</td>
+</tr>
+<tr>
+<td>flexCss</td>
+<td>v: String</td>
+<td>v</td>
+<td>-</td>
+<td>设置flex属性</td>
+</tr>
+<tr>
+<td>flxLayout</td>
+<td>v: String</td>
+<td>v</td>
+<td>iOS</td>
+<td>设置flex布局</td>
+</tr>
+<tr>
+<td>effects</td>
+<td>effect: <a href="#view_effect">ViewEffect</a><br/> color: Number<br/> alpha: Number</td>
+<td>effect</td>
+<td>-</td>
+<td>设置view的特效</td>
+</tr>
+<tr>
+<td>nativeView</td>
+<td>-</td>
+<td>v: Object</td>
+<td>-</td>
+<td>获取NativeView</td>
+</tr>
+</tbody></table>
+
+<p><strong>作为容器的额外方法</strong></p>
+
+<blockquote>
+<p>onShow</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.onShow(function()
+    print("i am show")
+end)
+</code></pre>
+
+<blockquote>
+<p>onHide</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.onHide(function() 
+    print("i am hide")
+end)
+</code></pre>
+
+<blockquote>
+<p>onBack</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.onBack(function() 
+    print("back pressed")
+end)
+</code></pre>
+
+<blockquote>
+<p>onLayout</p>
+</blockquote>
+<pre class="highlight plaintext"><code>view.onLayout(function() 
+    print("i am layouted")
+end)
+</code></pre>
+
+<blockquote>
+<p>addView</p>
+</blockquote>
+<pre class="highlight plaintext"><code>child = View()
+parent = View()
+parent.addView(child)
+</code></pre>
+
+<blockquote>
+<p>removeView</p>
+</blockquote>
+<pre class="highlight plaintext"><code>child = View()
+parent = View()
+parent.addView(child)
+parent.removeView(child)
+</code></pre>
+
+<blockquote>
+<p>removeAllViews</p>
+</blockquote>
+<pre class="highlight plaintext"><code>child = View()
+parent = View()
+parent.addView(child)
+parent.removeAllViews()
+</code></pre>
+
+<blockquote>
+<p>children</p>
+</blockquote>
+<pre class="highlight plaintext"><code>parent.children(function(parent) -- 所有在函数里创建的View都会被自动添加到parent里
+    view = View()
+    ...
+end)
+</code></pre>
+
+<blockquote>
+<p>flexChildren</p>
+</blockquote>
+<pre class="highlight plaintext"><code>child1 = View()
+child2 = View()
+parent = View()
+parent.flexChildren(child1, child2)
+</code></pre>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>onShow</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>显示监听</td>
+</tr>
+<tr>
+<td>onHide</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>隐藏监听</td>
+</tr>
+<tr>
+<td>onBack</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>返回按钮监听</td>
+</tr>
+<tr>
+<td>onLayout</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>布局监听</td>
+</tr>
+<tr>
+<td>addView</td>
+<td>v: <a href="#view">View</a></td>
+<td>-</td>
+<td>-</td>
+<td>添加子View</td>
+</tr>
+<tr>
+<td>removeView</td>
+<td>v: <a href="#view">View</a></td>
+<td>-</td>
+<td>-</td>
+<td>移除子View</td>
+</tr>
+<tr>
+<td>removeAllViews</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>移除所有子View</td>
+</tr>
+<tr>
+<td>children</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>子View构造函数</td>
+</tr>
+<tr>
+<td>flexChildren</td>
+<td>v: <a href="#view">View[]</a></td>
+<td>-</td>
+<td>-</td>
+<td>Flexbox 设置childViews</td>
+</tr>
+</tbody></table>
+
+<h2 id="label">Label</h2>
+
+<aside class="notice" id="label">
+文本组件，非容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>text</td>
+<td>v: String/<a href="#styled_string">StyledString/<a href="#unicode">Unicode</a></td>
+<td>v</td>
+<td>-</td>
+<td>Label文本</td>
+</tr>
+<tr>
+<td>textColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>文本颜色</td>
+</tr>
+<tr>
+<td>textSize</td>
+<td>size: Number</td>
+<td>size</td>
+<td>-</td>
+<td>文本字体大小</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td>size: Number</td>
+<td>size</td>
+<td>-</td>
+<td>文本字体大小</td>
+</tr>
+<tr>
+<td>fontName</td>
+<td>name: String</td>
+<td>name</td>
+<td>-</td>
+<td>文本字体</td>
+</tr>
+<tr>
+<td>font</td>
+<td>name: String<br/> size: Number</td>
+<td>name, size</td>
+<td>-</td>
+<td>文本字体&amp;大小</td>
+</tr>
+<tr>
+<td>gravity</td>
+<td>v: <a href="#gravity">Gravity</a></td>
+<td>v</td>
+<td>-</td>
+<td>文本对齐方式</td>
+</tr>
+<tr>
+<td>textAlign</td>
+<td>v: <a href="#text_align">TextAlign</a></td>
+<td>v</td>
+<td>-</td>
+<td>文本对齐方式</td>
+</tr>
+<tr>
+<td>lines</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>文字行数</td>
+</tr>
+<tr>
+<td>maxLines</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>文本最大行数</td>
+</tr>
+<tr>
+<td>lineCount</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>文本最大行数</td>
+</tr>
+<tr>
+<td>minLines</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>文本最小行数</td>
+</tr>
+<tr>
+<td>ellipsize</td>
+<td>v: <a href="#ellipsize">Ellipsize</a></td>
+<td>v</td>
+<td>-</td>
+<td>文本省略方式</td>
+</tr>
+<tr>
+<td>adjustTextSize</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>字体大小适应宽度</td>
+</tr>
+<tr>
+<td>adjustFontSize</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>字体大小适应宽度</td>
+</tr>
+</tbody></table>
+
+<h2 id="button">Button</h2>
+
+<aside class="notice" id="button">
+按钮组件，非容器。
+-> <a href="#label">Label</a>
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
+<td>v</td>
+<td>-</td>
+<td>按钮文字</td>
+</tr>
+<tr>
+<td>titleColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>image</td>
+<td>img1: String<br/> img2: String</td>
+<td>img1, img2</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>showsTouchWhenHighlighted</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>获取按钮点击是否高亮</td>
+</tr>
+</tbody></table>
+
+<h2 id="image">Image</h2>
+
+<aside class="notice" id="image">
+图片组件，非容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image</td>
+<td>v: String, c: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>设置图片url（本地、网络），回调</td>
+</tr>
+<tr>
+<td>contentMode</td>
+<td>type: <a href="#scale_type">ScaleType</a></td>
+<td>type</td>
+<td>-</td>
+<td>图片缩放模式</td>
+</tr>
+<tr>
+<td>scaleType</td>
+<td>type: <a href="#scale_type">ScaleType</a></td>
+<td>type</td>
+<td>-</td>
+<td>图片缩放模式</td>
+</tr>
+<tr>
+<td>startAnimationImages</td>
+<td>images: String[]</td>
+<td>-</td>
+<td>-</td>
+<td>帧动画（本地图）</td>
+</tr>
+<tr>
+<td>stopAnimationImages</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止播放帧动画</td>
+</tr>
+<tr>
+<td>isAnimationImages</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>是否正在播放帧动画</td>
+</tr>
+</tbody></table>
+
+<h2 id="textfield">TextField</h2>
+
+<aside class="notice" id="text_field">
+输入框组件，非容器。
+-> <a href="#label">Label</a>
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hint</td>
+<td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
+<td>v</td>
+<td>-</td>
+<td>提示</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
+<td>v</td>
+<td>-</td>
+<td>提示</td>
+</tr>
+</tbody></table>
+
+<h2 id="tableview">TableView</h2>
+
+<aside class="notice" id="table_view">
+基础列表组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reload</td>
+<td>section: Number<br/> row: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>Android支持参数</td>
+</tr>
+<tr>
+<td>contentSize</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置内容区域大小</td>
+</tr>
+<tr>
+<td>contentOffset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置内容偏移</td>
+</tr>
+<tr>
+<td>contentInset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置ContentInset</td>
+</tr>
+<tr>
+<td>showScrollIndicator</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>是否显示滚动条信息</td>
+</tr>
+<tr>
+<td>scrollToTop</td>
+<td>offset: Number<br/> animate: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>滚动到顶部(offset间隔，animate是否动画)</td>
+</tr>
+<tr>
+<td>scrollToCell</td>
+<td>section: Number<br/> rowInSection: Number<br/> offset: Number<br/> animate: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>滚动到指定cell，offset间隔，animate是否动画</td>
+</tr>
+<tr>
+<td>miniSpacing</td>
+<td>space: Number</td>
+<td>space</td>
+<td>-</td>
+<td>cell间隙</td>
+</tr>
+<tr>
+<td>lazyLoad</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>是否懒加载Cell</td>
+</tr>
+<tr>
+<td>header</td>
+<td>v: <a href="#view">View</a></td>
+<td>-</td>
+<td>-</td>
+<td>设置Header，nil的时候清空header</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>v: <a href="#view">View</a></td>
+<td>-</td>
+<td>-</td>
+<td>设置Footer，nil的时候清空footer</td>
+</tr>
+<tr>
+<td>dividerHeight</td>
+<td>v: Number</td>
+<td>height: Number</td>
+<td>height</td>
+<td>-</td>
+</tr>
+</tbody></table>
+
+<h2 id="collectionview">CollectionView</h2>
+
+<aside class="notice" id="collection_view">
+基础列表组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reload</td>
+<td>section: Number<br/> row: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>Android支持参数</td>
+</tr>
+<tr>
+<td>contentSize</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置内容区域大小</td>
+</tr>
+<tr>
+<td>contentOffset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置内容偏移</td>
+</tr>
+<tr>
+<td>contentInset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置ContentInset</td>
+</tr>
+<tr>
+<td>showScrollIndicator</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>是否显示滚动条信息</td>
+</tr>
+<tr>
+<td>scrollToTop</td>
+<td>offset: Number<br/> animate: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>滚动到顶部(offset间隔，animate是否动画)</td>
+</tr>
+<tr>
+<td>scrollToCell</td>
+<td>section: Number<br/> rowInSection: Number<br/> offset: Number<br/> animate: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>滚动到指定cell，offset间隔，animate是否动画</td>
+</tr>
+<tr>
+<td>miniSpacing</td>
+<td>space: Number</td>
+<td>space</td>
+<td>-</td>
+<td>cell间隙</td>
+</tr>
+<tr>
+<td>lazyLoad</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>是否懒加载Cell</td>
+</tr>
+</tbody></table>
+
+<h2 id="refreshtableview">RefreshTableView</h2>
+
+<aside class="notice" id="refresh_table_view">
+可刷新列表组件，容器。
+-> <a href="#table_view">TableView</a>
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refreshEnable</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>initRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>初始化刷新组件</td>
+</tr>
+<tr>
+<td>isRefreshing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否正在刷新</td>
+</tr>
+<tr>
+<td>startRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始刷新</td>
+</tr>
+<tr>
+<td>stopRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止刷新</td>
+</tr>
+</tbody></table>
+
+<h2 id="refreshcollectionview">RefreshCollectionView</h2>
+
+<aside class="notice" id="refresh_collection_view">
+可刷新列表组件，容器。
+-> <a href="#collection_view">CollectionView</a>
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refreshEnable</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>initRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>初始化刷新组件</td>
+</tr>
+<tr>
+<td>isRefreshing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否正在刷新</td>
+</tr>
+<tr>
+<td>startRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始刷新</td>
+</tr>
+<tr>
+<td>stopRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止刷新</td>
+</tr>
+</tbody></table>
+
+<h2 id="pagerview">PagerView</h2>
+
+<aside class="notice" id="pager_view">
+页面组组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reload</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>重新加载数据</td>
+</tr>
+<tr>
+<td>indicator</td>
+<td>v: <a href="#pager_indicator">PagerIndicator</a></td>
+<td>-</td>
+<td>-</td>
+<td>设置页面组指示器</td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>设置/获取当前页</td>
+</tr>
+<tr>
+<td>currentItem</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>设置/获取当前页</td>
+</tr>
+<tr>
+<td>autoScroll</td>
+<td>duration: Number</td>
+<td>-</td>
+<td>-</td>
+<td>自动轮播</td>
+</tr>
+<tr>
+<td>looping</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>自动轮播</td>
+</tr>
+</tbody></table>
+
+<h2 id="pagerindicator">PagerIndicator</h2>
+
+<aside class="notice" id="pager_indicator">
+页面组指示器组件，非容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>unselectedColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>未选中指示器颜色</td>
+</tr>
+<tr>
+<td>selectedColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>选中指示器颜色</td>
+</tr>
+<tr>
+<td>fillColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>未选中指示器颜色</td>
+</tr>
+<tr>
+<td>pageColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>选中指示器颜色</td>
+</tr>
+<tr>
+<td>strokeWidth</td>
+<td>width: Number</td>
+<td>width</td>
+<td>Android</td>
+<td>线条宽度</td>
+</tr>
+<tr>
+<td>strokeColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>Android</td>
+<td>线条颜色</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>v: Number</td>
+<td>v</td>
+<td>Android</td>
+<td>圆点半径</td>
+</tr>
+<tr>
+<td>snap</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>Android</td>
+<td>是否有点移动动画</td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>设置/获取当前页面</td>
+</tr>
+<tr>
+<td>currentItem</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>设置/获取当前页面</td>
+</tr>
+</tbody></table>
+
+<h2 id="custompagerindicator">CustomPagerIndicator</h2>
+
+<aside class="notice" id="custom_pager_indicator">
+自定义页面组指示器组件，非容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currentPage</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>设置/获取当前页面</td>
+</tr>
+<tr>
+<td>currentItem</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>设置/获取当前页面</td>
+</tr>
+</tbody></table>
+
+<h2 id="hscrollview">HScrollView</h2>
+
+<aside class="notice" id="h_scroll_view">
+横向滑动组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset</td>
+<td>x: Number<br/> y: Number<br/> smooth: Boolean</td>
+<td>x, y</td>
+<td>-</td>
+<td>滚动到x,y，smooth表示是否平滑滚动</td>
+</tr>
+<tr>
+<td>scrollTo</td>
+<td>x: Number<br/> y: Number<br/> smooth: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>滚动到x,y，smooth表示是否平滑滚动</td>
+</tr>
+<tr>
+<td>offsetBy</td>
+<td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
+<td>x, y</td>
+<td>-</td>
+<td>滚动dx,dy，smooth表示是否平滑滚动</td>
+</tr>
+<tr>
+<td>scrollBy</td>
+<td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>滚动dx,dy，smooth表示是否平滑滚动</td>
+</tr>
+<tr>
+<td>smoothScrollTo</td>
+<td>x: Number<br/> y: Number</td>
+<td>-</td>
+<td>-</td>
+<td>平滑滚动到x,y</td>
+</tr>
+<tr>
+<td>smoothScrollBy</td>
+<td>x: Number<br/> y: Number</td>
+<td>-</td>
+<td>-</td>
+<td>滚动到x,y</td>
+</tr>
+<tr>
+<td>pageScroll</td>
+<td>direction: Number</td>
+<td>-</td>
+<td>Android</td>
+<td>滚动一页(direction&gt;0右滚，否则左滚)</td>
+</tr>
+<tr>
+<td>fullScroll</td>
+<td>direction: Number</td>
+<td>-</td>
+<td>Android</td>
+<td>滚动到底(direction&gt;0右滚，否则左滚)</td>
+</tr>
+<tr>
+<td>contentSize</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>内容区域大小</td>
+</tr>
+</tbody></table>
+
+<h2 id="webview">WebView</h2>
+
+<aside class="notice" id="web_view">
+html组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>loadUrl</td>
+<td>v: String</td>
+<td>-</td>
+<td>-</td>
+<td>加载url</td>
+</tr>
+<tr>
+<td>canGoBack</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否可以回退</td>
+</tr>
+<tr>
+<td>canGoForward</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否可以前进</td>
+</tr>
+<tr>
+<td>goBack</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>回退一页</td>
+</tr>
+<tr>
+<td>goForward</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>前进一页</td>
+</tr>
+<tr>
+<td>reload</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>重新加载</td>
+</tr>
+<tr>
+<td>title</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>获取Title</td>
+</tr>
+<tr>
+<td>isLoading</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否正在加载</td>
+</tr>
+<tr>
+<td>stopLoading</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止加载</td>
+</tr>
+<tr>
+<td>url</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>获取url</td>
+</tr>
+<tr>
+<td>pullRefreshEnable</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>是否可以下拉刷新</td>
+</tr>
+</tbody></table>
+
+<h2 id="loadingindicator">LoadingIndicator</h2>
+
+<aside class="notice" id="loading_indicator">
+加载指示器组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始转动</td>
+</tr>
+<tr>
+<td>isStart</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否开始转动</td>
+</tr>
+<tr>
+<td>startAnimating</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始转动</td>
+</tr>
+<tr>
+<td>isAnimating</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否在动画中</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止动画</td>
+</tr>
+<tr>
+<td>stopAnimating</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止动画</td>
+</tr>
+<tr>
+<td>color</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>颜色</td>
+</tr>
+</tbody></table>
+
+<h2 id="loadingdialog">LoadingDialog</h2>
+
+<aside class="notice" id="loading_dialog">
+加载对话框组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>show</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始转动</td>
+</tr>
+<tr>
+<td>isShow</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否开始转动</td>
+</tr>
+<tr>
+<td>start</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始转动</td>
+</tr>
+<tr>
+<td>isStart</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否开始转动</td>
+</tr>
+<tr>
+<td>startAnimating</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始转动</td>
+</tr>
+<tr>
+<td>isAnimating</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否开始转动</td>
+</tr>
+<tr>
+<td>hide</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止动画</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止动画</td>
+</tr>
+<tr>
+<td>stopAnimating</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止动画</td>
+</tr>
+<tr>
+<td>color</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>颜色</td>
+</tr>
+</tbody></table>
+
+<h2 id="alert">Alert</h2>
+
+<blockquote>
+<p>Alert</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Alert("提示", "这是一个提示", "OK", function() 
+    print("OK clicked")
+end)
+
+
+Alert("提示", "这是一个提示", "OK", "Cancel", function() 
+    print("OK clicked")
+end, function() 
+    print("Cancel clicked")
+end)
+
+
+local as1 = StyledString("一个按钮", { fontColor = 0xffff0000, backgroundColor = 0xff00ff00, fontSize = 30 })
+local text = StyledString("文字", { fontColor = 0xffff0000, backgroundColor = 0xff00ff00, fontSize = 30 })
+local ok = StyledString("确定", { fontColor = 0xffff0000, backgroundColor = 0xff00ff00, fontSize = 30 })
+Alert(as1, text, ok, function()
+    print("点击了")
+end)
+</code></pre>
+
+<aside class="notice" id="alert">
+对话框组件。
+</aside>
+
+<p>Alert(title, content, buttonTexts[], buttonCallbacks[])</p>
+
+<ul>
+<li>title: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></li>
+<li>content: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></li>
+<li>buttonTexts[]: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a> []</li>
+<li>buttonCallbacks[]: LuaFunction[]</li>
+</ul>
+
+<h2 id="toast">Toast</h2>
+
+<blockquote>
+<p>Toast</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Toast("测试")
+
+Toast(StyledString("测试", {fontColor=0xffff0000, backgroundColor=0xff00ff00, fontSize=50}))
+</code></pre>
+
+<aside class="notice" id="toast">
+提示信息组件。
+</aside>
+
+<p>Toast(message)</p>
+
+<ul>
+<li>message: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>show</td>
+<td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
+<td>-</td>
+<td>-</td>
+<td>显示提示</td>
+</tr>
+</tbody></table>
+
+<h2 id="styledstring">StyledString</h2>
+
+<blockquote>
+<p>StyledString</p>
+</blockquote>
+<pre class="highlight plaintext"><code>StyledString("test", { fontColor = 0xff0000ff, fontSize = 14 })
+
+StyledString(Unicode(0xe607), { fontColor = 0xff00aaff, fontStyle = "bold" })
+</code></pre>
+
+<aside class="notice" id="styled_string">
+富文本组件。
+</aside>
+
+<p>StyledString(text, config)</p>
+
+<ul>
+<li>text: String/<a href="#unicode">Unicode</a></li>
+<li>config: LuaTable
+
+<ul>
+<li>fontSize: Number, 文字大小</li>
+<li>fontColor: Number, 文字颜色</li>
+<li>fontName: String, 文字样式</li>
+<li>fontWeight: Number/<a href="#font_weight">FontWeight</a>, 文字权重</li>
+<li>fontStyle: String/<a href="#font_style">FontStyle</a>，文字样式</li>
+<li>backgroundColor: Number, 文字背景色</li>
+<li>strikethrough: Boolean，是否删除线</li>
+<li>underline: Boolean，是否下划线</li>
+</ul></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>append</td>
+<td>v: <a href="#styled_string">StyledString</a></td>
+<td>v</td>
+<td>-</td>
+<td>新增一段</td>
+</tr>
+</tbody></table>
+
+<h2 id="animation">Animation</h2>
+
+<blockquote>
+<p>Animation</p>
+</blockquote>
+<pre class="highlight plaintext"><code>-- alpha动画
+Animation().scale(2, 0.5).duration(2).delay(1)
+
+-- 位移动画
+view = View()
+Animation().with(view).translation(100, -100).duration(3).interpolator(Interpolator.ACCELERATE_DECELERATE).callback({
+    onStart = function()
+        print("Running")
+    end,
+    onCancel = function()
+        print("Canceled")
+    end,
+    onEnd = function()
+        print("End")
+    end,
+    onPause = function()
+        print("Paused")
+    end,
+    onResume = function()
+        print("Running")
+    end,
+})
+</code></pre>
+
+<aside class="notice" id="animation">
+动画组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>with</td>
+<td>v: <a href="#view">View</a></td>
+<td>-</td>
+<td>-</td>
+<td>设置动画target</td>
+</tr>
+<tr>
+<td>start</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>开始动画</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>v0: Number<br/> v1: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置alpha动画</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td>v0: Number<br/> v1: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置旋转动画</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>x: Number<br/> y: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置缩放动画(x轴缩放比、y轴缩放比)</td>
+</tr>
+<tr>
+<td>scaleX</td>
+<td>x: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>设置x轴缩放动画</td>
+</tr>
+<tr>
+<td>scaleY</td>
+<td>y: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>设置y轴缩放动画</td>
+</tr>
+<tr>
+<td>translation</td>
+<td>x: Number<br/> y: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>设置x轴、y轴位移动画</td>
+</tr>
+<tr>
+<td>translationX</td>
+<td>x: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置x轴位移动画</td>
+</tr>
+<tr>
+<td>translationY</td>
+<td>y: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置y轴位移动画</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>time: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置动画时长</td>
+</tr>
+<tr>
+<td>delay</td>
+<td>time: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置动画启动延时</td>
+</tr>
+<tr>
+<td>repeatCount</td>
+<td>count: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置动画重复测试（&lt;0表示一直重复）</td>
+</tr>
+<tr>
+<td>interpolator</td>
+<td>v: <a href="#interlator">Interplator<a/></td>
+<td>-</td>
+<td>-</td>
+<td>插值器</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>取消动画</td>
+</tr>
+<tr>
+<td>pause</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>暂停动画</td>
+</tr>
+<tr>
+<td>isPaused</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>动画是否暂停</td>
+</tr>
+<tr>
+<td>isRunning</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>动画是否运行</td>
+</tr>
+<tr>
+<td>resume</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>恢复动画</td>
+</tr>
+<tr>
+<td>reverses</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>动画重复播放时是否反转</td>
+</tr>
+<tr>
+<td>values</td>
+<td>v: Number[]</td>
+<td>-</td>
+<td>-</td>
+<td>设置动画用到的参数</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaTable</td>
+<td>-</td>
+<td>-</td>
+<td>设置动画的回调</td>
+</tr>
+<tr>
+<td>onStart</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>动画开始回调</td>
+</tr>
+<tr>
+<td>onEnd</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>动画结束回调</td>
+</tr>
+<tr>
+<td>onRepeat</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>动画重复回调</td>
+</tr>
+<tr>
+<td>onCancel</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>动画取消回调</td>
+</tr>
+<tr>
+<td>onPause</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>动画暂停回调</td>
+</tr>
+<tr>
+<td>onUpdate</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>Android</td>
+<td>动画状态更新回调</td>
+</tr>
+<tr>
+<td>onResume</td>
+<td>v: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>动画恢复回调</td>
+</tr>
+</tbody></table>
+
+<h2 id="navigation">Navigation</h2>
+
+<blockquote>
+<p>Navigation</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Navigation.title("测试view")
+
+
+img = Image();
+img.image("http://gtms02.alicdn.com/tps/i2/TB1qmXnHpXXXXcuaXXXQG.m0FXX-640-128.jpg",function()
+    Navigation.background(img)
+end);
+</code></pre>
+
+<aside class="notice" id="animation">
+导航条组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
+<td>v</td>
+<td>-</td>
+<td>导航条标题</td>
+</tr>
+<tr>
+<td>background</td>
+<td>v: String/<a href="#image">Image</a></td>
+<td>-</td>
+<td>-</td>
+<td>设置导航条背景</td>
+</tr>
+<tr>
+<td>left</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>显示左侧按钮</td>
+</tr>
+<tr>
+<td>right</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>-</td>
+<td>显示右侧按钮</td>
+</tr>
+</tbody></table>
+
+<h1 id="api-nui">API-NUI</h1>
+
+<h2 id="http">Http</h2>
+
+<blockquote>
+<p>Http</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Http({
+    "method": "POST",
+    "params": {
+        "k1": "v1",
+        "k2": "v2"
+    }
+}, function(response) 
+    print("called success")
+end)
+
+
+http = Http()
+http.get("http://luaview.github.io", {
+    query = 1
+}, function(response)
+    print("called success")
+end)
+</code></pre>
+
+<aside class="notice" id="nhttp">
+网络请求组件。
+</aside>
+
+<p>Http(initParams, callback)</p>
+
+<ul>
+<li>initParams: LuaTable，请求参数
+
+<ul>
+<li>method: String, 请求方法</li>
+<li>params: LuaTable, 请求业务参数</li>
+</ul></li>
+<li>callback: LuaFunction, 回调 
+
+<ul>
+<li>返回参数response为LuaTable</li>
+<li>response.data() 得到 Data数据</li>
+</ul></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>v: String</td>
+<td>v</td>
+<td>-</td>
+<td>设置请求Url</td>
+</tr>
+<tr>
+<td>method</td>
+<td>v: String, get/post</td>
+<td>v</td>
+<td>-</td>
+<td>设置请求方法</td>
+</tr>
+<tr>
+<td>retryTimes</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重试次数</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>超时时间</td>
+</tr>
+<tr>
+<td>params</td>
+<td>v: LuaTable</td>
+<td>v</td>
+<td>-</td>
+<td>请求参数</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>请求回调</td>
+<td></td>
+</tr>
+<tr>
+<td>request</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>中止</td>
+</tr>
+<tr>
+<td>get</td>
+<td>url: String<br/> params: LuaTable<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>GET请求</td>
+</tr>
+<tr>
+<td>post</td>
+<td>url: String<br/> params: LuaTable<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>POST请求</td>
+</tr>
+</tbody></table>
+
+<h2 id="timer">Timer</h2>
+
+<aside class="notice" id="timer">
+定时器组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>delay</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>启动延时</td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重复次数</td>
+</tr>
+<tr>
+<td>repeatCount</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重复次数</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重复间隔</td>
+</tr>
+<tr>
+<td>start</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>启动</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>回调</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>取消</td>
+</tr>
+</tbody></table>
+
+<h2 id="system">System</h2>
+
+<aside class="notice" id="system">
+系统信息组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ios</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否iOS平台</td>
+</tr>
+<tr>
+<td>android</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否Android平台</td>
+</tr>
+<tr>
+<td>vmVersion</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>LuaView版本</td>
+</tr>
+<tr>
+<td>osVersion</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>操作系统版本</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>平台系统型号</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>-</td>
+<td>v: Number</td>
+<td>-</td>
+<td>屏幕缩放比</td>
+</tr>
+<tr>
+<td>device</td>
+<td>-</td>
+<td>v: LuaTable</td>
+<td>-</td>
+<td>设备信息</td>
+</tr>
+<tr>
+<td>screenSize</td>
+<td>-</td>
+<td>w: Number<br/> h: Number</td>
+<td>-</td>
+<td>屏幕尺寸</td>
+</tr>
+<tr>
+<td>network</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>网络类型(&ldquo;none&rdquo;, &ldquo;2g&rdquo;, &ldquo;3g&rdquo;, &ldquo;4g&rdquo;, &ldquo;wifi&rdquo;, &ldquo;unknown&rdquo;)</td>
+</tr>
+<tr>
+<td>gc</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>执行内存回收</td>
+</tr>
+<tr>
+<td>keepScreenOn</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>是否保持屏幕常亮</td>
+</tr>
+</tbody></table>
+
+<h2 id="audioplayer">AudioPlayer</h2>
+
+<aside class="notice" id="audio_player">
+音频播放器组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>play</td>
+<td>name: String<br/> times: Number</td>
+<td>-</td>
+<td>-</td>
+<td>播放（uri，重复次数）</td>
+</tr>
+<tr>
+<td>pause</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>暂停播放</td>
+</tr>
+<tr>
+<td>resume</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>恢复播放</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止播放</td>
+</tr>
+<tr>
+<td>seekTo</td>
+<td>sec: Number</td>
+<td>-</td>
+<td>-</td>
+<td>到某个位置</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>回调</td>
+</tr>
+<tr>
+<td>playing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否播放</td>
+</tr>
+<tr>
+<td>pausing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否暂停</td>
+</tr>
+<tr>
+<td>looping</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否循环播放</td>
+</tr>
+</tbody></table>
+
+<h2 id="vibrator">Vibrator</h2>
+
+<blockquote>
+<p>Vibrator</p>
+</blockquote>
+<pre class="highlight plaintext"><code>local vibrator = Vibrator()
+
+vibrator.vibrate() -- 默认震动
+
+vibrator.vibrate(2) -- 震动两次
+
+vibrator.vibrate({1, 2, 1, 0.3, 0.2, 0.1, 0.01, 1.1}, 4) -- 特殊震动模式
+</code></pre>
+
+<aside class="notice" id="vibrator">
+震动组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hasVibrator</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否有震动硬件</td>
+</tr>
+<tr>
+<td>vibrate</td>
+<td>mode: Number[], repeatTimes: Number</td>
+<td>-</td>
+<td>-</td>
+<td>震动(模式，次数)</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>取消震动</td>
+</tr>
+</tbody></table>
+
+<h2 id="unicode">Unicode</h2>
+
+<blockquote>
+<p>Unicode</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Unicode(0xe607)
+</code></pre>
+
+<aside class="notice" id="unicode">
+unicode组件。
+</aside>
+
+<p>Unicode(char)</p>
+
+<ul>
+<li>char 为Unicode字符编码</li>
+</ul>
+
+<h2 id="data">Data</h2>
+
+<blockquote>
+<p>Data</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Data("a")
+
+Data(97, "abc", "def")
+
+Data('{"a":"1"}')
+
+Data('a').toString("latin-1")
+
+Data('{"a":"1"}').toTable()
+
+Data('{"a":"1"}').toJson()
+</code></pre>
+
+<aside class="notice" id="data">
+二进制数据组件。
+</aside>
+
+<p>Data(str)</p>
+
+<ul>
+<li>str: String/JsonString</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>append</td>
+<td>v: Data/byte[]</td>
+<td>-</td>
+<td>-</td>
+<td>新增部分数据</td>
+</tr>
+<tr>
+<td>toString</td>
+<td>code: String</td>
+<td>v: String</td>
+<td>-</td>
+<td>转成String(编码格式)</td>
+</tr>
+<tr>
+<td>toJson</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>转成Json String</td>
+</tr>
+<tr>
+<td>toTable</td>
+<td>-</td>
+<td>v: LuaTable</td>
+<td>-</td>
+<td>转成LuaTable</td>
+</tr>
+</tbody></table>
+
+<h2 id="json">Json</h2>
+
+<aside class="notice" id="json">
+Json组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>toTable</td>
+<td>v: String/<a href="#data">Data</a>/LuaTable</td>
+<td>r: LuaTable</td>
+<td>-</td>
+<td>给定内容转成LuaTable</td>
+</tr>
+<tr>
+<td>isValid</td>
+<td>v: String/<a href="#data">Data</a></td>
+<td>r: Boolean</td>
+<td>-</td>
+<td>是否有效JsonString</td>
+</tr>
+</tbody></table>
+
+<h2 id="downloader">Downloader</h2>
+
+<aside class="notice" id="downloader">
+下载器组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fetch</td>
+<td>url: String<br/> name: String<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>TODO</td>
+</tr>
+</tbody></table>
+
+<h1 id="api-constants">API-Constants</h1>
+
+<h2 id="align">Align</h2>
+
+<aside class="notice" id="align">
+View布局。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LEFT</td>
+<td>-</td>
+<td>左对齐</td>
+</tr>
+<tr>
+<td>TOP</td>
+<td>-</td>
+<td>顶对齐</td>
+</tr>
+<tr>
+<td>RIGHT</td>
+<td>-</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>BOTTOM</td>
+<td>-</td>
+<td>底对齐</td>
+</tr>
+<tr>
+<td>CENTER</td>
+<td>-</td>
+<td>整体居中</td>
+</tr>
+<tr>
+<td>H_CENTER</td>
+<td>-</td>
+<td>水平居中</td>
+</tr>
+<tr>
+<td>V_CENTER</td>
+<td>-</td>
+<td>垂直居中</td>
+</tr>
+<tr>
+<td>START</td>
+<td>-</td>
+<td>左or上对齐</td>
+</tr>
+<tr>
+<td>END</td>
+<td>-</td>
+<td>右or下对齐</td>
+</tr>
+</tbody></table>
+
+<h2 id="textalign">TextAlign</h2>
+
+<aside class="notice" id="text_align">
+文本布局。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LEFT</td>
+<td>-</td>
+<td>左&amp;垂直居中</td>
+</tr>
+<tr>
+<td>RIGHT</td>
+<td>-</td>
+<td>整体居中</td>
+</tr>
+<tr>
+<td>CENTER</td>
+<td>-</td>
+<td>右&amp;垂直居中</td>
+</tr>
+</tbody></table>
+
+<h2 id="fontweight">FontWeight</h2>
+
+<aside class="notice" id="font_weight">
+字体大小。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>NORMAL</td>
+<td>-</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>BOLD</td>
+<td>-</td>
+<td>粗体</td>
+</tr>
+</tbody></table>
+
+<h2 id="fontstyle">FontStyle</h2>
+
+<aside class="notice" id="font_style">
+字体样式。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>NORMAL</td>
+<td>-</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>ITALIC</td>
+<td>-</td>
+<td>斜体</td>
+</tr>
+<tr>
+<td>BOLD</td>
+<td>-</td>
+<td>粗体</td>
+</tr>
+</tbody></table>
+
+<h2 id="scaletype">ScaleType</h2>
+
+<aside class="notice" id="scale_type">
+图片样式。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FIT_XY</td>
+<td>-</td>
+<td>左上铺满</td>
+</tr>
+<tr>
+<td>FIT_START</td>
+<td>-</td>
+<td>左or上铺满</td>
+</tr>
+<tr>
+<td>FIT_END</td>
+<td>-</td>
+<td>右or下铺满</td>
+</tr>
+<tr>
+<td>FIT_CENTER</td>
+<td>-</td>
+<td>居中铺满</td>
+</tr>
+<tr>
+<td>CENTER</td>
+<td>-</td>
+<td>居中</td>
+</tr>
+<tr>
+<td>CENTER_CROP</td>
+<td>-</td>
+<td>居中裁剪</td>
+</tr>
+<tr>
+<td>CENTER_INSIDE</td>
+<td>-</td>
+<td>居中包含</td>
+</tr>
+<tr>
+<td>MATRIX</td>
+<td>-</td>
+<td>矩阵</td>
+</tr>
+</tbody></table>
+
+<h2 id="gravity">Gravity</h2>
+
+<aside class="notice" id="gravity">
+布局样式。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LEFT</td>
+<td>-</td>
+<td>左对齐</td>
+</tr>
+<tr>
+<td>TOP</td>
+<td>-</td>
+<td>上对齐</td>
+</tr>
+<tr>
+<td>RIGHT</td>
+<td>-</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>BOTTOM</td>
+<td>-</td>
+<td>下对齐</td>
+</tr>
+<tr>
+<td>START</td>
+<td>-</td>
+<td>左or上对齐</td>
+</tr>
+<tr>
+<td>END</td>
+<td>-</td>
+<td>右or下对齐</td>
+</tr>
+<tr>
+<td>CENTER</td>
+<td>-</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>H_CENTER</td>
+<td>-</td>
+<td>水平居中对齐</td>
+</tr>
+<tr>
+<td>V_CENTER</td>
+<td>-</td>
+<td>垂直居中对齐</td>
+</tr>
+<tr>
+<td>FILL</td>
+<td>-</td>
+<td>铺满</td>
+</tr>
+<tr>
+<td>H_FILL</td>
+<td>-</td>
+<td>水平铺满</td>
+</tr>
+<tr>
+<td>V_FILL</td>
+<td>-</td>
+<td>垂直铺满</td>
+</tr>
+</tbody></table>
+
+<h2 id="ellipsize">Ellipsize</h2>
+
+<aside class="notice" id="ellipsize">
+文本省略样式。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>START</td>
+<td>-</td>
+<td>起始位置省略</td>
+</tr>
+<tr>
+<td>MIDDLE</td>
+<td>-</td>
+<td>中间位置省略</td>
+</tr>
+<tr>
+<td>END</td>
+<td>-</td>
+<td>结束为止省略</td>
+</tr>
+<tr>
+<td>MARQUEE</td>
+<td>-</td>
+<td>跑马灯</td>
+</tr>
+</tbody></table>
+
+<h2 id="interpolator">Interpolator</h2>
+
+<aside class="notice" id="interpolator">
+动画差值器。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ACCELERATE_DECELERATE</td>
+<td>-</td>
+<td>先加速后减速插值</td>
+</tr>
+<tr>
+<td>ACCELERATE</td>
+<td>-</td>
+<td>加速插值</td>
+</tr>
+<tr>
+<td>ANTICIPATE</td>
+<td>-</td>
+<td>预期插值</td>
+</tr>
+<tr>
+<td>ANTICIPATE_OVERSHOOT</td>
+<td>-</td>
+<td>预期弹性插值</td>
+</tr>
+<tr>
+<td>BOUNCE</td>
+<td>-</td>
+<td>回弹插值</td>
+</tr>
+<tr>
+<td>CYCLE</td>
+<td>-</td>
+<td>环形插值</td>
+</tr>
+<tr>
+<td>DECELERATE</td>
+<td>-</td>
+<td>减速插值</td>
+</tr>
+<tr>
+<td>LINEAR</td>
+<td>-</td>
+<td>线性插值</td>
+</tr>
+<tr>
+<td>OVERSHOOT</td>
+<td>-</td>
+<td>弹性插值</td>
+</tr>
+</tbody></table>
+
+<h2 id="vieweffect">ViewEffect</h2>
+
+<aside class="notice" id="view_effect">
+View特效。
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>NONE</td>
+<td>-</td>
+<td>无特效</td>
+</tr>
+<tr>
+<td>CLICK</td>
+<td>Android</td>
+<td>点击水波纹特效</td>
+</tr>
+</tbody></table>
+
+<h1 id="examples">Examples</h1>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="lua">lua</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
