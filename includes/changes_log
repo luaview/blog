@@ -1,0 +1,36 @@
+<h1 id="changes-log">Changes Log</h1>
+
+<h2 id="v5-5-0-2016-12-todo">V5.5.0 (2016-12) TODO</h2>
+
+<ul>
+<li>Canvas 支持</li>
+<li>手势 支持</li>
+<li>全局坐标</li>
+<li>下拉定制</li>
+</ul>
+
+<h2 id="v5-4-0-2016-11">V5.4.0 (2016-11)</h2>
+
+<ul>
+<li>吸附菜单（CollectionView)</li>
+<li>视差动画（ViewEffect.PARALLAX)</li>
+<li>圆角图片</li>
+<li>Android
+
+<ul>
+<li>图片内存回收机制优化</li>
+</ul></li>
+</ul>
+
+<h2 id="v5-3-0-2016-10">V5.3.0 (2016-10)</h2>
+
+<ul>
+<li>WebView</li>
+<li>CollectionView 支持按Section、Row进行刷新</li>
+<li>Android
+
+<ul>
+<li>ViewEffect.CLICK 的 Ripple 支持不同颜色</li>
+<li>图片Alpha动画优化</li>
+</ul></li>
+</ul>

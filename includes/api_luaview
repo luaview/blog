@@ -1,0 +1,168 @@
+<h1 id="api-luaview">API-LuaView</h1>
+
+<aside class="notice" id="luaview">
+LuaView是外部使用LuaView的唯一主入口
+</aside>
+
+<blockquote>
+<p>LuaView 使用 -Android</p>
+</blockquote>
+<pre class="highlight plaintext"><code>1. 创建LuaView
+LuaView luaview = LuaView.create(getContext());
+
+2. 注册扩展
+luaview.registerPanel(CustomLoading.class);
+luaview.register("bridge", new CustomBridge());
+
+3. 加载资源
+luaview.load("脚本uri");
+
+如：
+本地, luaview.load("main.lua"); //加载 assets下的main.lua
+网络, luaview.load("http://luaview.github.com/test.zip"); //加载 网络资源test.zip，LuaView会自行下载并解压执行
+
+</code></pre>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>create</td>
+<td>context: Context</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>创建LuaView</td>
+</tr>
+<tr>
+<td>createAsync</td>
+<td>context: Context, callback: CreatedCallback</td>
+<td>-</td>
+<td>Android</td>
+<td>异步创建LuaView</td>
+</tr>
+<tr>
+<td>load</td>
+<td>url: String</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>加载指定资源（asset、本地、网络）</td>
+</tr>
+<tr>
+<td>load</td>
+<td>url: String, callback: ScriptExecuteCallback</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>加载指定资源（asset、本地、网络），带回调</td>
+</tr>
+<tr>
+<td>loadScript</td>
+<td>script: String</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>加载指定脚本</td>
+</tr>
+<tr>
+<td>loadScript</td>
+<td>script: String, callback: ScriptExecuteCallback</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>加载指定脚本，带回调</td>
+</tr>
+<tr>
+<td>loadScriptBundle</td>
+<td>scriptBundle: ScriptBundle</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>加载指定脚本包</td>
+</tr>
+<tr>
+<td>loadScriptBundle</td>
+<td>scriptBundle: ScriptBundle, callback: ScriptExecuteCallback</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>加载指定脚本包，带回调</td>
+</tr>
+<tr>
+<td>loadScriptBundle</td>
+<td>scriptBundle: ScriptBundle, main_entry: String, callback: ScriptExecuteCallback</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>加载指定脚本包，执行main_entry入口文件，带回调</td>
+</tr>
+<tr>
+<td>register</td>
+<td>name: String, bridge: Object</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>注册一个名称为name的bridge对象</td>
+</tr>
+<tr>
+<td>unregister</td>
+<td>name: String</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>反注册一个名称为name的bridge对象</td>
+</tr>
+<tr>
+<td>registerPanel</td>
+<td>clazz: Class&lt;? extends LVCustomPanel&gt;</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>注册一个名称为clazz类名，类型为clazz的panel</td>
+</tr>
+<tr>
+<td>registerPanel</td>
+<td>name: String, clazz: Class&lt;? extends LVCustomPanel&gt;</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>注册一个名称为name，类型为clazz的panel</td>
+</tr>
+<tr>
+<td>registerLibs</td>
+<td>binders: LuaValue[]</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>注册自定义库</td>
+</tr>
+<tr>
+<td>registerImageProvider</td>
+<td>clazz: Class&lt;? extends ImageProvider&gt;</td>
+<td>LuaView</td>
+<td>Android</td>
+<td>注册一个ImageProvider</td>
+</tr>
+<tr>
+<td>getImageProvider</td>
+<td>-</td>
+<td>provider: ImageProvider</td>
+<td>Android</td>
+<td>获取ImageProvider</td>
+</tr>
+<tr>
+<td>callLuaFunction</td>
+<td>funName: String, params: Object[]</td>
+<td>result: Object</td>
+<td>Android</td>
+<td>调用lua的某个全局函数</td>
+</tr>
+<tr>
+<td>callWindowFunction</td>
+<td>funName: String, params: Object[]</td>
+<td>result: Varargs</td>
+<td>Android</td>
+<td>调用window.callback下的某个函数</td>
+</tr>
+<tr>
+<td>getUri</td>
+<td>-</td>
+<td>uri: String</td>
+<td>Android</td>
+<td>获取当前LuaView加载的Uri</td>
+</tr>
+</tbody></table>

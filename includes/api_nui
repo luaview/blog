@@ -1,0 +1,557 @@
+<h1 id="api-nui">API-NUI</h1>
+
+<h2 id="http">Http</h2>
+
+<blockquote>
+<p>Http</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Http({
+    "method": "POST",
+    "params": {
+        "k1": "v1",
+        "k2": "v2"
+    }
+}, function(response)
+    print("called success")
+end)
+
+
+http = Http()
+http.get("http://luaview.github.io", {
+    query = 1
+}, function(response)
+    print("called success")
+end)
+</code></pre>
+
+<aside class="notice" id="nhttp">
+网络请求组件。
+</aside>
+
+<p>Http(initParams, callback)</p>
+
+<ul>
+<li>initParams: LuaTable，请求参数
+
+<ul>
+<li>method: String, 请求方法</li>
+<li>params: LuaTable, 请求业务参数</li>
+</ul></li>
+<li>callback: LuaFunction, 回调
+
+<ul>
+<li>返回参数response为LuaTable</li>
+<li>response.data() 得到 Data数据</li>
+</ul></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>v: String</td>
+<td>v</td>
+<td>-</td>
+<td>设置请求Url</td>
+</tr>
+<tr>
+<td>method</td>
+<td>v: String, get/post</td>
+<td>v</td>
+<td>-</td>
+<td>设置请求方法</td>
+</tr>
+<tr>
+<td>retryTimes</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重试次数</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>超时时间</td>
+</tr>
+<tr>
+<td>params</td>
+<td>v: LuaTable</td>
+<td>v</td>
+<td>-</td>
+<td>请求参数</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>请求回调</td>
+<td></td>
+</tr>
+<tr>
+<td>request</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>中止</td>
+</tr>
+<tr>
+<td>get</td>
+<td>url: String<br/> params: LuaTable<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>GET请求</td>
+</tr>
+<tr>
+<td>post</td>
+<td>url: String<br/> params: LuaTable<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>POST请求</td>
+</tr>
+</tbody></table>
+
+<h2 id="timer">Timer</h2>
+
+<aside class="notice" id="timer">
+定时器组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>delay</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>启动延时</td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重复次数</td>
+</tr>
+<tr>
+<td>repeatCount</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重复次数</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>重复间隔</td>
+</tr>
+<tr>
+<td>start</td>
+<td>v: Number</td>
+<td>v</td>
+<td>-</td>
+<td>启动</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>回调</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>取消</td>
+</tr>
+</tbody></table>
+
+<h2 id="system">System</h2>
+
+<aside class="notice" id="system">
+系统信息组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ios</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否iOS平台</td>
+</tr>
+<tr>
+<td>android</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否Android平台</td>
+</tr>
+<tr>
+<td>vmVersion</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>LuaView版本</td>
+</tr>
+<tr>
+<td>osVersion</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>操作系统版本</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>平台系统型号</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>-</td>
+<td>v: Number</td>
+<td>-</td>
+<td>屏幕缩放比</td>
+</tr>
+<tr>
+<td>device</td>
+<td>-</td>
+<td>v: LuaTable</td>
+<td>-</td>
+<td>设备信息</td>
+</tr>
+<tr>
+<td>screenSize</td>
+<td>-</td>
+<td>w: Number<br/> h: Number</td>
+<td>-</td>
+<td>屏幕尺寸</td>
+</tr>
+<tr>
+<td>network</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>网络类型(&ldquo;none&rdquo;, &ldquo;2g&rdquo;, &ldquo;3g&rdquo;, &ldquo;4g&rdquo;, &ldquo;wifi&rdquo;, &ldquo;unknown&rdquo;)</td>
+</tr>
+<tr>
+<td>gc</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>执行内存回收</td>
+</tr>
+<tr>
+<td>keepScreenOn</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>是否保持屏幕常亮</td>
+</tr>
+</tbody></table>
+
+<h2 id="audioplayer">AudioPlayer</h2>
+
+<aside class="notice" id="audio_player">
+音频播放器组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>play</td>
+<td>name: String<br/> times: Number</td>
+<td>-</td>
+<td>-</td>
+<td>播放（uri，重复次数）</td>
+</tr>
+<tr>
+<td>pause</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>暂停播放</td>
+</tr>
+<tr>
+<td>resume</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>恢复播放</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>停止播放</td>
+</tr>
+<tr>
+<td>seekTo</td>
+<td>sec: Number</td>
+<td>-</td>
+<td>-</td>
+<td>到某个位置</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>-</td>
+<td>回调</td>
+</tr>
+<tr>
+<td>playing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否播放</td>
+</tr>
+<tr>
+<td>pausing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否暂停</td>
+</tr>
+<tr>
+<td>looping</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否循环播放</td>
+</tr>
+</tbody></table>
+
+<h2 id="vibrator">Vibrator</h2>
+
+<blockquote>
+<p>Vibrator</p>
+</blockquote>
+<pre class="highlight plaintext"><code>local vibrator = Vibrator()
+
+vibrator.vibrate() -- 默认震动
+
+vibrator.vibrate(2) -- 震动两次
+
+vibrator.vibrate({1, 2, 1, 0.3, 0.2, 0.1, 0.01, 1.1}, 4) -- 特殊震动模式
+</code></pre>
+
+<aside class="notice" id="vibrator">
+震动组件。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hasVibrator</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>-</td>
+<td>是否有震动硬件</td>
+</tr>
+<tr>
+<td>vibrate</td>
+<td>mode: Number[], repeatTimes: Number</td>
+<td>-</td>
+<td>-</td>
+<td>震动(模式，次数)</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>取消震动</td>
+</tr>
+</tbody></table>
+
+<h2 id="unicode">Unicode</h2>
+
+<blockquote>
+<p>Unicode</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Unicode(0xe607)
+</code></pre>
+
+<aside class="notice" id="unicode">
+unicode组件。
+</aside>
+
+<p>Unicode(char)</p>
+
+<ul>
+<li>char 为Unicode字符编码</li>
+</ul>
+
+<h2 id="data">Data</h2>
+
+<blockquote>
+<p>Data</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Data("a")
+
+Data(97, "abc", "def")
+
+Data('{"a":"1"}')
+
+Data('a').toString("latin-1")
+
+Data('{"a":"1"}').toTable()
+
+Data('{"a":"1"}').toJson()
+</code></pre>
+
+<aside class="notice" id="data">
+二进制数据组件。
+</aside>
+
+<p>Data(str)</p>
+
+<ul>
+<li>str: String/JsonString</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>append</td>
+<td>v: Data/byte[]</td>
+<td>-</td>
+<td>-</td>
+<td>新增部分数据</td>
+</tr>
+<tr>
+<td>toString</td>
+<td>code: String</td>
+<td>v: String</td>
+<td>-</td>
+<td>转成String(编码格式)</td>
+</tr>
+<tr>
+<td>toJson</td>
+<td>-</td>
+<td>v: String</td>
+<td>-</td>
+<td>转成Json String</td>
+</tr>
+<tr>
+<td>toTable</td>
+<td>-</td>
+<td>v: LuaTable</td>
+<td>-</td>
+<td>转成LuaTable</td>
+</tr>
+</tbody></table>
+
+<h2 id="json">Json</h2>
+
+<aside class="notice" id="json">
+Json组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>toTable</td>
+<td>v: String/<a href="#data">Data</a>/LuaTable</td>
+<td>r: LuaTable</td>
+<td>-</td>
+<td>给定内容转成LuaTable</td>
+</tr>
+<tr>
+<td>isValid</td>
+<td>v: String/<a href="#data">Data</a></td>
+<td>r: Boolean</td>
+<td>-</td>
+<td>是否有效JsonString</td>
+</tr>
+</tbody></table>
+
+<h2 id="downloader">Downloader</h2>
+
+<aside class="notice" id="downloader">
+下载器组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fetch</td>
+<td>url: String<br/> name: String<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>TODO</td>
+</tr>
+</tbody></table>
