@@ -4183,6 +4183,45 @@ btn.customMethod()
 
           <h1 id="examples">Examples</h1>
 
+          <h1 id="tools-for-luaview">Tools for LuaView</h1>
+
+<h2 id="1-luaviewdegbugger">1. LuaViewDegbugger</h2>
+
+<p>LuaViewSDK 的lua代码调试器</p>
+
+<h2 id="2-luaviewbytecodecompiler">2. LuaViewBytecodeCompiler</h2>
+
+<ul>
+<li>LuaViewBytecodeCompiler用于将LuaView的源码预编译成Lua bytecode。加速LuaViewSDK for Android的执行</li>
+<li>该工具编译出来的bytecode代码只能用于Android端，暂时不能用于iOS端</li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+
+<ol>
+<li>创建项目普通Java项目ProjA</li>
+<li>引入jar包</li>
+<li>使用jar包提供的函数对lua代码进行打包(LuaViewBytecodeCompiler类)
+
+<ul>
+<li>A：public static byte[] compile(byte[] source, String filename) throws Exception
+
+<ul>
+<li>将一个源码的二进制流编译成lua bytecode二进制流</li>
+</ul></li>
+<li>B：public static void compile(String filePath) throws Exception
+
+<ul>
+<li>将给定代码地址的代码编译成lua bytecode并保存在同目录下，文件名为*.luap</li>
+</ul></li>
+</ul></li>
+<li>在Android项目直接使用编译好的bytecode，功能同load函数
+
+<ul>
+<li>luaView.loadPrototype(final InputStream inputStream, final String name, final LuaScriptLoader.ScriptExecuteCallback callback)</li>
+</ul></li>
+</ol>
+
           <h1 id="changes-log">Changes Log</h1>
 
 <h2 id="v5-5-0-2016-12-todo">V5.5.0 (2016-12) TODO</h2>
