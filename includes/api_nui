@@ -532,10 +532,85 @@ Json组件，静态。
 </tr>
 </tbody></table>
 
+<h2 id="file">File</h2>
+
+<blockquote>
+<p>File</p>
+</blockquote>
+<pre class="highlight plaintext"><code>http = Http()
+http.get("http://luaview.github.io", {
+    query = 1
+}, function(response)
+  local data = response:data()
+
+    -- 保存
+    File.save(data, "test.html") -- 同步存
+    File.save(data, "test.html", function(status)
+        -- 异步存
+    end)
+
+    -- 读取
+    data = File.read("test.html") -- 同步读
+    File.read("test.html", function(data)
+        -- 异步读取
+    end)
+
+    -- 存在判断
+    print(File.exists("test.html"))
+
+    -- 文件路径
+    print(File.path("test.html"))
+end)
+</code></pre>
+
+<aside class="notice" id="file">
+文件操作组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>save</td>
+<td>path: String<br/> data: <a href="#data">Data<a/> <br/> callback: LuaFunction or <br/> data: <a href="#data">Data<a/> <br/> path: String<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>保存data内数据到path指定的文件内，文件名支持子目录或者上级目录</td>
+</tr>
+<tr>
+<td>read</td>
+<td>path: String<br/> callback: LuaFunction</td>
+<td><a href="#data">Data</a></td>
+<td>-</td>
+<td>读取给定path的文件，并返回Data数据，支持异步读取，异步返回数据通过callback返回</td>
+</tr>
+<tr>
+<td>exists</td>
+<td>path: String</td>
+<td>-</td>
+<td>-</td>
+<td>文件是否存在</td>
+</tr>
+<tr>
+<td>path</td>
+<td>name: filename</td>
+<td>path:String</td>
+<td>-</td>
+<td>获取给定文件名的绝对存储路径</td>
+</tr>
+</tbody></table>
+
 <h2 id="downloader">Downloader</h2>
 
 <aside class="notice" id="downloader">
 下载器组件，静态。
+(Deprecated 所有功能可以通过<a href="#http">Http</a> and <a href="#file">File</a>完成)
 </aside>
 
 <table><thead>

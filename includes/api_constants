@@ -399,3 +399,28 @@ View特效。
 <td>视差特效</td>
 </tr>
 </tbody></table>
+
+<h2 id="paintstyle">PaintStyle</h2>
+
+<aside class="notice" id="paint_style">
+Canvas画笔样式。参考 <a href="#canvas">Canvas</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FILL</td>
+<td>-</td>
+<td>填充</td>
+</tr>
+<tr>
+<td>STROKE</td>
+<td>-</td>
+<td>中空</td>
+</tr>
+</tbody></table>

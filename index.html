@@ -2815,6 +2815,344 @@ end);
 </tr>
 </tbody></table>
 
+<h2 id="canvas">Canvas</h2>
+
+<blockquote>
+<p>Canvas</p>
+</blockquote>
+<pre class="highlight plaintext"><code>local view = CustomView() -- onDraw方法需要配合CustomView使用
+view.onDraw(function(canvas)
+    print(canvas)
+    -- drawLine
+    canvas.color(0xff0000)
+    canvas.strokeWidth(2)
+    canvas.drawLine(0, 50, 100, 50)
+    canvas.drawLine(50, 0, 50, 100)
+
+    canvas.resetPaint()
+    canvas.color(0x00ff00)
+    canvas.alpha(0.5)
+    canvas.drawLine(0, 0, 100, 0)
+    canvas.drawLine(100, 0, 100, 100)
+    canvas.drawLine(100, 100, 0, 100)
+    canvas.drawLine(0, 100, 0, 0)
+    canvas.drawLine(0, 0, 100, 100)
+    canvas.drawLine(100, 0, 0, 100)
+
+    -- drawPoint
+    canvas.color(0xff0000)
+    canvas.strokeWidth(2)
+    canvas.drawPoint(1, 5)
+    canvas.drawPoint(99, 93)
+
+    -- drawRect
+    canvas.resetPaint()
+    canvas.style(PaintStyle.STROKE)
+    canvas.drawRect(5, 5, 5, 5)
+    canvas.style(PaintStyle.FILL)
+    canvas.drawRect(10, 10, 5, 5)
+
+    -- drawRoundRects
+    canvas.drawRoundRect(45, 1, 5, 5, 2, 2)
+    canvas.drawRoundRect(45, 5, 10, 5, 2, 2)
+
+    -- drawCircle
+    canvas.drawCircle(80, 0, 5)
+    canvas.drawCircle(80, 15, 5)
+
+    -- drawText
+    canvas.textSize(20)
+    canvas.drawText("x", 20, 55)
+    canvas.textSize(14)
+    canvas.drawText("y", 20, 65)
+    canvas.resetPaint()
+
+    -- drawOval
+    canvas.drawOval(45, 50, 25, 10)
+    canvas.drawOval(45, 60, 25, 10)
+
+    -- draw Arc
+    canvas.drawArc(30, 30, 20, 20, 0, 90, true)
+
+    -- drawBitmap
+    canvas.save()
+    canvas.rotate(-10, 100, 100)
+    canvas.scale(1.2)
+    canvas.translate(-10, -10)
+    canvas.strokeWidth(10)
+    canvas.textSize(15)
+    canvas.bold(true)
+    canvas.drawText("测试一下", 20, 150)
+    canvas.alpha(0.5)
+    canvas.drawImage("animate1", 0, 100, 100, 100)
+    canvas.restore()
+    canvas.resetPaint()
+
+    print(img)
+    if(img) then
+            canvas.drawImage(img, 100, 0, 100, 100)
+    end
+
+    -- clipRect
+    canvas.clipRect(100, 100, 35, 35)
+    canvas.drawCircle(100, 100, 40)
+
+    canvas.clipRect(150, 150, 30, 30)
+    canvas.drawText("TestABCDEFGHEFGHIJKLMOPQRST", 150, 150)
+
+    print(canvas.nativeObj())
+end)
+
+
+
+-- ps
+1. Android所有绘制API支持同时多个参数，如：
+canvas.drawLine({
+        { 0, 0, 100, 0 },
+        { 100, 0, 100, 100 },
+        { 100, 100, 0, 100 },
+        { 0, 100, 0, 0 },
+        { 0, 0, 100, 100 },
+        { 100, 0, 0, 100 }
+    })
+2. Android所有绘制API支持设置绘制参数，如：      
+canvas.drawText({
+        { "xx", 20, 75, { color = 0x0000ff, strikeThrough = true, textSize = 20, textSkewX = 1.5, bold = true } },
+        { "yy", 20, 85 },
+    }, { color = 0x0fff00, underline = true, textSize = 10, textScaleX = 3, letterSpacing = 0.2, linearText = true })
+</code></pre>
+
+<aside class="notice" id="canvas">
+自定义绘制组件。
+</aside>
+
+<h3 id="a-api">a. 绘制API</h3>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>drawLine</td>
+<td>x1: Number<br/> y1: Number<br/> x2: Number<br/> y2: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>绘制线条。(x1,y1), (x2, y2)分别为起点终点</td>
+</tr>
+<tr>
+<td>drawPoint</td>
+<td>x: Number<br/> y: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>绘制点</td>
+</tr>
+<tr>
+<td>drawRect</td>
+<td>x: Number<br/> y: Number<br/> w: Number<br/> h: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>绘制矩形。x起点x坐标，y起点y坐标，w宽度，h高度</td>
+</tr>
+<tr>
+<td>drawRoundRect</td>
+<td>x: Number<br/> y: Number<br/> w: Number<br/> h: Number<br/> rx: Number<br/> ry: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>绘制圆角矩形。x起点x坐标，y起点y坐标，w宽度，h高度，rx为x轴圆角半径，ry为y轴圆角半径</td>
+</tr>
+<tr>
+<td>drawCircle</td>
+<td>x: Number<br/> y: Number<br/> r: Number</td>
+<td>-</td>
+<td>-</td>
+<td>绘制圆。(x, y)为圆心坐标，r为半径</td>
+</tr>
+<tr>
+<td>drawOval</td>
+<td>x: Number<br/> y: Number<br/> rx: Number<br/> ry: Number</td>
+<td>-</td>
+<td>-</td>
+<td>绘制椭圆。(x, y)为圆心坐标，rx, ry为椭圆半径</td>
+</tr>
+<tr>
+<td>drawArc</td>
+<td>x: Number<br/> y: Number<br/> w: Number<br/> h: Number<br/> startAngle: Number<br/> sweepAngle: Number<br/> useCenter: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>绘制扇形。(x,y)为左上角坐标，(w,h)为扇形宽高，startAngle为开始角度，sweepAngle为覆盖角度, useCenter为是否覆盖完整扇形面积（默认为false）</td>
+</tr>
+<tr>
+<td>drawText</td>
+<td>text: String/<a href="#styled_string">StyledString<a/>/<a href="#unicode">Unicode<a/> <br/> x: Number<br/> y:Number</td>
+<td>-</td>
+<td>-</td>
+<td>绘制文本</td>
+</tr>
+<tr>
+<td>drawImage</td>
+<td>image: String/<a href="#image">Image</a> <br/> x: Number<br/> y: Number<br/> w: Number<br/> h: Number</td>
+<td>-</td>
+<td>-</td>
+<td>绘制图片，支持本地图和Image对象</td>
+</tr>
+</tbody></table>
+
+<h3 id="b-api">b. 画笔属性API</h3>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>color</td>
+<td>color: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置画笔颜色</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>alpha: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置画笔透明度</td>
+</tr>
+<tr>
+<td>strokeWidth</td>
+<td>w: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置画笔粗细</td>
+</tr>
+<tr>
+<td>style</td>
+<td>style: <a href="#paint_style">PaintStyle</a></td>
+<td>-</td>
+<td>-</td>
+<td>设置画笔填充样式</td>
+</tr>
+<tr>
+<td>textSize</td>
+<td>size: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置文本字体大小</td>
+</tr>
+<tr>
+<td>font</td>
+<td>name: String</td>
+<td>-</td>
+<td>-</td>
+<td>设置字体名称</td>
+</tr>
+<tr>
+<td>bold</td>
+<td>bold: Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>设置是否粗体</td>
+</tr>
+<tr>
+<td>resetPaint</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>重置画笔所有属性</td>
+</tr>
+</tbody></table>
+
+<h3 id="c-api">c. 画布变换API</h3>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>translate</td>
+<td>dx: Number<br/> dy: Number</td>
+<td>-</td>
+<td>-</td>
+<td>位移变换，dx为x轴移动距离，dy为y轴移动距离</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>sx: Number<br/> sy: Number</td>
+<td>-</td>
+<td>-</td>
+<td>缩放变换，sx为x轴缩放比率，sy为y轴缩放比率</td>
+</tr>
+<tr>
+<td>rotate</td>
+<td>r: Number<br/> x: Number <br/> y: Number</td>
+<td>-</td>
+<td>-</td>
+<td>旋转变换，r为角度；(x,y) 坐标（可选）</td>
+</tr>
+<tr>
+<td>skew</td>
+<td>x: Number<br/> y: Number<br/></td>
+<td>-</td>
+<td>-</td>
+<td>斜切变换，xy斜切比率</td>
+</tr>
+</tbody></table>
+
+<h3 id="d-api">d. 其它API</h3>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nativeObj</td>
+<td>-</td>
+<td>native canvas</td>
+<td>-</td>
+<td>获取对应的native对象</td>
+</tr>
+<tr>
+<td>save</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>保存当前画布状态</td>
+</tr>
+<tr>
+<td>restore</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>恢复当前画布状态</td>
+</tr>
+<tr>
+<td>clipRect</td>
+<td>left: Number<br/> top: Number<br/> right: Number<br/> bottom: Number</td>
+<td>-</td>
+<td>-</td>
+<td>裁剪矩形区域</td>
+</tr>
+</tbody></table>
+
           <h1 id="api-nui">API-NUI</h1>
 
 <h2 id="http">Http</h2>
@@ -3349,10 +3687,85 @@ Json组件，静态。
 </tr>
 </tbody></table>
 
+<h2 id="file">File</h2>
+
+<blockquote>
+<p>File</p>
+</blockquote>
+<pre class="highlight plaintext"><code>http = Http()
+http.get("http://luaview.github.io", {
+    query = 1
+}, function(response)
+  local data = response:data()
+
+    -- 保存
+    File.save(data, "test.html") -- 同步存
+    File.save(data, "test.html", function(status)
+        -- 异步存
+    end)
+
+    -- 读取
+    data = File.read("test.html") -- 同步读
+    File.read("test.html", function(data)
+        -- 异步读取
+    end)
+
+    -- 存在判断
+    print(File.exists("test.html"))
+
+    -- 文件路径
+    print(File.path("test.html"))
+end)
+</code></pre>
+
+<aside class="notice" id="file">
+文件操作组件，静态。
+</aside>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>save</td>
+<td>path: String<br/> data: <a href="#data">Data<a/> <br/> callback: LuaFunction or <br/> data: <a href="#data">Data<a/> <br/> path: String<br/> callback: LuaFunction</td>
+<td>-</td>
+<td>-</td>
+<td>保存data内数据到path指定的文件内，文件名支持子目录或者上级目录</td>
+</tr>
+<tr>
+<td>read</td>
+<td>path: String<br/> callback: LuaFunction</td>
+<td><a href="#data">Data</a></td>
+<td>-</td>
+<td>读取给定path的文件，并返回Data数据，支持异步读取，异步返回数据通过callback返回</td>
+</tr>
+<tr>
+<td>exists</td>
+<td>path: String</td>
+<td>-</td>
+<td>-</td>
+<td>文件是否存在</td>
+</tr>
+<tr>
+<td>path</td>
+<td>name: filename</td>
+<td>path:String</td>
+<td>-</td>
+<td>获取给定文件名的绝对存储路径</td>
+</tr>
+</tbody></table>
+
 <h2 id="downloader">Downloader</h2>
 
 <aside class="notice" id="downloader">
 下载器组件，静态。
+(Deprecated 所有功能可以通过<a href="#http">Http</a> and <a href="#file">File</a>完成)
 </aside>
 
 <table><thead>
@@ -3772,6 +4185,31 @@ View特效。
 <td>PARALLAX</td>
 <td>-</td>
 <td>视差特效</td>
+</tr>
+</tbody></table>
+
+<h2 id="paintstyle">PaintStyle</h2>
+
+<aside class="notice" id="paint_style">
+Canvas画笔样式。参考 <a href="#canvas">Canvas</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FILL</td>
+<td>-</td>
+<td>填充</td>
+</tr>
+<tr>
+<td>STROKE</td>
+<td>-</td>
+<td>中空</td>
 </tr>
 </tbody></table>
 
