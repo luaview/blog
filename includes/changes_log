@@ -1,6 +1,12 @@
 <h1 id="changes-log">Changes Log</h1>
 
-<h2 id="v5-5-0-2016-12-todo">V5.5.0 (2016-12) TODO</h2>
+<h2 id="v5-8-0-2017-1-10-todo">V5.8.0 (2017-1.10) TODO</h2>
+
+<ul>
+<li>自定义下拉刷新</li>
+</ul>
+
+<h2 id="v5-5-0-2016-12">V5.5.0 (2016-12)</h2>
 
 <ul>
 <li>Canvas 支持</li>
