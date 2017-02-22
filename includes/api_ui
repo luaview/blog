@@ -72,6 +72,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -80,6 +81,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>initParams</td>
 <td>table: LuaTable</td>
 <td>-</td>
@@ -87,6 +89,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>初始化参数</td>
 </tr>
 <tr>
+<td>2</td>
 <td>invalidate</td>
 <td>-</td>
 <td>-</td>
@@ -94,6 +97,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>强制重绘</td>
 </tr>
 <tr>
+<td>3</td>
 <td>padding</td>
 <td>left: Number<br/>top: Number<br/>right: Number<br/>bottom: Number<br/></td>
 <td>-</td>
@@ -101,6 +105,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>内边距</td>
 </tr>
 <tr>
+<td>4</td>
 <td>frame</td>
 <td>x: Number<br/>y: Number<br/>width: Number<br/>height: Number</td>
 <td>-</td>
@@ -108,6 +113,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>View尺寸</td>
 </tr>
 <tr>
+<td>5</td>
 <td>backgroundColor</td>
 <td>color: Number<br/> alpha: Number<br/></td>
 <td>color, alpha</td>
@@ -115,6 +121,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>背景色&amp;alpha</td>
 </tr>
 <tr>
+<td>6</td>
 <td>size</td>
 <td>width: Number<br/> height: Number<br/></td>
 <td>width, height</td>
@@ -122,6 +129,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>尺寸</td>
 </tr>
 <tr>
+<td>7</td>
 <td>xy</td>
 <td>x: Number<br/> y: Number<br/></td>
 <td>x,y</td>
@@ -129,6 +137,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x、y坐标</td>
 </tr>
 <tr>
+<td>8</td>
 <td>align</td>
 <td>aligns[]: <a href="#align">Align</a></td>
 <td>-</td>
@@ -136,6 +145,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身在父容器的布局</td>
 </tr>
 <tr>
+<td>9</td>
 <td>alignLeft</td>
 <td>-</td>
 <td>-</td>
@@ -143,6 +153,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
+<td>10</td>
 <td>alignTop</td>
 <td>-</td>
 <td>-</td>
@@ -150,6 +161,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
+<td>11</td>
 <td>alignRight</td>
 <td>-</td>
 <td>-</td>
@@ -157,6 +169,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Right&amp;Top</td>
 </tr>
 <tr>
+<td>12</td>
 <td>alignBottom</td>
 <td>-</td>
 <td>-</td>
@@ -164,6 +177,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Bottom</td>
 </tr>
 <tr>
+<td>13</td>
 <td>alignLeftTop</td>
 <td>-</td>
 <td>-</td>
@@ -171,6 +185,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
+<td>14</td>
 <td>alignTopLeft</td>
 <td>-</td>
 <td>-</td>
@@ -178,6 +193,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
+<td>15</td>
 <td>alignCenterTop</td>
 <td>-</td>
 <td>-</td>
@@ -185,6 +201,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Center&amp;Top</td>
 </tr>
 <tr>
+<td>16</td>
 <td>alignTopCenter</td>
 <td>-</td>
 <td>-</td>
@@ -192,6 +209,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Center&amp;Top</td>
 </tr>
 <tr>
+<td>17</td>
 <td>alignRightTop</td>
 <td>-</td>
 <td>-</td>
@@ -199,6 +217,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Right&amp;Top</td>
 </tr>
 <tr>
+<td>18</td>
 <td>alignTopRight</td>
 <td>-</td>
 <td>-</td>
@@ -206,6 +225,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Right&amp;Top</td>
 </tr>
 <tr>
+<td>19</td>
 <td>alignLeftBottom</td>
 <td>-</td>
 <td>-</td>
@@ -213,6 +233,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Bottom</td>
 </tr>
 <tr>
+<td>20</td>
 <td>alignBottomLeft</td>
 <td>-</td>
 <td>-</td>
@@ -220,6 +241,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Bottom</td>
 </tr>
 <tr>
+<td>21</td>
 <td>alignCenterBottom</td>
 <td>-</td>
 <td>-</td>
@@ -227,6 +249,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Center&amp;Bottom</td>
 </tr>
 <tr>
+<td>22</td>
 <td>alignBottomCenter</td>
 <td>-</td>
 <td>-</td>
@@ -234,6 +257,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Center&amp;Bottom</td>
 </tr>
 <tr>
+<td>23</td>
 <td>alignRightBottom</td>
 <td>-</td>
 <td>-</td>
@@ -241,6 +265,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Right&amp;Bottom</td>
 </tr>
 <tr>
+<td>24</td>
 <td>alignBottomRight</td>
 <td>-</td>
 <td>-</td>
@@ -248,6 +273,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Right&amp;Bottom</td>
 </tr>
 <tr>
+<td>25</td>
 <td>alignCenter</td>
 <td>-</td>
 <td>-</td>
@@ -255,6 +281,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Center</td>
 </tr>
 <tr>
+<td>26</td>
 <td>alignLeftCenter</td>
 <td>-</td>
 <td>-</td>
@@ -262,6 +289,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Center</td>
 </tr>
 <tr>
+<td>27</td>
 <td>alignCenterLeft</td>
 <td>-</td>
 <td>-</td>
@@ -269,6 +297,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Left&amp;Center</td>
 </tr>
 <tr>
+<td>28</td>
 <td>alignRightCenter</td>
 <td>-</td>
 <td>-</td>
@@ -276,6 +305,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Right&amp;Center</td>
 </tr>
 <tr>
+<td>29</td>
 <td>alignCenterRight</td>
 <td>-</td>
 <td>-</td>
@@ -283,6 +313,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器Right&amp;Center</td>
 </tr>
 <tr>
+<td>30</td>
 <td>alignCenterHorizontal</td>
 <td>-</td>
 <td>-</td>
@@ -290,6 +321,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器center in horizontal</td>
 </tr>
 <tr>
+<td>31</td>
 <td>alignHorizontalCenter</td>
 <td>-</td>
 <td>-</td>
@@ -297,6 +329,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器center in horizontal</td>
 </tr>
 <tr>
+<td>32</td>
 <td>alignCenterVertical</td>
 <td>-</td>
 <td>-</td>
@@ -304,6 +337,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器center in vertical</td>
 </tr>
 <tr>
+<td>33</td>
 <td>alignVerticalCenter</td>
 <td>-</td>
 <td>-</td>
@@ -311,6 +345,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置自身位于父容器center in vertical</td>
 </tr>
 <tr>
+<td>34</td>
 <td>center</td>
 <td>x: Number<br/> y: Number</td>
 <td>x, y</td>
@@ -318,6 +353,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>中心点坐标</td>
 </tr>
 <tr>
+<td>35</td>
 <td>x</td>
 <td>x: Number</td>
 <td>x</td>
@@ -325,6 +361,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x坐标</td>
 </tr>
 <tr>
+<td>36</td>
 <td>y</td>
 <td>y: Number</td>
 <td>y</td>
@@ -332,6 +369,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>y坐标</td>
 </tr>
 <tr>
+<td>37</td>
 <td>left</td>
 <td>left: Number</td>
 <td>left</td>
@@ -339,6 +377,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>距离父容器左侧边距</td>
 </tr>
 <tr>
+<td>38</td>
 <td>top</td>
 <td>top: Number</td>
 <td>top</td>
@@ -346,6 +385,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>距离父容器上侧边距</td>
 </tr>
 <tr>
+<td>39</td>
 <td>right</td>
 <td>right: Number</td>
 <td>right</td>
@@ -353,6 +393,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>距离父容器右侧边距</td>
 </tr>
 <tr>
+<td>40</td>
 <td>bottom</td>
 <td>bottom: Number</td>
 <td>bottom</td>
@@ -360,6 +401,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>距离父容器底部边距</td>
 </tr>
 <tr>
+<td>41</td>
 <td>width</td>
 <td>width: Number</td>
 <td>width</td>
@@ -367,6 +409,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>宽度</td>
 </tr>
 <tr>
+<td>42</td>
 <td>minWidth</td>
 <td>width: Number</td>
 <td>width</td>
@@ -374,6 +417,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>最小宽度</td>
 </tr>
 <tr>
+<td>43</td>
 <td>height</td>
 <td>height: Number</td>
 <td>height</td>
@@ -381,6 +425,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>高度</td>
 </tr>
 <tr>
+<td>44</td>
 <td>centerX</td>
 <td>x: Number</td>
 <td>x</td>
@@ -388,6 +433,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>中心点x坐标</td>
 </tr>
 <tr>
+<td>45</td>
 <td>centerY</td>
 <td>y: Number</td>
 <td>y</td>
@@ -395,6 +441,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>中心点y坐标</td>
 </tr>
 <tr>
+<td>46</td>
 <td>visible</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -402,6 +449,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>可见性</td>
 </tr>
 <tr>
+<td>47</td>
 <td>hidden</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -409,6 +457,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>可见性</td>
 </tr>
 <tr>
+<td>48</td>
 <td>show</td>
 <td>-</td>
 <td>-</td>
@@ -416,6 +465,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>显示</td>
 </tr>
 <tr>
+<td>49</td>
 <td>isShow</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -423,6 +473,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>是否可见</td>
 </tr>
 <tr>
+<td>50</td>
 <td>hide</td>
 <td>-</td>
 <td>-</td>
@@ -430,6 +481,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>隐藏</td>
 </tr>
 <tr>
+<td>51</td>
 <td>isHide</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -437,6 +489,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>是否隐藏</td>
 </tr>
 <tr>
+<td>52</td>
 <td>enabled</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -444,6 +497,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>是否可用</td>
 </tr>
 <tr>
+<td>53</td>
 <td>alpha</td>
 <td>alpha: Number</td>
 <td>alpha</td>
@@ -451,6 +505,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>透明度</td>
 </tr>
 <tr>
+<td>54</td>
 <td>borderWidth</td>
 <td>width: Number</td>
 <td>width</td>
@@ -458,6 +513,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>边框宽度</td>
 </tr>
 <tr>
+<td>55</td>
 <td>borderColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -465,6 +521,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>边框颜色</td>
 </tr>
 <tr>
+<td>56</td>
 <td>clipsToBounds</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -472,6 +529,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>View边框是否剪接</td>
 </tr>
 <tr>
+<td>57</td>
 <td>shadowPath</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -479,6 +537,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>只对边框外部加阴影</td>
 </tr>
 <tr>
+<td>58</td>
 <td>masksToBounds</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -486,6 +545,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置边框是否裁剪</td>
 </tr>
 <tr>
+<td>59</td>
 <td>shadowOffset</td>
 <td>v: Number</td>
 <td>v</td>
@@ -493,6 +553,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置View阴影偏移位置</td>
 </tr>
 <tr>
+<td>60</td>
 <td>shadowRadius</td>
 <td>v: Number</td>
 <td>v</td>
@@ -500,6 +561,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置View阴影高斯模糊半径</td>
 </tr>
 <tr>
+<td>61</td>
 <td>shadowOpacity</td>
 <td>v: Number</td>
 <td>v</td>
@@ -507,6 +569,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置View阴影透明度</td>
 </tr>
 <tr>
+<td>62</td>
 <td>shadowColor</td>
 <td>v: Number</td>
 <td>v</td>
@@ -514,6 +577,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置View阴影颜色</td>
 </tr>
 <tr>
+<td>63</td>
 <td>sizeToFit</td>
 <td>-</td>
 <td>-</td>
@@ -521,6 +585,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>适应View内容的大小</td>
 </tr>
 <tr>
+<td>64</td>
 <td>addGestureRecognizer</td>
 <td>-</td>
 <td>-</td>
@@ -528,6 +593,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>添加手势</td>
 </tr>
 <tr>
+<td>65</td>
 <td>removeGestureRecognizer</td>
 <td>-</td>
 <td>-</td>
@@ -535,6 +601,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>移除手势</td>
 </tr>
 <tr>
+<td>66</td>
 <td>transform3D</td>
 <td>v: Number[]</td>
 <td>-</td>
@@ -542,6 +609,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置3D变换矩阵</td>
 </tr>
 <tr>
+<td>67</td>
 <td>anchorPoint</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
@@ -549,6 +617,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>锚点</td>
 </tr>
 <tr>
+<td>68</td>
 <td>removeFromSuper</td>
 <td>-</td>
 <td>-</td>
@@ -556,6 +625,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>从父容器移除</td>
 </tr>
 <tr>
+<td>69</td>
 <td>removeFromParent</td>
 <td>-</td>
 <td>-</td>
@@ -563,6 +633,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>从父容器移除</td>
 </tr>
 <tr>
+<td>70</td>
 <td>hasFocus</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -570,6 +641,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>是否有焦点</td>
 </tr>
 <tr>
+<td>71</td>
 <td>requestFocus</td>
 <td>-</td>
 <td>-</td>
@@ -577,6 +649,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>请求焦点</td>
 </tr>
 <tr>
+<td>72</td>
 <td>clearFocus</td>
 <td>-</td>
 <td>-</td>
@@ -584,6 +657,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>取消焦点</td>
 </tr>
 <tr>
+<td>73</td>
 <td>rotation</td>
 <td>v: Number</td>
 <td>-</td>
@@ -591,6 +665,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>旋转角度</td>
 </tr>
 <tr>
+<td>74</td>
 <td>rotationXY</td>
 <td>rx: Number<br/>ry: Number</td>
 <td>rx, ry</td>
@@ -598,6 +673,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>根据x坐标和y坐标得到的旋转角度，pivot</td>
 </tr>
 <tr>
+<td>75</td>
 <td>scale</td>
 <td>sx: Number<br/>sy: Number</td>
 <td>sx, sy</td>
@@ -605,6 +681,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x，y缩放</td>
 </tr>
 <tr>
+<td>76</td>
 <td>scaleX</td>
 <td>sx: Number</td>
 <td>sx</td>
@@ -612,6 +689,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x坐标缩放</td>
 </tr>
 <tr>
+<td>77</td>
 <td>scaleY</td>
 <td>sy: Number</td>
 <td>sy</td>
@@ -619,6 +697,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>y坐标缩放</td>
 </tr>
 <tr>
+<td>78</td>
 <td>translation</td>
 <td>tx: Number<br/> ty: Number</td>
 <td>x, y</td>
@@ -626,6 +705,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x、y位移</td>
 </tr>
 <tr>
+<td>79</td>
 <td>translationX</td>
 <td>tx: Number</td>
 <td>tx</td>
@@ -633,6 +713,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x坐标位移</td>
 </tr>
 <tr>
+<td>80</td>
 <td>translationY</td>
 <td>ty: Number</td>
 <td>ty</td>
@@ -640,6 +721,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>y坐标位移</td>
 </tr>
 <tr>
+<td>81</td>
 <td>bringToFront</td>
 <td>-</td>
 <td>-</td>
@@ -647,6 +729,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>将view设置到前台</td>
 </tr>
 <tr>
+<td>82</td>
 <td>scrollTo</td>
 <td>sx: Number<br/>sy: Number</td>
 <td>-</td>
@@ -654,6 +737,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>滚动到某个位置</td>
 </tr>
 <tr>
+<td>83</td>
 <td>scrollBy</td>
 <td>sx: Number<br/>sy: Number</td>
 <td>-</td>
@@ -661,6 +745,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>移动一段距离</td>
 </tr>
 <tr>
+<td>84</td>
 <td>scrollX</td>
 <td>sx: Number</td>
 <td>sx</td>
@@ -668,6 +753,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x方向滚动到某个位置</td>
 </tr>
 <tr>
+<td>85</td>
 <td>offsetX</td>
 <td>sx: Number</td>
 <td>sx</td>
@@ -675,6 +761,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x方向滚动到某个位置</td>
 </tr>
 <tr>
+<td>86</td>
 <td>scrollY</td>
 <td>sy: Number</td>
 <td>sy</td>
@@ -682,6 +769,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>y方向滚动到某个位置</td>
 </tr>
 <tr>
+<td>87</td>
 <td>offsetY</td>
 <td>sy: Number</td>
 <td>sy</td>
@@ -689,6 +777,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>y方向滚动到某个位置</td>
 </tr>
 <tr>
+<td>88</td>
 <td>scrollXY</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
@@ -696,6 +785,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
+<td>89</td>
 <td>offsetXY</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
@@ -703,6 +793,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
+<td>90</td>
 <td>offset</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
@@ -710,6 +801,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
+<td>91</td>
 <td>showScrollIndicator</td>
 <td>h: Boolean<br/> v: Boolean</td>
 <td>h, v</td>
@@ -717,6 +809,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置滚动条是否显示（横向、纵向）</td>
 </tr>
 <tr>
+<td>92</td>
 <td>callback</td>
 <td>v: LuaTable</td>
 <td>v</td>
@@ -724,6 +817,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>监听view的各种事件</td>
 </tr>
 <tr>
+<td>93</td>
 <td>onClick</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -731,6 +825,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置view的点击事件</td>
 </tr>
 <tr>
+<td>94</td>
 <td>onLongClick</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -738,6 +833,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置view的长按事件</td>
 </tr>
 <tr>
+<td>95</td>
 <td>adjustSize</td>
 <td>-</td>
 <td>-</td>
@@ -745,6 +841,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>调整大小以适应内容</td>
 </tr>
 <tr>
+<td>96</td>
 <td>cornerRadius</td>
 <td>radius: Number</td>
 <td>radius</td>
@@ -752,6 +849,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置边框圆角半径</td>
 </tr>
 <tr>
+<td>97</td>
 <td>startAnimation</td>
 <td>anims: <a href="#animation">Animation[]</a></td>
 <td>-</td>
@@ -759,6 +857,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>开始播放动画</td>
 </tr>
 <tr>
+<td>98</td>
 <td>stopAnimation</td>
 <td>-</td>
 <td>-</td>
@@ -766,6 +865,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>停止动画播放</td>
 </tr>
 <tr>
+<td>99</td>
 <td>isAnimating</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -773,6 +873,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>是否正在播放动画</td>
 </tr>
 <tr>
+<td>100</td>
 <td>flexCss</td>
 <td>v: String</td>
 <td>v</td>
@@ -780,6 +881,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置flex属性</td>
 </tr>
 <tr>
+<td>101</td>
 <td>flxLayout</td>
 <td>v: String</td>
 <td>v</td>
@@ -787,6 +889,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置flex布局</td>
 </tr>
 <tr>
+<td>102</td>
 <td>effects</td>
 <td>effect: <a href="#view_effect">ViewEffect</a><br/> color: Number<br/> alpha: Number</td>
 <td>effect</td>
@@ -794,11 +897,36 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>设置view的特效</td>
 </tr>
 <tr>
+<td>103</td>
 <td>nativeView</td>
 <td>-</td>
 <td>v: Object</td>
 <td>-</td>
 <td>获取NativeView</td>
+</tr>
+<tr>
+<td>104</td>
+<td>borderDash</td>
+<td>v: Number</td>
+<td>-</td>
+<td>-</td>
+<td>设置边框虚线</td>
+</tr>
+<tr>
+<td>105</td>
+<td>margin</td>
+<td>l: Number<br/> t: Number<br/> r: Number<br/> b: Number</td>
+<td>l, t, r, b</td>
+<td>边距</td>
+<td></td>
+</tr>
+<tr>
+<td>106</td>
+<td>onTouch</td>
+<td>v: LuaFunction</td>
+<td>v</td>
+<td>设置触摸事件</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -882,6 +1010,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -890,6 +1019,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>onShow</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -897,6 +1027,7 @@ parent.flexChildren(child1, child2)
 <td>显示监听</td>
 </tr>
 <tr>
+<td>2</td>
 <td>onHide</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -904,6 +1035,7 @@ parent.flexChildren(child1, child2)
 <td>隐藏监听</td>
 </tr>
 <tr>
+<td>3</td>
 <td>onBack</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -911,6 +1043,7 @@ parent.flexChildren(child1, child2)
 <td>返回按钮监听</td>
 </tr>
 <tr>
+<td>4</td>
 <td>onLayout</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -918,6 +1051,7 @@ parent.flexChildren(child1, child2)
 <td>布局监听</td>
 </tr>
 <tr>
+<td>5</td>
 <td>addView</td>
 <td>v: <a href="#view">View</a></td>
 <td>-</td>
@@ -925,6 +1059,7 @@ parent.flexChildren(child1, child2)
 <td>添加子View</td>
 </tr>
 <tr>
+<td>6</td>
 <td>removeView</td>
 <td>v: <a href="#view">View</a></td>
 <td>-</td>
@@ -932,6 +1067,7 @@ parent.flexChildren(child1, child2)
 <td>移除子View</td>
 </tr>
 <tr>
+<td>7</td>
 <td>removeAllViews</td>
 <td>-</td>
 <td>-</td>
@@ -939,6 +1075,7 @@ parent.flexChildren(child1, child2)
 <td>移除所有子View</td>
 </tr>
 <tr>
+<td>8</td>
 <td>children</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -946,6 +1083,7 @@ parent.flexChildren(child1, child2)
 <td>子View构造函数</td>
 </tr>
 <tr>
+<td>9</td>
 <td>flexChildren</td>
 <td>v: <a href="#view">View[]</a></td>
 <td>-</td>
@@ -963,6 +1101,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -971,6 +1110,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>text</td>
 <td>v: String/<a href="#styled_string">StyledString/<a href="#unicode">Unicode</a></td>
 <td>v</td>
@@ -978,6 +1118,7 @@ parent.flexChildren(child1, child2)
 <td>Label文本</td>
 </tr>
 <tr>
+<td>2</td>
 <td>textColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -985,6 +1126,7 @@ parent.flexChildren(child1, child2)
 <td>文本颜色</td>
 </tr>
 <tr>
+<td>3</td>
 <td>textSize</td>
 <td>size: Number</td>
 <td>size</td>
@@ -992,6 +1134,7 @@ parent.flexChildren(child1, child2)
 <td>文本字体大小</td>
 </tr>
 <tr>
+<td>4</td>
 <td>fontSize</td>
 <td>size: Number</td>
 <td>size</td>
@@ -999,6 +1142,7 @@ parent.flexChildren(child1, child2)
 <td>文本字体大小</td>
 </tr>
 <tr>
+<td>5</td>
 <td>fontName</td>
 <td>name: String</td>
 <td>name</td>
@@ -1006,6 +1150,7 @@ parent.flexChildren(child1, child2)
 <td>文本字体</td>
 </tr>
 <tr>
+<td>6</td>
 <td>font</td>
 <td>name: String<br/> size: Number</td>
 <td>name, size</td>
@@ -1013,6 +1158,7 @@ parent.flexChildren(child1, child2)
 <td>文本字体&amp;大小</td>
 </tr>
 <tr>
+<td>7</td>
 <td>gravity</td>
 <td>v: <a href="#gravity">Gravity</a></td>
 <td>v</td>
@@ -1020,6 +1166,7 @@ parent.flexChildren(child1, child2)
 <td>文本对齐方式</td>
 </tr>
 <tr>
+<td>8</td>
 <td>textAlign</td>
 <td>v: <a href="#text_align">TextAlign</a></td>
 <td>v</td>
@@ -1027,6 +1174,7 @@ parent.flexChildren(child1, child2)
 <td>文本对齐方式</td>
 </tr>
 <tr>
+<td>9</td>
 <td>lines</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1034,6 +1182,7 @@ parent.flexChildren(child1, child2)
 <td>文字行数</td>
 </tr>
 <tr>
+<td>10</td>
 <td>maxLines</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1041,6 +1190,7 @@ parent.flexChildren(child1, child2)
 <td>文本最大行数</td>
 </tr>
 <tr>
+<td>11</td>
 <td>lineCount</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1048,6 +1198,7 @@ parent.flexChildren(child1, child2)
 <td>文本最大行数</td>
 </tr>
 <tr>
+<td>12</td>
 <td>minLines</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1055,6 +1206,7 @@ parent.flexChildren(child1, child2)
 <td>文本最小行数</td>
 </tr>
 <tr>
+<td>13</td>
 <td>ellipsize</td>
 <td>v: <a href="#ellipsize">Ellipsize</a></td>
 <td>v</td>
@@ -1062,6 +1214,7 @@ parent.flexChildren(child1, child2)
 <td>文本省略方式</td>
 </tr>
 <tr>
+<td>14</td>
 <td>adjustTextSize</td>
 <td>-</td>
 <td>-</td>
@@ -1069,6 +1222,7 @@ parent.flexChildren(child1, child2)
 <td>字体大小适应宽度</td>
 </tr>
 <tr>
+<td>15</td>
 <td>adjustFontSize</td>
 <td>-</td>
 <td>-</td>
@@ -1087,6 +1241,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1095,6 +1250,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>title</td>
 <td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
 <td>v</td>
@@ -1102,6 +1258,7 @@ parent.flexChildren(child1, child2)
 <td>按钮文字</td>
 </tr>
 <tr>
+<td>2</td>
 <td>titleColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -1109,6 +1266,7 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 </tr>
 <tr>
+<td>3</td>
 <td>image</td>
 <td>img1: String<br/> img2: String</td>
 <td>img1, img2</td>
@@ -1116,6 +1274,7 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 </tr>
 <tr>
+<td>4</td>
 <td>showsTouchWhenHighlighted</td>
 <td>-</td>
 <td>-</td>
@@ -1133,6 +1292,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1141,6 +1301,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>image</td>
 <td>v: String, c: LuaFunction</td>
 <td>v</td>
@@ -1148,6 +1309,7 @@ parent.flexChildren(child1, child2)
 <td>设置图片url（本地、网络），回调</td>
 </tr>
 <tr>
+<td>2</td>
 <td>contentMode</td>
 <td>type: <a href="#scale_type">ScaleType</a></td>
 <td>type</td>
@@ -1155,6 +1317,7 @@ parent.flexChildren(child1, child2)
 <td>图片缩放模式</td>
 </tr>
 <tr>
+<td>3</td>
 <td>scaleType</td>
 <td>type: <a href="#scale_type">ScaleType</a></td>
 <td>type</td>
@@ -1162,6 +1325,7 @@ parent.flexChildren(child1, child2)
 <td>图片缩放模式</td>
 </tr>
 <tr>
+<td>4</td>
 <td>startAnimationImages</td>
 <td>images: String[]</td>
 <td>-</td>
@@ -1169,6 +1333,7 @@ parent.flexChildren(child1, child2)
 <td>帧动画（本地图）</td>
 </tr>
 <tr>
+<td>5</td>
 <td>stopAnimationImages</td>
 <td>-</td>
 <td>-</td>
@@ -1176,6 +1341,7 @@ parent.flexChildren(child1, child2)
 <td>停止播放帧动画</td>
 </tr>
 <tr>
+<td>6</td>
 <td>isAnimationImages</td>
 <td>-</td>
 <td>-</td>
@@ -1194,6 +1360,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1202,6 +1369,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>hint</td>
 <td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
 <td>v</td>
@@ -1209,6 +1377,7 @@ parent.flexChildren(child1, child2)
 <td>提示</td>
 </tr>
 <tr>
+<td>2</td>
 <td>placeholder</td>
 <td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
 <td>v</td>
@@ -1228,6 +1397,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1236,6 +1406,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>reload</td>
 <td>section: Number<br/> row: Number<br/></td>
 <td>-</td>
@@ -1243,6 +1414,7 @@ parent.flexChildren(child1, child2)
 <td>Android支持参数</td>
 </tr>
 <tr>
+<td>2</td>
 <td>contentSize</td>
 <td>-</td>
 <td>-</td>
@@ -1250,6 +1422,7 @@ parent.flexChildren(child1, child2)
 <td>设置内容区域大小</td>
 </tr>
 <tr>
+<td>3</td>
 <td>contentOffset</td>
 <td>-</td>
 <td>-</td>
@@ -1257,6 +1430,7 @@ parent.flexChildren(child1, child2)
 <td>设置内容偏移</td>
 </tr>
 <tr>
+<td>4</td>
 <td>contentInset</td>
 <td>-</td>
 <td>-</td>
@@ -1264,6 +1438,7 @@ parent.flexChildren(child1, child2)
 <td>设置ContentInset</td>
 </tr>
 <tr>
+<td>5</td>
 <td>showScrollIndicator</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -1271,6 +1446,7 @@ parent.flexChildren(child1, child2)
 <td>是否显示滚动条信息</td>
 </tr>
 <tr>
+<td>6</td>
 <td>scrollToTop</td>
 <td>offset: Number<br/> animate: Boolean</td>
 <td>-</td>
@@ -1278,6 +1454,7 @@ parent.flexChildren(child1, child2)
 <td>滚动到顶部(offset间隔，animate是否动画)</td>
 </tr>
 <tr>
+<td>7</td>
 <td>scrollToCell</td>
 <td>section: Number<br/> rowInSection: Number<br/> offset: Number<br/> animate: Boolean</td>
 <td>-</td>
@@ -1285,6 +1462,7 @@ parent.flexChildren(child1, child2)
 <td>滚动到指定cell，offset间隔，animate是否动画</td>
 </tr>
 <tr>
+<td>8</td>
 <td>miniSpacing</td>
 <td>space: Number</td>
 <td>space</td>
@@ -1292,6 +1470,7 @@ parent.flexChildren(child1, child2)
 <td>cell间隙</td>
 </tr>
 <tr>
+<td>9</td>
 <td>lazyLoad</td>
 <td>v: Boolean</td>
 <td>-</td>
@@ -1299,6 +1478,7 @@ parent.flexChildren(child1, child2)
 <td>是否懒加载Cell</td>
 </tr>
 <tr>
+<td>10</td>
 <td>header</td>
 <td>v: <a href="#view">View</a></td>
 <td>-</td>
@@ -1306,6 +1486,7 @@ parent.flexChildren(child1, child2)
 <td>设置Header，nil的时候清空header</td>
 </tr>
 <tr>
+<td>11</td>
 <td>footer</td>
 <td>v: <a href="#view">View</a></td>
 <td>-</td>
@@ -1313,6 +1494,7 @@ parent.flexChildren(child1, child2)
 <td>设置Footer，nil的时候清空footer</td>
 </tr>
 <tr>
+<td>12</td>
 <td>dividerHeight</td>
 <td>v: Number</td>
 <td>height: Number</td>
@@ -1330,6 +1512,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1338,6 +1521,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>reload</td>
 <td>section: Number<br/> row: Number<br/></td>
 <td>-</td>
@@ -1345,6 +1529,7 @@ parent.flexChildren(child1, child2)
 <td>Android支持参数</td>
 </tr>
 <tr>
+<td>2</td>
 <td>contentSize</td>
 <td>-</td>
 <td>-</td>
@@ -1352,6 +1537,7 @@ parent.flexChildren(child1, child2)
 <td>设置内容区域大小</td>
 </tr>
 <tr>
+<td>3</td>
 <td>contentOffset</td>
 <td>-</td>
 <td>-</td>
@@ -1359,6 +1545,7 @@ parent.flexChildren(child1, child2)
 <td>设置内容偏移</td>
 </tr>
 <tr>
+<td>4</td>
 <td>contentInset</td>
 <td>-</td>
 <td>-</td>
@@ -1366,6 +1553,7 @@ parent.flexChildren(child1, child2)
 <td>设置ContentInset</td>
 </tr>
 <tr>
+<td>5</td>
 <td>showScrollIndicator</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -1373,6 +1561,7 @@ parent.flexChildren(child1, child2)
 <td>是否显示滚动条信息</td>
 </tr>
 <tr>
+<td>6</td>
 <td>scrollToTop</td>
 <td>offset: Number<br/> animate: Boolean</td>
 <td>-</td>
@@ -1380,6 +1569,7 @@ parent.flexChildren(child1, child2)
 <td>滚动到顶部(offset间隔，animate是否动画)</td>
 </tr>
 <tr>
+<td>7</td>
 <td>scrollToCell</td>
 <td>section: Number<br/> rowInSection: Number<br/> offset: Number<br/> animate: Boolean</td>
 <td>-</td>
@@ -1387,6 +1577,7 @@ parent.flexChildren(child1, child2)
 <td>滚动到指定cell，offset间隔，animate是否动画</td>
 </tr>
 <tr>
+<td>8</td>
 <td>miniSpacing</td>
 <td>space: Number</td>
 <td>space</td>
@@ -1394,6 +1585,7 @@ parent.flexChildren(child1, child2)
 <td>cell间隙</td>
 </tr>
 <tr>
+<td>9</td>
 <td>lazyLoad</td>
 <td>v: Boolean</td>
 <td>-</td>
@@ -1414,6 +1606,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1422,6 +1615,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>refreshEnable</td>
 <td>v: Boolean</td>
 <td>-</td>
@@ -1429,6 +1623,7 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 </tr>
 <tr>
+<td>2</td>
 <td>initRefreshing</td>
 <td>-</td>
 <td>-</td>
@@ -1436,6 +1631,7 @@ parent.flexChildren(child1, child2)
 <td>初始化刷新组件</td>
 </tr>
 <tr>
+<td>3</td>
 <td>isRefreshing</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -1443,6 +1639,7 @@ parent.flexChildren(child1, child2)
 <td>是否正在刷新</td>
 </tr>
 <tr>
+<td>4</td>
 <td>startRefreshing</td>
 <td>-</td>
 <td>-</td>
@@ -1450,6 +1647,7 @@ parent.flexChildren(child1, child2)
 <td>开始刷新</td>
 </tr>
 <tr>
+<td>5</td>
 <td>stopRefreshing</td>
 <td>-</td>
 <td>-</td>
@@ -1468,6 +1666,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1476,6 +1675,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>refreshEnable</td>
 <td>v: Boolean</td>
 <td>-</td>
@@ -1483,6 +1683,7 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 </tr>
 <tr>
+<td>2</td>
 <td>initRefreshing</td>
 <td>-</td>
 <td>-</td>
@@ -1490,6 +1691,7 @@ parent.flexChildren(child1, child2)
 <td>初始化刷新组件</td>
 </tr>
 <tr>
+<td>3</td>
 <td>isRefreshing</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -1497,6 +1699,7 @@ parent.flexChildren(child1, child2)
 <td>是否正在刷新</td>
 </tr>
 <tr>
+<td>4</td>
 <td>startRefreshing</td>
 <td>-</td>
 <td>-</td>
@@ -1504,6 +1707,7 @@ parent.flexChildren(child1, child2)
 <td>开始刷新</td>
 </tr>
 <tr>
+<td>5</td>
 <td>stopRefreshing</td>
 <td>-</td>
 <td>-</td>
@@ -1521,6 +1725,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1529,6 +1734,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>reload</td>
 <td>-</td>
 <td>-</td>
@@ -1536,6 +1742,7 @@ parent.flexChildren(child1, child2)
 <td>重新加载数据</td>
 </tr>
 <tr>
+<td>2</td>
 <td>indicator</td>
 <td>v: <a href="#pager_indicator">PagerIndicator</a></td>
 <td>-</td>
@@ -1543,6 +1750,7 @@ parent.flexChildren(child1, child2)
 <td>设置页面组指示器</td>
 </tr>
 <tr>
+<td>3</td>
 <td>currentPage</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1550,6 +1758,7 @@ parent.flexChildren(child1, child2)
 <td>设置/获取当前页</td>
 </tr>
 <tr>
+<td>4</td>
 <td>currentItem</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1557,6 +1766,7 @@ parent.flexChildren(child1, child2)
 <td>设置/获取当前页</td>
 </tr>
 <tr>
+<td>5</td>
 <td>autoScroll</td>
 <td>duration: Number</td>
 <td>-</td>
@@ -1564,11 +1774,20 @@ parent.flexChildren(child1, child2)
 <td>自动轮播</td>
 </tr>
 <tr>
+<td>6</td>
 <td>looping</td>
 <td>v: Boolean</td>
 <td>v</td>
 <td>-</td>
 <td>自动轮播</td>
+</tr>
+<tr>
+<td>7</td>
+<td>previewSide</td>
+<td>l: Number, r: Number</td>
+<td>-</td>
+<td>-</td>
+<td>支持左右透出预览</td>
 </tr>
 </tbody></table>
 
@@ -1581,6 +1800,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1589,6 +1809,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>unselectedColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -1596,6 +1817,7 @@ parent.flexChildren(child1, child2)
 <td>未选中指示器颜色</td>
 </tr>
 <tr>
+<td>2</td>
 <td>selectedColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -1603,6 +1825,7 @@ parent.flexChildren(child1, child2)
 <td>选中指示器颜色</td>
 </tr>
 <tr>
+<td>3</td>
 <td>fillColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -1610,6 +1833,7 @@ parent.flexChildren(child1, child2)
 <td>未选中指示器颜色</td>
 </tr>
 <tr>
+<td>4</td>
 <td>pageColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -1617,6 +1841,7 @@ parent.flexChildren(child1, child2)
 <td>选中指示器颜色</td>
 </tr>
 <tr>
+<td>5</td>
 <td>strokeWidth</td>
 <td>width: Number</td>
 <td>width</td>
@@ -1624,6 +1849,7 @@ parent.flexChildren(child1, child2)
 <td>线条宽度</td>
 </tr>
 <tr>
+<td>6</td>
 <td>strokeColor</td>
 <td>color: Number</td>
 <td>color</td>
@@ -1631,6 +1857,7 @@ parent.flexChildren(child1, child2)
 <td>线条颜色</td>
 </tr>
 <tr>
+<td>7</td>
 <td>radius</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1638,6 +1865,7 @@ parent.flexChildren(child1, child2)
 <td>圆点半径</td>
 </tr>
 <tr>
+<td>8</td>
 <td>snap</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -1645,6 +1873,7 @@ parent.flexChildren(child1, child2)
 <td>是否有点移动动画</td>
 </tr>
 <tr>
+<td>9</td>
 <td>currentPage</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1652,6 +1881,7 @@ parent.flexChildren(child1, child2)
 <td>设置/获取当前页面</td>
 </tr>
 <tr>
+<td>10</td>
 <td>currentItem</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1671,6 +1901,7 @@ parent.flexChildren(child1, child2)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1679,6 +1910,7 @@ parent.flexChildren(child1, child2)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>currentPage</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1686,6 +1918,7 @@ parent.flexChildren(child1, child2)
 <td>设置/获取当前页面</td>
 </tr>
 <tr>
+<td>2</td>
 <td>currentItem</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1700,6 +1933,34 @@ parent.flexChildren(child1, child2)
 自定义组件，容器。
 -> <a href="#view">View</a>
 </aside>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>nativeView</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>获取NativeView</td>
+</tr>
+<tr>
+<td>2</td>
+<td>getNativeView</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>获取NativeView</td>
+</tr>
+</tbody></table>
 
 <p>供第三方扩展用，不可直接创建。第三方通过扩展CustomPanel，实现已有的 Native UI 组件与 lua 互操作。</p>
 
@@ -1750,6 +2011,7 @@ loading.frame(0, 0, 100, 100)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1758,6 +2020,7 @@ loading.frame(0, 0, 100, 100)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>offset</td>
 <td>x: Number<br/> y: Number<br/> smooth: Boolean</td>
 <td>x, y</td>
@@ -1765,6 +2028,7 @@ loading.frame(0, 0, 100, 100)
 <td>滚动到x,y，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
+<td>2</td>
 <td>scrollTo</td>
 <td>x: Number<br/> y: Number<br/> smooth: Boolean</td>
 <td>-</td>
@@ -1772,6 +2036,7 @@ loading.frame(0, 0, 100, 100)
 <td>滚动到x,y，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
+<td>3</td>
 <td>offsetBy</td>
 <td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
 <td>x, y</td>
@@ -1779,6 +2044,7 @@ loading.frame(0, 0, 100, 100)
 <td>滚动dx,dy，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
+<td>4</td>
 <td>scrollBy</td>
 <td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
 <td>-</td>
@@ -1786,6 +2052,7 @@ loading.frame(0, 0, 100, 100)
 <td>滚动dx,dy，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
+<td>5</td>
 <td>smoothScrollTo</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
@@ -1793,6 +2060,7 @@ loading.frame(0, 0, 100, 100)
 <td>平滑滚动到x,y</td>
 </tr>
 <tr>
+<td>6</td>
 <td>smoothScrollBy</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
@@ -1800,6 +2068,7 @@ loading.frame(0, 0, 100, 100)
 <td>滚动到x,y</td>
 </tr>
 <tr>
+<td>7</td>
 <td>pageScroll</td>
 <td>direction: Number</td>
 <td>-</td>
@@ -1807,6 +2076,7 @@ loading.frame(0, 0, 100, 100)
 <td>滚动一页(direction&gt;0右滚，否则左滚)</td>
 </tr>
 <tr>
+<td>8</td>
 <td>fullScroll</td>
 <td>direction: Number</td>
 <td>-</td>
@@ -1814,6 +2084,7 @@ loading.frame(0, 0, 100, 100)
 <td>滚动到底(direction&gt;0右滚，否则左滚)</td>
 </tr>
 <tr>
+<td>9</td>
 <td>contentSize</td>
 <td>-</td>
 <td>-</td>
@@ -1831,6 +2102,7 @@ html组件，容器。
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1839,6 +2111,7 @@ html组件，容器。
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>loadUrl</td>
 <td>v: String</td>
 <td>-</td>
@@ -1846,6 +2119,7 @@ html组件，容器。
 <td>加载url</td>
 </tr>
 <tr>
+<td>2</td>
 <td>canGoBack</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -1853,6 +2127,7 @@ html组件，容器。
 <td>是否可以回退</td>
 </tr>
 <tr>
+<td>3</td>
 <td>canGoForward</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -1860,6 +2135,7 @@ html组件，容器。
 <td>是否可以前进</td>
 </tr>
 <tr>
+<td>4</td>
 <td>goBack</td>
 <td>-</td>
 <td>-</td>
@@ -1867,6 +2143,7 @@ html组件，容器。
 <td>回退一页</td>
 </tr>
 <tr>
+<td>5</td>
 <td>goForward</td>
 <td>-</td>
 <td>-</td>
@@ -1874,6 +2151,7 @@ html组件，容器。
 <td>前进一页</td>
 </tr>
 <tr>
+<td>6</td>
 <td>reload</td>
 <td>-</td>
 <td>-</td>
@@ -1881,6 +2159,7 @@ html组件，容器。
 <td>重新加载</td>
 </tr>
 <tr>
+<td>7</td>
 <td>title</td>
 <td>-</td>
 <td>v: String</td>
@@ -1888,6 +2167,7 @@ html组件，容器。
 <td>获取Title</td>
 </tr>
 <tr>
+<td>8</td>
 <td>isLoading</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -1895,6 +2175,7 @@ html组件，容器。
 <td>是否正在加载</td>
 </tr>
 <tr>
+<td>9</td>
 <td>stopLoading</td>
 <td>-</td>
 <td>-</td>
@@ -1902,6 +2183,7 @@ html组件，容器。
 <td>停止加载</td>
 </tr>
 <tr>
+<td>10</td>
 <td>url</td>
 <td>-</td>
 <td>v: String</td>
@@ -1909,6 +2191,7 @@ html组件，容器。
 <td>获取url</td>
 </tr>
 <tr>
+<td>11</td>
 <td>pullRefreshEnable</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -1926,6 +2209,7 @@ html组件，容器。
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -1934,6 +2218,7 @@ html组件，容器。
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>start</td>
 <td>-</td>
 <td>-</td>
@@ -1941,6 +2226,7 @@ html组件，容器。
 <td>开始转动</td>
 </tr>
 <tr>
+<td>2</td>
 <td>isStart</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -1948,6 +2234,7 @@ html组件，容器。
 <td>是否开始转动</td>
 </tr>
 <tr>
+<td>3</td>
 <td>startAnimating</td>
 <td>-</td>
 <td>-</td>
@@ -1955,6 +2242,7 @@ html组件，容器。
 <td>开始转动</td>
 </tr>
 <tr>
+<td>4</td>
 <td>isAnimating</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -1962,6 +2250,7 @@ html组件，容器。
 <td>是否在动画中</td>
 </tr>
 <tr>
+<td>5</td>
 <td>stop</td>
 <td>-</td>
 <td>-</td>
@@ -1969,6 +2258,7 @@ html组件，容器。
 <td>停止动画</td>
 </tr>
 <tr>
+<td>6</td>
 <td>stopAnimating</td>
 <td>-</td>
 <td>-</td>
@@ -1976,6 +2266,7 @@ html组件，容器。
 <td>停止动画</td>
 </tr>
 <tr>
+<td>7</td>
 <td>color</td>
 <td>v: Number</td>
 <td>v</td>
@@ -1992,6 +2283,7 @@ html组件，容器。
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2000,6 +2292,7 @@ html组件，容器。
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>show</td>
 <td>-</td>
 <td>-</td>
@@ -2007,6 +2300,7 @@ html组件，容器。
 <td>开始转动</td>
 </tr>
 <tr>
+<td>2</td>
 <td>isShow</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -2014,6 +2308,7 @@ html组件，容器。
 <td>是否开始转动</td>
 </tr>
 <tr>
+<td>3</td>
 <td>start</td>
 <td>-</td>
 <td>-</td>
@@ -2021,6 +2316,7 @@ html组件，容器。
 <td>开始转动</td>
 </tr>
 <tr>
+<td>4</td>
 <td>isStart</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -2028,6 +2324,7 @@ html组件，容器。
 <td>是否开始转动</td>
 </tr>
 <tr>
+<td>5</td>
 <td>startAnimating</td>
 <td>-</td>
 <td>-</td>
@@ -2035,6 +2332,7 @@ html组件，容器。
 <td>开始转动</td>
 </tr>
 <tr>
+<td>6</td>
 <td>isAnimating</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -2042,6 +2340,7 @@ html组件，容器。
 <td>是否开始转动</td>
 </tr>
 <tr>
+<td>7</td>
 <td>hide</td>
 <td>-</td>
 <td>-</td>
@@ -2049,6 +2348,7 @@ html组件，容器。
 <td>停止动画</td>
 </tr>
 <tr>
+<td>8</td>
 <td>stop</td>
 <td>-</td>
 <td>-</td>
@@ -2056,6 +2356,7 @@ html组件，容器。
 <td>停止动画</td>
 </tr>
 <tr>
+<td>9</td>
 <td>stopAnimating</td>
 <td>-</td>
 <td>-</td>
@@ -2063,6 +2364,7 @@ html组件，容器。
 <td>停止动画</td>
 </tr>
 <tr>
+<td>10</td>
 <td>color</td>
 <td>v: Number</td>
 <td>v</td>
@@ -2131,6 +2433,7 @@ Toast(StyledString("测试", {fontColor=0xffff0000, backgroundColor=0xff00ff00, 
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2139,6 +2442,7 @@ Toast(StyledString("测试", {fontColor=0xffff0000, backgroundColor=0xff00ff00, 
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>show</td>
 <td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
 <td>-</td>
@@ -2181,6 +2485,7 @@ StyledString(Unicode(0xe607), { fontColor = 0xff00aaff, fontStyle = "bold" })
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2189,6 +2494,7 @@ StyledString(Unicode(0xe607), { fontColor = 0xff00aaff, fontStyle = "bold" })
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>append</td>
 <td>v: <a href="#styled_string">StyledString</a></td>
 <td>v</td>
@@ -2232,6 +2538,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2240,6 +2547,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>with</td>
 <td>v: <a href="#view">View</a></td>
 <td>-</td>
@@ -2247,6 +2555,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置动画target</td>
 </tr>
 <tr>
+<td>2</td>
 <td>start</td>
 <td>-</td>
 <td>-</td>
@@ -2254,6 +2563,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>开始动画</td>
 </tr>
 <tr>
+<td>3</td>
 <td>alpha</td>
 <td>v0: Number<br/> v1: Number</td>
 <td>-</td>
@@ -2261,6 +2571,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置alpha动画</td>
 </tr>
 <tr>
+<td>4</td>
 <td>rotation</td>
 <td>v0: Number<br/> v1: Number</td>
 <td>-</td>
@@ -2268,6 +2579,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置旋转动画</td>
 </tr>
 <tr>
+<td>5</td>
 <td>scale</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
@@ -2275,6 +2587,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置缩放动画(x轴缩放比、y轴缩放比)</td>
 </tr>
 <tr>
+<td>6</td>
 <td>scaleX</td>
 <td>x: Number<br/></td>
 <td>-</td>
@@ -2282,6 +2595,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置x轴缩放动画</td>
 </tr>
 <tr>
+<td>7</td>
 <td>scaleY</td>
 <td>y: Number<br/></td>
 <td>-</td>
@@ -2289,6 +2603,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置y轴缩放动画</td>
 </tr>
 <tr>
+<td>8</td>
 <td>translation</td>
 <td>x: Number<br/> y: Number<br/></td>
 <td>-</td>
@@ -2296,6 +2611,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置x轴、y轴位移动画</td>
 </tr>
 <tr>
+<td>9</td>
 <td>translationX</td>
 <td>x: Number</td>
 <td>-</td>
@@ -2303,6 +2619,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置x轴位移动画</td>
 </tr>
 <tr>
+<td>10</td>
 <td>translationY</td>
 <td>y: Number</td>
 <td>-</td>
@@ -2310,6 +2627,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置y轴位移动画</td>
 </tr>
 <tr>
+<td>11</td>
 <td>duration</td>
 <td>time: Number</td>
 <td>-</td>
@@ -2317,6 +2635,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置动画时长</td>
 </tr>
 <tr>
+<td>12</td>
 <td>delay</td>
 <td>time: Number</td>
 <td>-</td>
@@ -2324,6 +2643,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置动画启动延时</td>
 </tr>
 <tr>
+<td>13</td>
 <td>repeatCount</td>
 <td>count: Number</td>
 <td>-</td>
@@ -2331,6 +2651,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置动画重复测试（&lt;0表示一直重复）</td>
 </tr>
 <tr>
+<td>14</td>
 <td>interpolator</td>
 <td>v: <a href="#interlator">Interplator<a/></td>
 <td>-</td>
@@ -2338,6 +2659,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>插值器</td>
 </tr>
 <tr>
+<td>15</td>
 <td>cancel</td>
 <td>-</td>
 <td>-</td>
@@ -2345,6 +2667,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>取消动画</td>
 </tr>
 <tr>
+<td>16</td>
 <td>pause</td>
 <td>-</td>
 <td>-</td>
@@ -2352,6 +2675,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>暂停动画</td>
 </tr>
 <tr>
+<td>17</td>
 <td>isPaused</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -2359,6 +2683,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画是否暂停</td>
 </tr>
 <tr>
+<td>18</td>
 <td>isRunning</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -2366,6 +2691,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画是否运行</td>
 </tr>
 <tr>
+<td>19</td>
 <td>resume</td>
 <td>-</td>
 <td>-</td>
@@ -2373,6 +2699,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>恢复动画</td>
 </tr>
 <tr>
+<td>20</td>
 <td>reverses</td>
 <td>v: Boolean</td>
 <td>-</td>
@@ -2380,6 +2707,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画重复播放时是否反转</td>
 </tr>
 <tr>
+<td>21</td>
 <td>values</td>
 <td>v: Number[]</td>
 <td>-</td>
@@ -2387,6 +2715,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置动画用到的参数</td>
 </tr>
 <tr>
+<td>22</td>
 <td>callback</td>
 <td>v: LuaTable</td>
 <td>-</td>
@@ -2394,6 +2723,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>设置动画的回调</td>
 </tr>
 <tr>
+<td>23</td>
 <td>onStart</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -2401,6 +2731,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画开始回调</td>
 </tr>
 <tr>
+<td>24</td>
 <td>onEnd</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -2408,6 +2739,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画结束回调</td>
 </tr>
 <tr>
+<td>25</td>
 <td>onRepeat</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -2415,6 +2747,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画重复回调</td>
 </tr>
 <tr>
+<td>26</td>
 <td>onCancel</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -2422,6 +2755,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画取消回调</td>
 </tr>
 <tr>
+<td>27</td>
 <td>onPause</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -2429,6 +2763,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画暂停回调</td>
 </tr>
 <tr>
+<td>28</td>
 <td>onUpdate</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -2436,6 +2771,7 @@ Animation().with(view).translation(100, -100).duration(3).interpolator(Interpola
 <td>动画状态更新回调</td>
 </tr>
 <tr>
+<td>29</td>
 <td>onResume</td>
 <td>v: LuaFunction</td>
 <td>-</td>
@@ -2464,6 +2800,7 @@ end);
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2472,6 +2809,7 @@ end);
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>title</td>
 <td>v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a></td>
 <td>v</td>
@@ -2479,6 +2817,7 @@ end);
 <td>导航条标题</td>
 </tr>
 <tr>
+<td>2</td>
 <td>background</td>
 <td>v: String/<a href="#image">Image</a></td>
 <td>-</td>
@@ -2486,6 +2825,7 @@ end);
 <td>设置导航条背景</td>
 </tr>
 <tr>
+<td>3</td>
 <td>left</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -2493,6 +2833,7 @@ end);
 <td>显示左侧按钮</td>
 </tr>
 <tr>
+<td>4</td>
 <td>right</td>
 <td>v: Boolean</td>
 <td>v</td>
@@ -2616,6 +2957,7 @@ canvas.drawText({
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2624,6 +2966,7 @@ canvas.drawText({
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>drawLine</td>
 <td>x1: Number<br/> y1: Number<br/> x2: Number<br/> y2: Number<br/></td>
 <td>-</td>
@@ -2631,6 +2974,7 @@ canvas.drawText({
 <td>绘制线条。(x1,y1), (x2, y2)分别为起点终点</td>
 </tr>
 <tr>
+<td>2</td>
 <td>drawPoint</td>
 <td>x: Number<br/> y: Number<br/></td>
 <td>-</td>
@@ -2638,6 +2982,7 @@ canvas.drawText({
 <td>绘制点</td>
 </tr>
 <tr>
+<td>3</td>
 <td>drawRect</td>
 <td>x: Number<br/> y: Number<br/> w: Number<br/> h: Number<br/></td>
 <td>-</td>
@@ -2645,6 +2990,7 @@ canvas.drawText({
 <td>绘制矩形。x起点x坐标，y起点y坐标，w宽度，h高度</td>
 </tr>
 <tr>
+<td>4</td>
 <td>drawRoundRect</td>
 <td>x: Number<br/> y: Number<br/> w: Number<br/> h: Number<br/> rx: Number<br/> ry: Number<br/></td>
 <td>-</td>
@@ -2652,6 +2998,7 @@ canvas.drawText({
 <td>绘制圆角矩形。x起点x坐标，y起点y坐标，w宽度，h高度，rx为x轴圆角半径，ry为y轴圆角半径</td>
 </tr>
 <tr>
+<td>5</td>
 <td>drawCircle</td>
 <td>x: Number<br/> y: Number<br/> r: Number</td>
 <td>-</td>
@@ -2659,6 +3006,7 @@ canvas.drawText({
 <td>绘制圆。(x, y)为圆心坐标，r为半径</td>
 </tr>
 <tr>
+<td>6</td>
 <td>drawOval</td>
 <td>x: Number<br/> y: Number<br/> rx: Number<br/> ry: Number</td>
 <td>-</td>
@@ -2666,6 +3014,7 @@ canvas.drawText({
 <td>绘制椭圆。(x, y)为圆心坐标，rx, ry为椭圆半径</td>
 </tr>
 <tr>
+<td>7</td>
 <td>drawArc</td>
 <td>x: Number<br/> y: Number<br/> w: Number<br/> h: Number<br/> startAngle: Number<br/> sweepAngle: Number<br/> useCenter: Boolean</td>
 <td>-</td>
@@ -2673,6 +3022,7 @@ canvas.drawText({
 <td>绘制扇形。(x,y)为左上角坐标，(w,h)为扇形宽高，startAngle为开始角度，sweepAngle为覆盖角度, useCenter为是否覆盖完整扇形面积（默认为false）</td>
 </tr>
 <tr>
+<td>8</td>
 <td>drawText</td>
 <td>text: String/<a href="#styled_string">StyledString<a/>/<a href="#unicode">Unicode<a/> <br/> x: Number<br/> y:Number</td>
 <td>-</td>
@@ -2680,6 +3030,7 @@ canvas.drawText({
 <td>绘制文本</td>
 </tr>
 <tr>
+<td>9</td>
 <td>drawImage</td>
 <td>image: String/<a href="#image">Image</a> <br/> x: Number<br/> y: Number<br/> w: Number<br/> h: Number</td>
 <td>-</td>
@@ -2692,6 +3043,7 @@ canvas.drawText({
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2700,6 +3052,7 @@ canvas.drawText({
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>color</td>
 <td>color: Number</td>
 <td>-</td>
@@ -2707,6 +3060,7 @@ canvas.drawText({
 <td>设置画笔颜色</td>
 </tr>
 <tr>
+<td>2</td>
 <td>alpha</td>
 <td>alpha: Number</td>
 <td>-</td>
@@ -2714,6 +3068,7 @@ canvas.drawText({
 <td>设置画笔透明度</td>
 </tr>
 <tr>
+<td>3</td>
 <td>strokeWidth</td>
 <td>w: Number</td>
 <td>-</td>
@@ -2721,6 +3076,7 @@ canvas.drawText({
 <td>设置画笔粗细</td>
 </tr>
 <tr>
+<td>4</td>
 <td>style</td>
 <td>style: <a href="#paint_style">PaintStyle</a></td>
 <td>-</td>
@@ -2728,6 +3084,7 @@ canvas.drawText({
 <td>设置画笔填充样式</td>
 </tr>
 <tr>
+<td>5</td>
 <td>textSize</td>
 <td>size: Number</td>
 <td>-</td>
@@ -2735,6 +3092,7 @@ canvas.drawText({
 <td>设置文本字体大小</td>
 </tr>
 <tr>
+<td>6</td>
 <td>font</td>
 <td>name: String</td>
 <td>-</td>
@@ -2742,6 +3100,7 @@ canvas.drawText({
 <td>设置字体名称</td>
 </tr>
 <tr>
+<td>7</td>
 <td>bold</td>
 <td>bold: Boolean</td>
 <td>-</td>
@@ -2749,6 +3108,7 @@ canvas.drawText({
 <td>设置是否粗体</td>
 </tr>
 <tr>
+<td>8</td>
 <td>resetPaint</td>
 <td>-</td>
 <td>-</td>
@@ -2761,6 +3121,7 @@ canvas.drawText({
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2769,6 +3130,7 @@ canvas.drawText({
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>translate</td>
 <td>dx: Number<br/> dy: Number</td>
 <td>-</td>
@@ -2776,6 +3138,7 @@ canvas.drawText({
 <td>位移变换，dx为x轴移动距离，dy为y轴移动距离</td>
 </tr>
 <tr>
+<td>2</td>
 <td>scale</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>-</td>
@@ -2783,6 +3146,7 @@ canvas.drawText({
 <td>缩放变换，sx为x轴缩放比率，sy为y轴缩放比率</td>
 </tr>
 <tr>
+<td>3</td>
 <td>rotate</td>
 <td>r: Number<br/> x: Number <br/> y: Number</td>
 <td>-</td>
@@ -2790,6 +3154,7 @@ canvas.drawText({
 <td>旋转变换，r为角度；(x,y) 坐标（可选）</td>
 </tr>
 <tr>
+<td>4</td>
 <td>skew</td>
 <td>x: Number<br/> y: Number<br/></td>
 <td>-</td>
@@ -2802,6 +3167,7 @@ canvas.drawText({
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -2810,6 +3176,7 @@ canvas.drawText({
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>nativeObj</td>
 <td>-</td>
 <td>native canvas</td>
@@ -2817,6 +3184,7 @@ canvas.drawText({
 <td>获取对应的native对象</td>
 </tr>
 <tr>
+<td>2</td>
 <td>save</td>
 <td>-</td>
 <td>-</td>
@@ -2824,6 +3192,7 @@ canvas.drawText({
 <td>保存当前画布状态</td>
 </tr>
 <tr>
+<td>3</td>
 <td>restore</td>
 <td>-</td>
 <td>-</td>
@@ -2831,10 +3200,19 @@ canvas.drawText({
 <td>恢复当前画布状态</td>
 </tr>
 <tr>
+<td>4</td>
 <td>clipRect</td>
 <td>left: Number<br/> top: Number<br/> right: Number<br/> bottom: Number</td>
 <td>-</td>
 <td>-</td>
 <td>裁剪矩形区域</td>
+</tr>
+<tr>
+<td>5</td>
+<td>size</td>
+<td>-</td>
+<td>w, h</td>
+<td>-</td>
+<td>获取画布尺寸</td>
 </tr>
 </tbody></table>

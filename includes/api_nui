@@ -47,6 +47,7 @@ end)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -55,6 +56,7 @@ end)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>url</td>
 <td>v: String</td>
 <td>v</td>
@@ -62,6 +64,7 @@ end)
 <td>设置请求Url</td>
 </tr>
 <tr>
+<td>2</td>
 <td>method</td>
 <td>v: String, get/post</td>
 <td>v</td>
@@ -69,6 +72,7 @@ end)
 <td>设置请求方法</td>
 </tr>
 <tr>
+<td>3</td>
 <td>retryTimes</td>
 <td>v: Number</td>
 <td>v</td>
@@ -76,6 +80,7 @@ end)
 <td>重试次数</td>
 </tr>
 <tr>
+<td>4</td>
 <td>timeout</td>
 <td>v: Number</td>
 <td>v</td>
@@ -83,6 +88,7 @@ end)
 <td>超时时间</td>
 </tr>
 <tr>
+<td>5</td>
 <td>params</td>
 <td>v: LuaTable</td>
 <td>v</td>
@@ -90,6 +96,7 @@ end)
 <td>请求参数</td>
 </tr>
 <tr>
+<td>6</td>
 <td>callback</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -97,6 +104,7 @@ end)
 <td></td>
 </tr>
 <tr>
+<td>7</td>
 <td>request</td>
 <td>-</td>
 <td>-</td>
@@ -104,6 +112,7 @@ end)
 <td>请求</td>
 </tr>
 <tr>
+<td>8</td>
 <td>cancel</td>
 <td>-</td>
 <td>-</td>
@@ -111,6 +120,7 @@ end)
 <td>中止</td>
 </tr>
 <tr>
+<td>9</td>
 <td>get</td>
 <td>url: String<br/> params: LuaTable<br/> callback: LuaFunction</td>
 <td>-</td>
@@ -118,6 +128,7 @@ end)
 <td>GET请求</td>
 </tr>
 <tr>
+<td>10</td>
 <td>post</td>
 <td>url: String<br/> params: LuaTable<br/> callback: LuaFunction</td>
 <td>-</td>
@@ -134,6 +145,7 @@ end)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -142,6 +154,7 @@ end)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>delay</td>
 <td>v: Number</td>
 <td>v</td>
@@ -149,6 +162,7 @@ end)
 <td>启动延时</td>
 </tr>
 <tr>
+<td>2</td>
 <td>repeat</td>
 <td>v: Number</td>
 <td>v</td>
@@ -156,6 +170,7 @@ end)
 <td>重复次数</td>
 </tr>
 <tr>
+<td>3</td>
 <td>repeatCount</td>
 <td>v: Number</td>
 <td>v</td>
@@ -163,6 +178,7 @@ end)
 <td>重复次数</td>
 </tr>
 <tr>
+<td>4</td>
 <td>interval</td>
 <td>v: Number</td>
 <td>v</td>
@@ -170,6 +186,7 @@ end)
 <td>重复间隔</td>
 </tr>
 <tr>
+<td>5</td>
 <td>start</td>
 <td>v: Number</td>
 <td>v</td>
@@ -177,6 +194,7 @@ end)
 <td>启动</td>
 </tr>
 <tr>
+<td>6</td>
 <td>callback</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -184,6 +202,7 @@ end)
 <td>回调</td>
 </tr>
 <tr>
+<td>7</td>
 <td>cancel</td>
 <td>-</td>
 <td>-</td>
@@ -200,6 +219,7 @@ end)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -208,6 +228,7 @@ end)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>ios</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -215,6 +236,7 @@ end)
 <td>是否iOS平台</td>
 </tr>
 <tr>
+<td>2</td>
 <td>android</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -222,6 +244,7 @@ end)
 <td>是否Android平台</td>
 </tr>
 <tr>
+<td>3</td>
 <td>vmVersion</td>
 <td>-</td>
 <td>v: String</td>
@@ -229,6 +252,7 @@ end)
 <td>LuaView版本</td>
 </tr>
 <tr>
+<td>4</td>
 <td>osVersion</td>
 <td>-</td>
 <td>v: String</td>
@@ -236,6 +260,7 @@ end)
 <td>操作系统版本</td>
 </tr>
 <tr>
+<td>5</td>
 <td>platform</td>
 <td>-</td>
 <td>v: String</td>
@@ -243,6 +268,7 @@ end)
 <td>平台系统型号</td>
 </tr>
 <tr>
+<td>6</td>
 <td>scale</td>
 <td>-</td>
 <td>v: Number</td>
@@ -250,6 +276,7 @@ end)
 <td>屏幕缩放比</td>
 </tr>
 <tr>
+<td>7</td>
 <td>device</td>
 <td>-</td>
 <td>v: LuaTable</td>
@@ -257,6 +284,7 @@ end)
 <td>设备信息</td>
 </tr>
 <tr>
+<td>8</td>
 <td>screenSize</td>
 <td>-</td>
 <td>w: Number<br/> h: Number</td>
@@ -264,6 +292,7 @@ end)
 <td>屏幕尺寸</td>
 </tr>
 <tr>
+<td>9</td>
 <td>network</td>
 <td>-</td>
 <td>v: String</td>
@@ -271,6 +300,7 @@ end)
 <td>网络类型(&ldquo;none&rdquo;, &ldquo;2g&rdquo;, &ldquo;3g&rdquo;, &ldquo;4g&rdquo;, &ldquo;wifi&rdquo;, &ldquo;unknown&rdquo;)</td>
 </tr>
 <tr>
+<td>10</td>
 <td>gc</td>
 <td>-</td>
 <td>-</td>
@@ -278,6 +308,7 @@ end)
 <td>执行内存回收</td>
 </tr>
 <tr>
+<td>11</td>
 <td>keepScreenOn</td>
 <td>v: Boolean</td>
 <td>-</td>
@@ -294,6 +325,7 @@ end)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -302,6 +334,7 @@ end)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>play</td>
 <td>name: String<br/> times: Number</td>
 <td>-</td>
@@ -309,6 +342,7 @@ end)
 <td>播放（uri，重复次数）</td>
 </tr>
 <tr>
+<td>2</td>
 <td>pause</td>
 <td>-</td>
 <td>-</td>
@@ -316,6 +350,7 @@ end)
 <td>暂停播放</td>
 </tr>
 <tr>
+<td>3</td>
 <td>resume</td>
 <td>-</td>
 <td>-</td>
@@ -323,6 +358,7 @@ end)
 <td>恢复播放</td>
 </tr>
 <tr>
+<td>4</td>
 <td>stop</td>
 <td>-</td>
 <td>-</td>
@@ -330,6 +366,7 @@ end)
 <td>停止播放</td>
 </tr>
 <tr>
+<td>5</td>
 <td>seekTo</td>
 <td>sec: Number</td>
 <td>-</td>
@@ -337,6 +374,7 @@ end)
 <td>到某个位置</td>
 </tr>
 <tr>
+<td>6</td>
 <td>callback</td>
 <td>v: LuaFunction</td>
 <td>v</td>
@@ -344,6 +382,7 @@ end)
 <td>回调</td>
 </tr>
 <tr>
+<td>7</td>
 <td>playing</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -351,6 +390,7 @@ end)
 <td>是否播放</td>
 </tr>
 <tr>
+<td>8</td>
 <td>pausing</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -358,6 +398,7 @@ end)
 <td>是否暂停</td>
 </tr>
 <tr>
+<td>9</td>
 <td>looping</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -386,6 +427,7 @@ vibrator.vibrate({1, 2, 1, 0.3, 0.2, 0.1, 0.01, 1.1}, 4) -- 特殊震动模式
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -394,6 +436,7 @@ vibrator.vibrate({1, 2, 1, 0.3, 0.2, 0.1, 0.01, 1.1}, 4) -- 特殊震动模式
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>hasVibrator</td>
 <td>-</td>
 <td>v: Boolean</td>
@@ -401,6 +444,7 @@ vibrator.vibrate({1, 2, 1, 0.3, 0.2, 0.1, 0.01, 1.1}, 4) -- 特殊震动模式
 <td>是否有震动硬件</td>
 </tr>
 <tr>
+<td>2</td>
 <td>vibrate</td>
 <td>mode: Number[], repeatTimes: Number</td>
 <td>-</td>
@@ -408,6 +452,7 @@ vibrator.vibrate({1, 2, 1, 0.3, 0.2, 0.1, 0.01, 1.1}, 4) -- 特殊震动模式
 <td>震动(模式，次数)</td>
 </tr>
 <tr>
+<td>3</td>
 <td>cancel</td>
 <td>-</td>
 <td>-</td>
@@ -464,6 +509,7 @@ Data('{"a":"1"}').toJson()
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -472,6 +518,7 @@ Data('{"a":"1"}').toJson()
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>append</td>
 <td>v: Data/byte[]</td>
 <td>-</td>
@@ -479,6 +526,7 @@ Data('{"a":"1"}').toJson()
 <td>新增部分数据</td>
 </tr>
 <tr>
+<td>2</td>
 <td>toString</td>
 <td>code: String</td>
 <td>v: String</td>
@@ -486,6 +534,7 @@ Data('{"a":"1"}').toJson()
 <td>转成String(编码格式)</td>
 </tr>
 <tr>
+<td>3</td>
 <td>toJson</td>
 <td>-</td>
 <td>v: String</td>
@@ -493,6 +542,7 @@ Data('{"a":"1"}').toJson()
 <td>转成Json String</td>
 </tr>
 <tr>
+<td>4</td>
 <td>toTable</td>
 <td>-</td>
 <td>v: LuaTable</td>
@@ -509,6 +559,7 @@ Json组件，静态。
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -517,6 +568,7 @@ Json组件，静态。
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>toTable</td>
 <td>v: String/<a href="#data">Data</a>/LuaTable</td>
 <td>r: LuaTable</td>
@@ -524,6 +576,7 @@ Json组件，静态。
 <td>给定内容转成LuaTable</td>
 </tr>
 <tr>
+<td>2</td>
 <td>isValid</td>
 <td>v: String/<a href="#data">Data</a></td>
 <td>r: Boolean</td>
@@ -569,6 +622,7 @@ end)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -577,6 +631,7 @@ end)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>save</td>
 <td>path: String<br/> data: <a href="#data">Data<a/> <br/> callback: LuaFunction or <br/> data: <a href="#data">Data<a/> <br/> path: String<br/> callback: LuaFunction</td>
 <td>-</td>
@@ -584,6 +639,7 @@ end)
 <td>保存data内数据到path指定的文件内，文件名支持子目录或者上级目录</td>
 </tr>
 <tr>
+<td>2</td>
 <td>read</td>
 <td>path: String<br/> callback: LuaFunction</td>
 <td><a href="#data">Data</a></td>
@@ -591,6 +647,7 @@ end)
 <td>读取给定path的文件，并返回Data数据，支持异步读取，异步返回数据通过callback返回</td>
 </tr>
 <tr>
+<td>3</td>
 <td>exists</td>
 <td>path: String</td>
 <td>-</td>
@@ -598,6 +655,7 @@ end)
 <td>文件是否存在</td>
 </tr>
 <tr>
+<td>4</td>
 <td>path</td>
 <td>name: filename</td>
 <td>path:String</td>
@@ -615,6 +673,7 @@ end)
 
 <table><thead>
 <tr>
+<th>ID</th>
 <th>API</th>
 <th>参数</th>
 <th>返回值</th>
@@ -623,6 +682,7 @@ end)
 </tr>
 </thead><tbody>
 <tr>
+<td>1</td>
 <td>fetch</td>
 <td>url: String<br/> name: String<br/> callback: LuaFunction</td>
 <td>-</td>
