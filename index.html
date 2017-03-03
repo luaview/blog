@@ -168,6 +168,24 @@ luaview.load("脚本uri");
 
 </code></pre>
 
+<blockquote>
+<p>LuaView 使用 -IOS</p>
+</blockquote>
+<pre class="highlight plaintext"><code>1. 创建LuaView
+    LView* luaview = [[LView alloc] initWithFrame:rect];
+
+2. 注册扩展
+luaview.registerPanel(CustomLoading.class);
+luaview.register("bridge", new CustomBridge());
+
+3. 加载资源
+    [luaview.bundle addScriptPath:packagePath];
+    [luaview.bundle addResourcePath:packagePath];
+    [luaview runFile:scriptFileName];
+    [luaview runSignFile:scriptFileName];
+
+</code></pre>
+
 <table><thead>
 <tr>
 <th>ID</th>
@@ -180,6 +198,14 @@ luaview.load("脚本uri");
 </thead><tbody>
 <tr>
 <td>1</td>
+<td>bundle</td>
+<td>-</td>
+<td>Bundle对象</td>
+<td>IOS</td>
+<td>LuaView的bundle属性用于脚本目录管理</td>
+</tr>
+<tr>
+<td>2</td>
 <td>create</td>
 <td>context: Context</td>
 <td>LuaView</td>
@@ -187,7 +213,7 @@ luaview.load("脚本uri");
 <td>创建LuaView</td>
 </tr>
 <tr>
-<td>2</td>
+<td>3</td>
 <td>createAsync</td>
 <td>context: Context, callback: CreatedCallback</td>
 <td>-</td>
@@ -195,7 +221,7 @@ luaview.load("脚本uri");
 <td>异步创建LuaView</td>
 </tr>
 <tr>
-<td>3</td>
+<td>4</td>
 <td>load</td>
 <td>url: String</td>
 <td>LuaView</td>
@@ -203,7 +229,7 @@ luaview.load("脚本uri");
 <td>加载指定资源（asset、本地、网络）</td>
 </tr>
 <tr>
-<td>4</td>
+<td>5</td>
 <td>load</td>
 <td>url: String, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -211,7 +237,47 @@ luaview.load("脚本uri");
 <td>加载指定资源（asset、本地、网络），带回调</td>
 </tr>
 <tr>
-<td>5</td>
+<td>6</td>
+<td>loadFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源（本地）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>loadSignFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源本地</td>
+</tr>
+<tr>
+<td>8</td>
+<td>runFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源（本地）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>runSignFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源本地</td>
+</tr>
+<tr>
+<td>10</td>
+<td>runData</td>
+<td>data: 数据块, fileName:调试信息</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源（本地）</td>
+</tr>
+<tr>
+<td>11</td>
 <td>loadScript</td>
 <td>script: String</td>
 <td>LuaView</td>
@@ -219,7 +285,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本</td>
 </tr>
 <tr>
-<td>6</td>
+<td>12</td>
 <td>loadScript</td>
 <td>script: String, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -227,7 +293,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本，带回调</td>
 </tr>
 <tr>
-<td>7</td>
+<td>13</td>
 <td>loadScriptBundle</td>
 <td>scriptBundle: ScriptBundle</td>
 <td>LuaView</td>
@@ -235,7 +301,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本包</td>
 </tr>
 <tr>
-<td>8</td>
+<td>14</td>
 <td>loadScriptBundle</td>
 <td>scriptBundle: ScriptBundle, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -243,7 +309,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本包，带回调</td>
 </tr>
 <tr>
-<td>9</td>
+<td>15</td>
 <td>loadScriptBundle</td>
 <td>scriptBundle: ScriptBundle, main_entry: String, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -251,7 +317,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本包，执行main_entry入口文件，带回调</td>
 </tr>
 <tr>
-<td>10</td>
+<td>16</td>
 <td>register</td>
 <td>name: String, bridge: Object</td>
 <td>LuaView</td>
@@ -259,7 +325,7 @@ luaview.load("脚本uri");
 <td>注册一个名称为name的bridge对象</td>
 </tr>
 <tr>
-<td>11</td>
+<td>17</td>
 <td>unregister</td>
 <td>name: String</td>
 <td>LuaView</td>
@@ -267,7 +333,7 @@ luaview.load("脚本uri");
 <td>反注册一个名称为name的bridge对象</td>
 </tr>
 <tr>
-<td>12</td>
+<td>18</td>
 <td>registerPanel</td>
 <td>clazz: Class&lt;? extends LVCustomPanel&gt;</td>
 <td>LuaView</td>
@@ -275,7 +341,7 @@ luaview.load("脚本uri");
 <td>注册一个名称为clazz类名，类型为clazz的panel</td>
 </tr>
 <tr>
-<td>13</td>
+<td>19</td>
 <td>registerPanel</td>
 <td>name: String, clazz: Class&lt;? extends LVCustomPanel&gt;</td>
 <td>LuaView</td>
@@ -283,7 +349,7 @@ luaview.load("脚本uri");
 <td>注册一个名称为name，类型为clazz的panel</td>
 </tr>
 <tr>
-<td>14</td>
+<td>20</td>
 <td>registerLibs</td>
 <td>binders: LuaValue[]</td>
 <td>LuaView</td>
@@ -291,7 +357,7 @@ luaview.load("脚本uri");
 <td>注册自定义库</td>
 </tr>
 <tr>
-<td>15</td>
+<td>21</td>
 <td>registerImageProvider</td>
 <td>clazz: Class&lt;? extends ImageProvider&gt;</td>
 <td>LuaView</td>
@@ -299,7 +365,7 @@ luaview.load("脚本uri");
 <td>注册一个ImageProvider</td>
 </tr>
 <tr>
-<td>16</td>
+<td>22</td>
 <td>getImageProvider</td>
 <td>-</td>
 <td>provider: ImageProvider</td>
@@ -307,7 +373,7 @@ luaview.load("脚本uri");
 <td>获取ImageProvider</td>
 </tr>
 <tr>
-<td>17</td>
+<td>23</td>
 <td>callLuaFunction</td>
 <td>funName: String, params: Object[]</td>
 <td>result: Object</td>
@@ -315,7 +381,7 @@ luaview.load("脚本uri");
 <td>调用lua的某个全局函数</td>
 </tr>
 <tr>
-<td>18</td>
+<td>24</td>
 <td>callWindowFunction</td>
 <td>funName: String, params: Object[]</td>
 <td>result: Varargs</td>
@@ -323,12 +389,154 @@ luaview.load("脚本uri");
 <td>调用window.callback下的某个函数</td>
 </tr>
 <tr>
-<td>19</td>
+<td>25</td>
 <td>getUri</td>
 <td>-</td>
 <td>uri: String</td>
 <td>Android</td>
 <td>获取当前LuaView加载的Uri</td>
+</tr>
+<tr>
+<td>26</td>
+<td>viewWillAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewWillAppear</td>
+</tr>
+<tr>
+<td>27</td>
+<td>viewDidAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewDidAppear</td>
+</tr>
+<tr>
+<td>28</td>
+<td>viewWillDisAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewWillDisAppear</td>
+</tr>
+<tr>
+<td>29</td>
+<td>viewDidDisAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewDidDisAppear</td>
+</tr>
+<tr>
+<td>30</td>
+<td>motionBegan</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>motionBegan</td>
+</tr>
+<tr>
+<td>31</td>
+<td>motionEnded</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>motionEnded</td>
+</tr>
+</tbody></table>
+
+<h1 id="bundle">Bundle</h1>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>addResourcePath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>资源搜索路径</td>
+</tr>
+<tr>
+<td>2</td>
+<td>removeResourcePath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>资源搜索路径</td>
+</tr>
+<tr>
+<td>3</td>
+<td>addScriptPath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>脚本搜索路径</td>
+</tr>
+<tr>
+<td>4</td>
+<td>removeScriptPath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>脚本搜索路径</td>
+</tr>
+<tr>
+<td>5</td>
+<td>resourcePathWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>资源</td>
+</tr>
+<tr>
+<td>6</td>
+<td>resourceWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取资源</td>
+</tr>
+<tr>
+<td>7</td>
+<td>imageWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取图片</td>
+</tr>
+<tr>
+<td>8</td>
+<td>scriptPathWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取脚本路径</td>
+</tr>
+<tr>
+<td>9</td>
+<td>scriptWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取脚本</td>
+</tr>
+<tr>
+<td>10</td>
+<td>signedScriptWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取签名脚本</td>
 </tr>
 </tbody></table>
 
@@ -515,7 +723,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignLeftTop</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
@@ -523,7 +731,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignTopLeft</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
@@ -531,7 +739,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterTop</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Center&amp;Top</td>
 </tr>
 <tr>
@@ -539,7 +747,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignTopCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Center&amp;Top</td>
 </tr>
 <tr>
@@ -547,7 +755,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignRightTop</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Top</td>
 </tr>
 <tr>
@@ -555,7 +763,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignTopRight</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Top</td>
 </tr>
 <tr>
@@ -563,7 +771,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignLeftBottom</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Bottom</td>
 </tr>
 <tr>
@@ -571,14 +779,14 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignBottomLeft</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Bottom</td>
 </tr>
 <tr>
 <td>21</td>
 <td>alignCenterBottom</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>-</td>
 <td>设置自身位于父容器Center&amp;Bottom</td>
 </tr>
@@ -586,7 +794,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>22</td>
 <td>alignBottomCenter</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>-</td>
 <td>设置自身位于父容器Center&amp;Bottom</td>
 </tr>
@@ -595,7 +803,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignRightBottom</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Bottom</td>
 </tr>
 <tr>
@@ -603,7 +811,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignBottomRight</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Bottom</td>
 </tr>
 <tr>
@@ -619,7 +827,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignLeftCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Center</td>
 </tr>
 <tr>
@@ -627,7 +835,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterLeft</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Center</td>
 </tr>
 <tr>
@@ -635,7 +843,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignRightCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Center</td>
 </tr>
 <tr>
@@ -643,7 +851,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterRight</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Center</td>
 </tr>
 <tr>
@@ -651,7 +859,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterHorizontal</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in horizontal</td>
 </tr>
 <tr>
@@ -659,7 +867,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignHorizontalCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in horizontal</td>
 </tr>
 <tr>
@@ -667,7 +875,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterVertical</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in vertical</td>
 </tr>
 <tr>
@@ -675,7 +883,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignVerticalCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in vertical</td>
 </tr>
 <tr>
@@ -747,7 +955,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>minWidth</td>
 <td>width: Number</td>
 <td>width</td>
-<td>-</td>
+<td>Android</td>
 <td>最小宽度</td>
 </tr>
 <tr>
@@ -779,7 +987,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>visible</td>
 <td>v: Boolean</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>可见性</td>
 </tr>
 <tr>
@@ -1059,7 +1267,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>bringToFront</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>将view设置到前台</td>
 </tr>
 <tr>
@@ -1067,7 +1275,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollTo</td>
 <td>sx: Number<br/>sy: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动到某个位置</td>
 </tr>
 <tr>
@@ -1075,7 +1283,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollBy</td>
 <td>sx: Number<br/>sy: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>移动一段距离</td>
 </tr>
 <tr>
@@ -1083,7 +1291,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollX</td>
 <td>sx: Number</td>
 <td>sx</td>
-<td>-</td>
+<td>Android</td>
 <td>x方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -1091,7 +1299,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offsetX</td>
 <td>sx: Number</td>
 <td>sx</td>
-<td>-</td>
+<td>Android</td>
 <td>x方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -1099,7 +1307,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollY</td>
 <td>sy: Number</td>
 <td>sy</td>
-<td>-</td>
+<td>Android</td>
 <td>y方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -1107,7 +1315,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offsetY</td>
 <td>sy: Number</td>
 <td>sy</td>
-<td>-</td>
+<td>Android</td>
 <td>y方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -1115,7 +1323,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollXY</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
-<td>-</td>
+<td>Android</td>
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
@@ -1123,7 +1331,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offsetXY</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
-<td>-</td>
+<td>Android</td>
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
@@ -1131,7 +1339,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offset</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
-<td>-</td>
+<td>Android</td>
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
@@ -1139,7 +1347,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>showScrollIndicator</td>
 <td>h: Boolean<br/> v: Boolean</td>
 <td>h, v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置滚动条是否显示（横向、纵向）</td>
 </tr>
 <tr>
@@ -1163,7 +1371,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>onLongClick</td>
 <td>v: LuaFunction</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置view的长按事件</td>
 </tr>
 <tr>
@@ -1251,8 +1459,8 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>margin</td>
 <td>l: Number<br/> t: Number<br/> r: Number<br/> b: Number</td>
 <td>l, t, r, b</td>
+<td>Android</td>
 <td>边距</td>
-<td></td>
 </tr>
 <tr>
 <td>106</td>
@@ -1512,7 +1720,7 @@ parent.flexChildren(child1, child2)
 <td>lines</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>文字行数</td>
 </tr>
 <tr>
@@ -1536,7 +1744,7 @@ parent.flexChildren(child1, child2)
 <td>minLines</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>文本最小行数</td>
 </tr>
 <tr>
@@ -1552,7 +1760,7 @@ parent.flexChildren(child1, child2)
 <td>adjustTextSize</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>字体大小适应宽度</td>
 </tr>
 <tr>
@@ -1599,23 +1807,13 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 <td>-</td>
 </tr>
-<tr>
-<td>3</td>
-<td>image</td>
-<td>img1: String<br/> img2: String</td>
-<td>img1, img2</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>4</td>
-<td>showsTouchWhenHighlighted</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>获取按钮点击是否高亮</td>
-</tr>
 </tbody></table>
+
+<p>|3|text|v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a>|v|IOS|按钮文字|
+|4|textColor|color: Number|color|-|IOS|文本颜色|
+|5|image|img1: String<br/> img2: String|img1, img2|-|-|按钮点按图片（正常，点击）|
+|6|selected|-|-|iOS|是否selected|
+|6|enabled|-|-|iOS|是否使能|</p>
 
 <h2 id="image">Image</h2>
 
@@ -1647,7 +1845,7 @@ parent.flexChildren(child1, child2)
 <td>contentMode</td>
 <td>type: <a href="#scale_type">ScaleType</a></td>
 <td>type</td>
-<td>-</td>
+<td>Android</td>
 <td>图片缩放模式</td>
 </tr>
 <tr>
@@ -1720,12 +1918,88 @@ parent.flexChildren(child1, child2)
 </tr>
 </tbody></table>
 
+<h2 id="scrollview">ScrollView</h2>
+
+<aside class="notice" id="scrollview">
+<br/>
+基础列表组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>contentSize</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>设置内容区域大小</td>
+</tr>
+<tr>
+<td>2</td>
+<td>offset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置内容偏移</td>
+</tr>
+<tr>
+<td>3</td>
+<td>contentInset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置ContentInset</td>
+</tr>
+<tr>
+<td>4</td>
+<td>showScrollIndicator</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>iOS</td>
+<td>是否显示滚动条信息</td>
+</tr>
+<tr>
+<td>5</td>
+<td>isRefreshing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>iOS</td>
+<td>是否正在刷新</td>
+</tr>
+<tr>
+<td>6</td>
+<td>startRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>开始刷新</td>
+</tr>
+<tr>
+<td>7</td>
+<td>stopRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>停止刷新</td>
+</tr>
+</tbody></table>
+
 <h2 id="tableview">TableView</h2>
 
 <aside class="notice" id="table_view">
 (Deprecated see <a href="#collection_view">CollectionView</a>)
 <br/>
-基础列表组件，容器。
+基础列表组件，容器(IOS已经不支持了)
 -> <a href="#view">View</a>
 </aside>
 
@@ -1752,7 +2026,7 @@ parent.flexChildren(child1, child2)
 <td>contentSize</td>
 <td>-</td>
 <td>-</td>
-<td>iOS</td>
+<td>IOS</td>
 <td>设置内容区域大小</td>
 </tr>
 <tr>
@@ -1840,7 +2114,9 @@ parent.flexChildren(child1, child2)
 <h2 id="collectionview">CollectionView</h2>
 
 <aside class="notice" id="collection_view">
-基础列表组件，容器。
+基础列表组件，容器。<br>
+Android: -> <a href="#view">View</a> <br>
+IOS: -><a href="#scrollview">ScrollView</a>
 -> <a href="#view">View</a>
 </aside>
 
@@ -1861,30 +2137,6 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 <td>-</td>
 <td>Android支持参数</td>
-</tr>
-<tr>
-<td>2</td>
-<td>contentSize</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>设置内容区域大小</td>
-</tr>
-<tr>
-<td>3</td>
-<td>contentOffset</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>设置内容偏移</td>
-</tr>
-<tr>
-<td>4</td>
-<td>contentInset</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>设置ContentInset</td>
 </tr>
 <tr>
 <td>5</td>
@@ -1923,17 +2175,91 @@ parent.flexChildren(child1, child2)
 <td>lazyLoad</td>
 <td>v: Boolean</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>是否懒加载Cell</td>
 </tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>-- CollectionView 例子
+local cv = CollectionView {
+    Section = {
+        SectionCount = function()
+            -- 返回页面区块的个数（不同区块的种类数）
+            return sectionCount
+        end,
+        RowCount = function(section)
+            -- 返回每个区块对应有的坑位数
+            if(section == 1) then
+                return rowCount1
+            else
+                return rowCount2
+            end
+        end
+    },
+    Cell = {
+        Id = function(section, row)
+            -- 返回每个区块对应额坑位ID
+            if (section == 1) then
+                return "Label"
+            elseif(section == 2) then
+                return "ImageAndLabel"
+            end
+        end,
+        Label = {
+            Size = function(section, row)
+                return w, cellHeight
+            end,
+            Init = function(cell, section, row)
+                cell.title = Label()
+            end,
+            Layout = function(cell, section, row)
+                cell.title.frame(0, 0, w - cellHeight, cellHeight)
+                cell.title.text("测试" .. section .. "--" .. row .. "--" .. rowTitle)
+                cell.title.backgroundColor(0xdcdcdc)
+            end
+        },
+        ImageAndLabel = {
+            Size = function(section, row)
+                -- 返回Cell的宽、高
+                return w, cellHeight
+            end,
+            Init = function(cell, section, row)
+                -- Cell的初始化，一般在这里创建对应的Cell各个UI元素
+                cell.icon = Image()
+                cell.title = Label()
+            end,
+            Layout = function(cell, section, row)
+                -- Cell的布局，一般在这里对Cell的各个UI元素进行布局（设置位置、内容）
+                cell.icon.frame(20, 0, cellHeight, cellHeight)
+                cell.icon.image(imageUrl1)
+
+                cell.title.frame(20 + cellHeight, 0, w - cellHeight, cellHeight)
+                cell.title.text("测试" .. section .. "--" .. row .. "--" .. rowTitle)
+            end,
+            Callback = function(section, row)
+                -- 在这里处理Cell的点击事件，或者长按时间，默认处理的是点击事件，长按时间需要定义Callback为表                
+            end
+        }
+    },
+        Callback = {-- 整个CollectionView的事件回调
+        Scrolling = function( firstVisibleSection, firstVisibleRow, visibleCellCount )
+          -- 滚动中回调
+        end,
+        ScrollBegin = function(firstVisibleSection, firstVisibleRow, visibleCellCount )
+          -- 滚动开始回调
+        end,
+        ScrollEnd = function(firstVisibleSection, firstVisibleRow, visibleCellCount )
+          -- 滚动结束回调
+        end
+    }
+    }
+</code></pre>
 
 <h2 id="refreshtableview">RefreshTableView</h2>
 
 <aside class="notice" id="refresh_table_view">
 (Deprecated see <a href="#refresh_collection_view">RefreshCollectionView</a>)
 <br/>
-可刷新列表组件，容器。
+可刷新列表组件，容器。(IOS已经废弃该类)
 -> <a href="#table_view">TableView</a>
 -> <a href="#view">View</a>
 </aside>
@@ -1961,7 +2287,7 @@ parent.flexChildren(child1, child2)
 <td>initRefreshing</td>
 <td>-</td>
 <td>-</td>
-<td>iOS</td>
+<td>-</td>
 <td>初始化刷新组件</td>
 </tr>
 <tr>
@@ -1993,8 +2319,8 @@ parent.flexChildren(child1, child2)
 <h2 id="refreshcollectionview">RefreshCollectionView</h2>
 
 <aside class="notice" id="refresh_collection_view">
-可刷新列表组件，容器。
--> <a href="#collection_view">CollectionView</a>
+可刷新列表组件，容器。<br>
+-> <a href="#collection_view">CollectionView</a><br>
 -> <a href="#view">View</a>
 </aside>
 
@@ -2049,6 +2375,17 @@ parent.flexChildren(child1, child2)
 <td>停止刷新</td>
 </tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>-- RefreshCollectionView 例子
+local cv = RefreshCollectionView {
+    ...
+    Callback = {-- 相比CollectionView，多了PullDown回调
+        ...
+        PullDown = function()
+          -- 下拉刷新回调
+        end
+    }
+  }
+</code></pre>
 
 <h2 id="pagerview">PagerView</h2>
 
@@ -2123,7 +2460,46 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 <td>支持左右透出预览</td>
 </tr>
+<tr>
+<td>8</td>
+<td>showScrollBar</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>是否显示类似CollectionView的滚动条</td>
+</tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>-- PagerView 列子
+pagerView = PagerView{
+    PageCount = function()
+        -- 获取页面个数
+        return table:getn(net.options);
+    end,
+    Pages = {
+        Init = function(page, pos)
+          -- 页面初始化代码放置在这里，一般在这里创建出对应的视图，如
+          -- page.ui = Image()
+        end,
+        Layout = function(page, pos)
+          -- 页面对应的布局代码放置在这里，一般是对Page页面的内容进行填充，如
+          -- page.ui.image("image_url")
+        end
+    },
+    Callback = {-- 处理PagerView的各种事件，如滚动开始，滚动中，滚动结束事件
+        Scrolling = function(pageIndex, percent, offset)
+            -- PagerView的滚动监听写在这里
+            local x = (pageIndex - 1) * scrW + offset;
+            local y = 0;
+            if (bar) then
+                bar.renewContentScrollOffset(x, y);
+            end
+        end,
+        ScrollEnd = function(pageIndex)
+           -- PagerView滚动结束回调
+        end
+    }
+};
+</code></pre>
 
 <h2 id="pagerindicator">PagerIndicator</h2>
 
@@ -2163,12 +2539,20 @@ parent.flexChildren(child1, child2)
 <td>fillColor</td>
 <td>color: Number</td>
 <td>color</td>
-<td>-</td>
+<td>Android</td>
 <td>未选中指示器颜色</td>
 </tr>
 <tr>
 <td>4</td>
 <td>pageColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>未选中指示器颜色</td>
+</tr>
+<tr>
+<td>4</td>
+<td>currentPageColor</td>
 <td>color: Number</td>
 <td>color</td>
 <td>-</td>
@@ -2219,7 +2603,7 @@ parent.flexChildren(child1, child2)
 <td>currentItem</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置/获取当前页面</td>
 </tr>
 </tbody></table>
@@ -2339,8 +2723,9 @@ loading.frame(0, 0, 100, 100)
 <h2 id="hscrollview">HScrollView</h2>
 
 <aside class="notice" id="h_scroll_view">
-横向滑动组件，容器。
--> <a href="#view">View</a>
+横向滑动组件，容器。<br>
+Android: -> <a href="#view">View</a><br>
+IOS: -> <a href="#scrollview">ScrollView(IOS)</a> -> <a href="#view">View</a>
 </aside>
 
 <table><thead>
@@ -2366,7 +2751,7 @@ loading.frame(0, 0, 100, 100)
 <td>scrollTo</td>
 <td>x: Number<br/> y: Number<br/> smooth: Boolean</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动到x,y，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
@@ -2374,7 +2759,7 @@ loading.frame(0, 0, 100, 100)
 <td>offsetBy</td>
 <td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
 <td>x, y</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动dx,dy，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
@@ -2382,7 +2767,7 @@ loading.frame(0, 0, 100, 100)
 <td>scrollBy</td>
 <td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动dx,dy，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
@@ -2390,7 +2775,7 @@ loading.frame(0, 0, 100, 100)
 <td>smoothScrollTo</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>平滑滚动到x,y</td>
 </tr>
 <tr>
@@ -2398,7 +2783,7 @@ loading.frame(0, 0, 100, 100)
 <td>smoothScrollBy</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动到x,y</td>
 </tr>
 <tr>
@@ -2564,7 +2949,7 @@ html组件，容器。
 <td>isStart</td>
 <td>-</td>
 <td>v: Boolean</td>
-<td>-</td>
+<td>Android</td>
 <td>是否开始转动</td>
 </tr>
 <tr>
@@ -2572,7 +2957,7 @@ html组件，容器。
 <td>startAnimating</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>开始转动</td>
 </tr>
 <tr>
@@ -2596,7 +2981,7 @@ html组件，容器。
 <td>stopAnimating</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>停止动画</td>
 </tr>
 <tr>
@@ -2612,7 +2997,7 @@ html组件，容器。
 <h2 id="loadingdialog">LoadingDialog</h2>
 
 <aside class="notice" id="loading_dialog">
-加载对话框组件。
+加载对话框组件。(Android专有)
 </aside>
 
 <table><thead>
@@ -3492,7 +3877,7 @@ canvas.drawText({
 <td>skew</td>
 <td>x: Number<br/> y: Number<br/></td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>斜切变换，xy斜切比率</td>
 </tr>
 </tbody></table>
@@ -3613,7 +3998,7 @@ end)
 <td>url</td>
 <td>v: String</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置请求Url</td>
 </tr>
 <tr>
@@ -3621,7 +4006,7 @@ end)
 <td>method</td>
 <td>v: String, get/post</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置请求方法</td>
 </tr>
 <tr>
@@ -3629,7 +4014,7 @@ end)
 <td>retryTimes</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>重试次数</td>
 </tr>
 <tr>
@@ -3637,7 +4022,7 @@ end)
 <td>timeout</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>超时时间</td>
 </tr>
 <tr>
@@ -3645,14 +4030,14 @@ end)
 <td>params</td>
 <td>v: LuaTable</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>请求参数</td>
 </tr>
 <tr>
 <td>6</td>
 <td>callback</td>
 <td>v: LuaFunction</td>
-<td>v</td>
+<td>Android</td>
 <td>请求回调</td>
 <td></td>
 </tr>
@@ -3661,7 +4046,7 @@ end)
 <td>request</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>请求</td>
 </tr>
 <tr>
@@ -3687,6 +4072,30 @@ end)
 <td>-</td>
 <td>-</td>
 <td>POST请求</td>
+</tr>
+<tr>
+<td>11</td>
+<td>header</td>
+<td></td>
+<td>-</td>
+<td>IOS</td>
+<td>http响应的头信息</td>
+</tr>
+<tr>
+<td>11</td>
+<td>data</td>
+<td></td>
+<td>-</td>
+<td>IOS</td>
+<td>http响应的数据体(数据块类型)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>code</td>
+<td></td>
+<td>-</td>
+<td>IOS</td>
+<td>http响应的code</td>
 </tr>
 </tbody></table>
 
@@ -3899,7 +4308,7 @@ end)
 <td>pause</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>暂停播放</td>
 </tr>
 <tr>
@@ -3907,7 +4316,7 @@ end)
 <td>resume</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>恢复播放</td>
 </tr>
 <tr>
@@ -3923,7 +4332,7 @@ end)
 <td>seekTo</td>
 <td>sec: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>到某个位置</td>
 </tr>
 <tr>
@@ -3931,7 +4340,7 @@ end)
 <td>callback</td>
 <td>v: LuaFunction</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>回调</td>
 </tr>
 <tr>
@@ -3939,7 +4348,7 @@ end)
 <td>playing</td>
 <td>-</td>
 <td>v: Boolean</td>
-<td>-</td>
+<td>Android</td>
 <td>是否播放</td>
 </tr>
 <tr>
@@ -3947,7 +4356,7 @@ end)
 <td>pausing</td>
 <td>-</td>
 <td>v: Boolean</td>
-<td>-</td>
+<td>Android</td>
 <td>是否暂停</td>
 </tr>
 <tr>
@@ -3955,7 +4364,7 @@ end)
 <td>looping</td>
 <td>-</td>
 <td>v: Boolean</td>
-<td>-</td>
+<td>Android</td>
 <td>是否循环播放</td>
 </tr>
 </tbody></table>
@@ -4133,7 +4542,7 @@ Json组件，静态。
 <td>isValid</td>
 <td>v: String/<a href="#data">Data</a></td>
 <td>r: Boolean</td>
-<td>-</td>
+<td>Android</td>
 <td>是否有效JsonString</td>
 </tr>
 </tbody></table>
@@ -4305,13 +4714,13 @@ View布局。
 <tr>
 <td>8</td>
 <td>START</td>
-<td>-</td>
+<td>Android</td>
 <td>左or上对齐</td>
 </tr>
 <tr>
 <td>9</td>
 <td>END</td>
-<td>-</td>
+<td>Android</td>
 <td>右or下对齐</td>
 </tr>
 </tbody></table>
@@ -4493,73 +4902,73 @@ View布局。
 <tr>
 <td>1</td>
 <td>LEFT</td>
-<td>-</td>
+<td>Android</td>
 <td>左对齐</td>
 </tr>
 <tr>
 <td>2</td>
 <td>TOP</td>
-<td>-</td>
+<td>Android</td>
 <td>上对齐</td>
 </tr>
 <tr>
 <td>3</td>
 <td>RIGHT</td>
-<td>-</td>
+<td>Android</td>
 <td>右对齐</td>
 </tr>
 <tr>
 <td>4</td>
 <td>BOTTOM</td>
-<td>-</td>
+<td>Android</td>
 <td>下对齐</td>
 </tr>
 <tr>
 <td>5</td>
 <td>START</td>
-<td>-</td>
+<td>Android</td>
 <td>左or上对齐</td>
 </tr>
 <tr>
 <td>6</td>
 <td>END</td>
-<td>-</td>
+<td>Android</td>
 <td>右or下对齐</td>
 </tr>
 <tr>
 <td>7</td>
 <td>CENTER</td>
-<td>-</td>
+<td>Android</td>
 <td>居中对齐</td>
 </tr>
 <tr>
 <td>8</td>
 <td>H_CENTER</td>
-<td>-</td>
+<td>Android</td>
 <td>水平居中对齐</td>
 </tr>
 <tr>
 <td>9</td>
 <td>V_CENTER</td>
-<td>-</td>
+<td>Android</td>
 <td>垂直居中对齐</td>
 </tr>
 <tr>
 <td>10</td>
 <td>FILL</td>
-<td>-</td>
+<td>Android</td>
 <td>铺满</td>
 </tr>
 <tr>
 <td>11</td>
 <td>H_FILL</td>
-<td>-</td>
+<td>Android</td>
 <td>水平铺满</td>
 </tr>
 <tr>
 <td>12</td>
 <td>V_FILL</td>
-<td>-</td>
+<td>Android</td>
 <td>垂直铺满</td>
 </tr>
 </tbody></table>
@@ -4645,13 +5054,13 @@ View布局。
 <tr>
 <td>5</td>
 <td>BOUNCE</td>
-<td>-</td>
+<td>Android</td>
 <td>回弹插值</td>
 </tr>
 <tr>
 <td>6</td>
 <td>CYCLE</td>
-<td>-</td>
+<td>Android</td>
 <td>环形插值</td>
 </tr>
 <tr>
@@ -4669,7 +5078,7 @@ View布局。
 <tr>
 <td>9</td>
 <td>OVERSHOOT</td>
-<td>-</td>
+<td>Android</td>
 <td>弹性插值</td>
 </tr>
 </tbody></table>
@@ -4732,6 +5141,24 @@ Canvas画笔样式。参考 <a href="#canvas">Canvas</a>
 <td>2</td>
 <td>STROKE</td>
 <td>-</td>
+<td>中空</td>
+</tr>
+<tr>
+<td>3</td>
+<td>EOFILL</td>
+<td>IOS</td>
+<td>中空</td>
+</tr>
+<tr>
+<td>4</td>
+<td>FILLSTROKE</td>
+<td>IOS</td>
+<td>中空</td>
+</tr>
+<tr>
+<td>5</td>
+<td>EOFILLSTROKE</td>
+<td>IOS</td>
 <td>中空</td>
 </tr>
 </tbody></table>

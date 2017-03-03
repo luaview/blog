@@ -181,7 +181,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignLeftTop</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
@@ -189,7 +189,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignTopLeft</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Top</td>
 </tr>
 <tr>
@@ -197,7 +197,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterTop</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Center&amp;Top</td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignTopCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Center&amp;Top</td>
 </tr>
 <tr>
@@ -213,7 +213,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignRightTop</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Top</td>
 </tr>
 <tr>
@@ -221,7 +221,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignTopRight</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Top</td>
 </tr>
 <tr>
@@ -229,7 +229,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignLeftBottom</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Bottom</td>
 </tr>
 <tr>
@@ -237,14 +237,14 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignBottomLeft</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Bottom</td>
 </tr>
 <tr>
 <td>21</td>
 <td>alignCenterBottom</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>-</td>
 <td>设置自身位于父容器Center&amp;Bottom</td>
 </tr>
@@ -252,7 +252,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>22</td>
 <td>alignBottomCenter</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>-</td>
 <td>设置自身位于父容器Center&amp;Bottom</td>
 </tr>
@@ -261,7 +261,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignRightBottom</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Bottom</td>
 </tr>
 <tr>
@@ -269,7 +269,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignBottomRight</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Bottom</td>
 </tr>
 <tr>
@@ -285,7 +285,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignLeftCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Center</td>
 </tr>
 <tr>
@@ -293,7 +293,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterLeft</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Left&amp;Center</td>
 </tr>
 <tr>
@@ -301,7 +301,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignRightCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Center</td>
 </tr>
 <tr>
@@ -309,7 +309,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterRight</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器Right&amp;Center</td>
 </tr>
 <tr>
@@ -317,7 +317,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterHorizontal</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in horizontal</td>
 </tr>
 <tr>
@@ -325,7 +325,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignHorizontalCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in horizontal</td>
 </tr>
 <tr>
@@ -333,7 +333,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignCenterVertical</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in vertical</td>
 </tr>
 <tr>
@@ -341,7 +341,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>alignVerticalCenter</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>设置自身位于父容器center in vertical</td>
 </tr>
 <tr>
@@ -413,7 +413,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>minWidth</td>
 <td>width: Number</td>
 <td>width</td>
-<td>-</td>
+<td>Android</td>
 <td>最小宽度</td>
 </tr>
 <tr>
@@ -445,7 +445,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>visible</td>
 <td>v: Boolean</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>可见性</td>
 </tr>
 <tr>
@@ -725,7 +725,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>bringToFront</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>将view设置到前台</td>
 </tr>
 <tr>
@@ -733,7 +733,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollTo</td>
 <td>sx: Number<br/>sy: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动到某个位置</td>
 </tr>
 <tr>
@@ -741,7 +741,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollBy</td>
 <td>sx: Number<br/>sy: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>移动一段距离</td>
 </tr>
 <tr>
@@ -749,7 +749,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollX</td>
 <td>sx: Number</td>
 <td>sx</td>
-<td>-</td>
+<td>Android</td>
 <td>x方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -757,7 +757,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offsetX</td>
 <td>sx: Number</td>
 <td>sx</td>
-<td>-</td>
+<td>Android</td>
 <td>x方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -765,7 +765,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollY</td>
 <td>sy: Number</td>
 <td>sy</td>
-<td>-</td>
+<td>Android</td>
 <td>y方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -773,7 +773,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offsetY</td>
 <td>sy: Number</td>
 <td>sy</td>
-<td>-</td>
+<td>Android</td>
 <td>y方向滚动到某个位置</td>
 </tr>
 <tr>
@@ -781,7 +781,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>scrollXY</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
-<td>-</td>
+<td>Android</td>
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
@@ -789,7 +789,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offsetXY</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
-<td>-</td>
+<td>Android</td>
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
@@ -797,7 +797,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>offset</td>
 <td>sx: Number<br/> sy: Number</td>
 <td>sx, sy</td>
-<td>-</td>
+<td>Android</td>
 <td>x、y方向移动到某个位置</td>
 </tr>
 <tr>
@@ -805,7 +805,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>showScrollIndicator</td>
 <td>h: Boolean<br/> v: Boolean</td>
 <td>h, v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置滚动条是否显示（横向、纵向）</td>
 </tr>
 <tr>
@@ -829,7 +829,7 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>onLongClick</td>
 <td>v: LuaFunction</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置view的长按事件</td>
 </tr>
 <tr>
@@ -917,8 +917,8 @@ view.effects(ViewEffect.NONE) -- 无效果
 <td>margin</td>
 <td>l: Number<br/> t: Number<br/> r: Number<br/> b: Number</td>
 <td>l, t, r, b</td>
+<td>Android</td>
 <td>边距</td>
-<td></td>
 </tr>
 <tr>
 <td>106</td>
@@ -1178,7 +1178,7 @@ parent.flexChildren(child1, child2)
 <td>lines</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>文字行数</td>
 </tr>
 <tr>
@@ -1202,7 +1202,7 @@ parent.flexChildren(child1, child2)
 <td>minLines</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>文本最小行数</td>
 </tr>
 <tr>
@@ -1218,7 +1218,7 @@ parent.flexChildren(child1, child2)
 <td>adjustTextSize</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>字体大小适应宽度</td>
 </tr>
 <tr>
@@ -1265,23 +1265,13 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 <td>-</td>
 </tr>
-<tr>
-<td>3</td>
-<td>image</td>
-<td>img1: String<br/> img2: String</td>
-<td>img1, img2</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>4</td>
-<td>showsTouchWhenHighlighted</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>获取按钮点击是否高亮</td>
-</tr>
 </tbody></table>
+
+<p>|3|text|v: String/<a href="#styled_string">StyledString</a>/<a href="#unicode">Unicode</a>|v|IOS|按钮文字|
+|4|textColor|color: Number|color|-|IOS|文本颜色|
+|5|image|img1: String<br/> img2: String|img1, img2|-|-|按钮点按图片（正常，点击）|
+|6|selected|-|-|iOS|是否selected|
+|6|enabled|-|-|iOS|是否使能|</p>
 
 <h2 id="image">Image</h2>
 
@@ -1313,7 +1303,7 @@ parent.flexChildren(child1, child2)
 <td>contentMode</td>
 <td>type: <a href="#scale_type">ScaleType</a></td>
 <td>type</td>
-<td>-</td>
+<td>Android</td>
 <td>图片缩放模式</td>
 </tr>
 <tr>
@@ -1386,12 +1376,88 @@ parent.flexChildren(child1, child2)
 </tr>
 </tbody></table>
 
+<h2 id="scrollview">ScrollView</h2>
+
+<aside class="notice" id="scrollview">
+<br/>
+基础列表组件，容器。
+-> <a href="#view">View</a>
+</aside>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>contentSize</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>设置内容区域大小</td>
+</tr>
+<tr>
+<td>2</td>
+<td>offset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置内容偏移</td>
+</tr>
+<tr>
+<td>3</td>
+<td>contentInset</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>设置ContentInset</td>
+</tr>
+<tr>
+<td>4</td>
+<td>showScrollIndicator</td>
+<td>v: Boolean</td>
+<td>v</td>
+<td>iOS</td>
+<td>是否显示滚动条信息</td>
+</tr>
+<tr>
+<td>5</td>
+<td>isRefreshing</td>
+<td>-</td>
+<td>v: Boolean</td>
+<td>iOS</td>
+<td>是否正在刷新</td>
+</tr>
+<tr>
+<td>6</td>
+<td>startRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>开始刷新</td>
+</tr>
+<tr>
+<td>7</td>
+<td>stopRefreshing</td>
+<td>-</td>
+<td>-</td>
+<td>iOS</td>
+<td>停止刷新</td>
+</tr>
+</tbody></table>
+
 <h2 id="tableview">TableView</h2>
 
 <aside class="notice" id="table_view">
 (Deprecated see <a href="#collection_view">CollectionView</a>)
 <br/>
-基础列表组件，容器。
+基础列表组件，容器(IOS已经不支持了)
 -> <a href="#view">View</a>
 </aside>
 
@@ -1418,7 +1484,7 @@ parent.flexChildren(child1, child2)
 <td>contentSize</td>
 <td>-</td>
 <td>-</td>
-<td>iOS</td>
+<td>IOS</td>
 <td>设置内容区域大小</td>
 </tr>
 <tr>
@@ -1506,7 +1572,9 @@ parent.flexChildren(child1, child2)
 <h2 id="collectionview">CollectionView</h2>
 
 <aside class="notice" id="collection_view">
-基础列表组件，容器。
+基础列表组件，容器。<br>
+Android: -> <a href="#view">View</a> <br>
+IOS: -><a href="#scrollview">ScrollView</a>
 -> <a href="#view">View</a>
 </aside>
 
@@ -1527,30 +1595,6 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 <td>-</td>
 <td>Android支持参数</td>
-</tr>
-<tr>
-<td>2</td>
-<td>contentSize</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>设置内容区域大小</td>
-</tr>
-<tr>
-<td>3</td>
-<td>contentOffset</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>设置内容偏移</td>
-</tr>
-<tr>
-<td>4</td>
-<td>contentInset</td>
-<td>-</td>
-<td>-</td>
-<td>iOS</td>
-<td>设置ContentInset</td>
 </tr>
 <tr>
 <td>5</td>
@@ -1589,17 +1633,91 @@ parent.flexChildren(child1, child2)
 <td>lazyLoad</td>
 <td>v: Boolean</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>是否懒加载Cell</td>
 </tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>-- CollectionView 例子
+local cv = CollectionView {
+    Section = {
+        SectionCount = function()
+            -- 返回页面区块的个数（不同区块的种类数）
+            return sectionCount
+        end,
+        RowCount = function(section)
+            -- 返回每个区块对应有的坑位数
+            if(section == 1) then
+                return rowCount1
+            else
+                return rowCount2
+            end
+        end
+    },
+    Cell = {
+        Id = function(section, row)
+            -- 返回每个区块对应额坑位ID
+            if (section == 1) then
+                return "Label"
+            elseif(section == 2) then
+                return "ImageAndLabel"
+            end
+        end,
+        Label = {
+            Size = function(section, row)
+                return w, cellHeight
+            end,
+            Init = function(cell, section, row)
+                cell.title = Label()
+            end,
+            Layout = function(cell, section, row)
+                cell.title.frame(0, 0, w - cellHeight, cellHeight)
+                cell.title.text("测试" .. section .. "--" .. row .. "--" .. rowTitle)
+                cell.title.backgroundColor(0xdcdcdc)
+            end
+        },
+        ImageAndLabel = {
+            Size = function(section, row)
+                -- 返回Cell的宽、高
+                return w, cellHeight
+            end,
+            Init = function(cell, section, row)
+                -- Cell的初始化，一般在这里创建对应的Cell各个UI元素
+                cell.icon = Image()
+                cell.title = Label()
+            end,
+            Layout = function(cell, section, row)
+                -- Cell的布局，一般在这里对Cell的各个UI元素进行布局（设置位置、内容）
+                cell.icon.frame(20, 0, cellHeight, cellHeight)
+                cell.icon.image(imageUrl1)
+
+                cell.title.frame(20 + cellHeight, 0, w - cellHeight, cellHeight)
+                cell.title.text("测试" .. section .. "--" .. row .. "--" .. rowTitle)
+            end,
+            Callback = function(section, row)
+                -- 在这里处理Cell的点击事件，或者长按时间，默认处理的是点击事件，长按时间需要定义Callback为表                
+            end
+        }
+    },
+        Callback = {-- 整个CollectionView的事件回调
+        Scrolling = function( firstVisibleSection, firstVisibleRow, visibleCellCount )
+          -- 滚动中回调
+        end,
+        ScrollBegin = function(firstVisibleSection, firstVisibleRow, visibleCellCount )
+          -- 滚动开始回调
+        end,
+        ScrollEnd = function(firstVisibleSection, firstVisibleRow, visibleCellCount )
+          -- 滚动结束回调
+        end
+    }
+    }
+</code></pre>
 
 <h2 id="refreshtableview">RefreshTableView</h2>
 
 <aside class="notice" id="refresh_table_view">
 (Deprecated see <a href="#refresh_collection_view">RefreshCollectionView</a>)
 <br/>
-可刷新列表组件，容器。
+可刷新列表组件，容器。(IOS已经废弃该类)
 -> <a href="#table_view">TableView</a>
 -> <a href="#view">View</a>
 </aside>
@@ -1627,7 +1745,7 @@ parent.flexChildren(child1, child2)
 <td>initRefreshing</td>
 <td>-</td>
 <td>-</td>
-<td>iOS</td>
+<td>-</td>
 <td>初始化刷新组件</td>
 </tr>
 <tr>
@@ -1659,8 +1777,8 @@ parent.flexChildren(child1, child2)
 <h2 id="refreshcollectionview">RefreshCollectionView</h2>
 
 <aside class="notice" id="refresh_collection_view">
-可刷新列表组件，容器。
--> <a href="#collection_view">CollectionView</a>
+可刷新列表组件，容器。<br>
+-> <a href="#collection_view">CollectionView</a><br>
 -> <a href="#view">View</a>
 </aside>
 
@@ -1715,6 +1833,17 @@ parent.flexChildren(child1, child2)
 <td>停止刷新</td>
 </tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>-- RefreshCollectionView 例子
+local cv = RefreshCollectionView {
+    ...
+    Callback = {-- 相比CollectionView，多了PullDown回调
+        ...
+        PullDown = function()
+          -- 下拉刷新回调
+        end
+    }
+  }
+</code></pre>
 
 <h2 id="pagerview">PagerView</h2>
 
@@ -1789,7 +1918,46 @@ parent.flexChildren(child1, child2)
 <td>-</td>
 <td>支持左右透出预览</td>
 </tr>
+<tr>
+<td>8</td>
+<td>showScrollBar</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>是否显示类似CollectionView的滚动条</td>
+</tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>-- PagerView 列子
+pagerView = PagerView{
+    PageCount = function()
+        -- 获取页面个数
+        return table:getn(net.options);
+    end,
+    Pages = {
+        Init = function(page, pos)
+          -- 页面初始化代码放置在这里，一般在这里创建出对应的视图，如
+          -- page.ui = Image()
+        end,
+        Layout = function(page, pos)
+          -- 页面对应的布局代码放置在这里，一般是对Page页面的内容进行填充，如
+          -- page.ui.image("image_url")
+        end
+    },
+    Callback = {-- 处理PagerView的各种事件，如滚动开始，滚动中，滚动结束事件
+        Scrolling = function(pageIndex, percent, offset)
+            -- PagerView的滚动监听写在这里
+            local x = (pageIndex - 1) * scrW + offset;
+            local y = 0;
+            if (bar) then
+                bar.renewContentScrollOffset(x, y);
+            end
+        end,
+        ScrollEnd = function(pageIndex)
+           -- PagerView滚动结束回调
+        end
+    }
+};
+</code></pre>
 
 <h2 id="pagerindicator">PagerIndicator</h2>
 
@@ -1829,12 +1997,20 @@ parent.flexChildren(child1, child2)
 <td>fillColor</td>
 <td>color: Number</td>
 <td>color</td>
-<td>-</td>
+<td>Android</td>
 <td>未选中指示器颜色</td>
 </tr>
 <tr>
 <td>4</td>
 <td>pageColor</td>
+<td>color: Number</td>
+<td>color</td>
+<td>-</td>
+<td>未选中指示器颜色</td>
+</tr>
+<tr>
+<td>4</td>
+<td>currentPageColor</td>
 <td>color: Number</td>
 <td>color</td>
 <td>-</td>
@@ -1885,7 +2061,7 @@ parent.flexChildren(child1, child2)
 <td>currentItem</td>
 <td>v: Number</td>
 <td>v</td>
-<td>-</td>
+<td>Android</td>
 <td>设置/获取当前页面</td>
 </tr>
 </tbody></table>
@@ -2005,8 +2181,9 @@ loading.frame(0, 0, 100, 100)
 <h2 id="hscrollview">HScrollView</h2>
 
 <aside class="notice" id="h_scroll_view">
-横向滑动组件，容器。
--> <a href="#view">View</a>
+横向滑动组件，容器。<br>
+Android: -> <a href="#view">View</a><br>
+IOS: -> <a href="#scrollview">ScrollView(IOS)</a> -> <a href="#view">View</a>
 </aside>
 
 <table><thead>
@@ -2032,7 +2209,7 @@ loading.frame(0, 0, 100, 100)
 <td>scrollTo</td>
 <td>x: Number<br/> y: Number<br/> smooth: Boolean</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动到x,y，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
@@ -2040,7 +2217,7 @@ loading.frame(0, 0, 100, 100)
 <td>offsetBy</td>
 <td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
 <td>x, y</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动dx,dy，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
@@ -2048,7 +2225,7 @@ loading.frame(0, 0, 100, 100)
 <td>scrollBy</td>
 <td>dx: Number<br/> dy: Number<br/> smooth: Boolean</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动dx,dy，smooth表示是否平滑滚动</td>
 </tr>
 <tr>
@@ -2056,7 +2233,7 @@ loading.frame(0, 0, 100, 100)
 <td>smoothScrollTo</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>平滑滚动到x,y</td>
 </tr>
 <tr>
@@ -2064,7 +2241,7 @@ loading.frame(0, 0, 100, 100)
 <td>smoothScrollBy</td>
 <td>x: Number<br/> y: Number</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>滚动到x,y</td>
 </tr>
 <tr>
@@ -2230,7 +2407,7 @@ html组件，容器。
 <td>isStart</td>
 <td>-</td>
 <td>v: Boolean</td>
-<td>-</td>
+<td>Android</td>
 <td>是否开始转动</td>
 </tr>
 <tr>
@@ -2238,7 +2415,7 @@ html组件，容器。
 <td>startAnimating</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>开始转动</td>
 </tr>
 <tr>
@@ -2262,7 +2439,7 @@ html组件，容器。
 <td>stopAnimating</td>
 <td>-</td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>停止动画</td>
 </tr>
 <tr>
@@ -2278,7 +2455,7 @@ html组件，容器。
 <h2 id="loadingdialog">LoadingDialog</h2>
 
 <aside class="notice" id="loading_dialog">
-加载对话框组件。
+加载对话框组件。(Android专有)
 </aside>
 
 <table><thead>
@@ -3158,7 +3335,7 @@ canvas.drawText({
 <td>skew</td>
 <td>x: Number<br/> y: Number<br/></td>
 <td>-</td>
-<td>-</td>
+<td>Android</td>
 <td>斜切变换，xy斜切比率</td>
 </tr>
 </tbody></table>

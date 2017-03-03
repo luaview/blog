@@ -23,6 +23,24 @@ luaview.load("脚本uri");
 
 </code></pre>
 
+<blockquote>
+<p>LuaView 使用 -IOS</p>
+</blockquote>
+<pre class="highlight plaintext"><code>1. 创建LuaView
+    LView* luaview = [[LView alloc] initWithFrame:rect];
+
+2. 注册扩展
+luaview.registerPanel(CustomLoading.class);
+luaview.register("bridge", new CustomBridge());
+
+3. 加载资源
+    [luaview.bundle addScriptPath:packagePath];
+    [luaview.bundle addResourcePath:packagePath];
+    [luaview runFile:scriptFileName];
+    [luaview runSignFile:scriptFileName];
+
+</code></pre>
+
 <table><thead>
 <tr>
 <th>ID</th>
@@ -35,6 +53,14 @@ luaview.load("脚本uri");
 </thead><tbody>
 <tr>
 <td>1</td>
+<td>bundle</td>
+<td>-</td>
+<td>Bundle对象</td>
+<td>IOS</td>
+<td>LuaView的bundle属性用于脚本目录管理</td>
+</tr>
+<tr>
+<td>2</td>
 <td>create</td>
 <td>context: Context</td>
 <td>LuaView</td>
@@ -42,7 +68,7 @@ luaview.load("脚本uri");
 <td>创建LuaView</td>
 </tr>
 <tr>
-<td>2</td>
+<td>3</td>
 <td>createAsync</td>
 <td>context: Context, callback: CreatedCallback</td>
 <td>-</td>
@@ -50,7 +76,7 @@ luaview.load("脚本uri");
 <td>异步创建LuaView</td>
 </tr>
 <tr>
-<td>3</td>
+<td>4</td>
 <td>load</td>
 <td>url: String</td>
 <td>LuaView</td>
@@ -58,7 +84,7 @@ luaview.load("脚本uri");
 <td>加载指定资源（asset、本地、网络）</td>
 </tr>
 <tr>
-<td>4</td>
+<td>5</td>
 <td>load</td>
 <td>url: String, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -66,7 +92,47 @@ luaview.load("脚本uri");
 <td>加载指定资源（asset、本地、网络），带回调</td>
 </tr>
 <tr>
-<td>5</td>
+<td>6</td>
+<td>loadFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源（本地）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>loadSignFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源本地</td>
+</tr>
+<tr>
+<td>8</td>
+<td>runFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源（本地）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>runSignFile</td>
+<td>url: String</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源本地</td>
+</tr>
+<tr>
+<td>10</td>
+<td>runData</td>
+<td>data: 数据块, fileName:调试信息</td>
+<td>错误信息</td>
+<td>IOS</td>
+<td>加载指定资源（本地）</td>
+</tr>
+<tr>
+<td>11</td>
 <td>loadScript</td>
 <td>script: String</td>
 <td>LuaView</td>
@@ -74,7 +140,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本</td>
 </tr>
 <tr>
-<td>6</td>
+<td>12</td>
 <td>loadScript</td>
 <td>script: String, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -82,7 +148,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本，带回调</td>
 </tr>
 <tr>
-<td>7</td>
+<td>13</td>
 <td>loadScriptBundle</td>
 <td>scriptBundle: ScriptBundle</td>
 <td>LuaView</td>
@@ -90,7 +156,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本包</td>
 </tr>
 <tr>
-<td>8</td>
+<td>14</td>
 <td>loadScriptBundle</td>
 <td>scriptBundle: ScriptBundle, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -98,7 +164,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本包，带回调</td>
 </tr>
 <tr>
-<td>9</td>
+<td>15</td>
 <td>loadScriptBundle</td>
 <td>scriptBundle: ScriptBundle, main_entry: String, callback: ScriptExecuteCallback</td>
 <td>LuaView</td>
@@ -106,7 +172,7 @@ luaview.load("脚本uri");
 <td>加载指定脚本包，执行main_entry入口文件，带回调</td>
 </tr>
 <tr>
-<td>10</td>
+<td>16</td>
 <td>register</td>
 <td>name: String, bridge: Object</td>
 <td>LuaView</td>
@@ -114,7 +180,7 @@ luaview.load("脚本uri");
 <td>注册一个名称为name的bridge对象</td>
 </tr>
 <tr>
-<td>11</td>
+<td>17</td>
 <td>unregister</td>
 <td>name: String</td>
 <td>LuaView</td>
@@ -122,7 +188,7 @@ luaview.load("脚本uri");
 <td>反注册一个名称为name的bridge对象</td>
 </tr>
 <tr>
-<td>12</td>
+<td>18</td>
 <td>registerPanel</td>
 <td>clazz: Class&lt;? extends LVCustomPanel&gt;</td>
 <td>LuaView</td>
@@ -130,7 +196,7 @@ luaview.load("脚本uri");
 <td>注册一个名称为clazz类名，类型为clazz的panel</td>
 </tr>
 <tr>
-<td>13</td>
+<td>19</td>
 <td>registerPanel</td>
 <td>name: String, clazz: Class&lt;? extends LVCustomPanel&gt;</td>
 <td>LuaView</td>
@@ -138,7 +204,7 @@ luaview.load("脚本uri");
 <td>注册一个名称为name，类型为clazz的panel</td>
 </tr>
 <tr>
-<td>14</td>
+<td>20</td>
 <td>registerLibs</td>
 <td>binders: LuaValue[]</td>
 <td>LuaView</td>
@@ -146,7 +212,7 @@ luaview.load("脚本uri");
 <td>注册自定义库</td>
 </tr>
 <tr>
-<td>15</td>
+<td>21</td>
 <td>registerImageProvider</td>
 <td>clazz: Class&lt;? extends ImageProvider&gt;</td>
 <td>LuaView</td>
@@ -154,7 +220,7 @@ luaview.load("脚本uri");
 <td>注册一个ImageProvider</td>
 </tr>
 <tr>
-<td>16</td>
+<td>22</td>
 <td>getImageProvider</td>
 <td>-</td>
 <td>provider: ImageProvider</td>
@@ -162,7 +228,7 @@ luaview.load("脚本uri");
 <td>获取ImageProvider</td>
 </tr>
 <tr>
-<td>17</td>
+<td>23</td>
 <td>callLuaFunction</td>
 <td>funName: String, params: Object[]</td>
 <td>result: Object</td>
@@ -170,7 +236,7 @@ luaview.load("脚本uri");
 <td>调用lua的某个全局函数</td>
 </tr>
 <tr>
-<td>18</td>
+<td>24</td>
 <td>callWindowFunction</td>
 <td>funName: String, params: Object[]</td>
 <td>result: Varargs</td>
@@ -178,11 +244,153 @@ luaview.load("脚本uri");
 <td>调用window.callback下的某个函数</td>
 </tr>
 <tr>
-<td>19</td>
+<td>25</td>
 <td>getUri</td>
 <td>-</td>
 <td>uri: String</td>
 <td>Android</td>
 <td>获取当前LuaView加载的Uri</td>
+</tr>
+<tr>
+<td>26</td>
+<td>viewWillAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewWillAppear</td>
+</tr>
+<tr>
+<td>27</td>
+<td>viewDidAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewDidAppear</td>
+</tr>
+<tr>
+<td>28</td>
+<td>viewWillDisAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewWillDisAppear</td>
+</tr>
+<tr>
+<td>29</td>
+<td>viewDidDisAppear</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>viewDidDisAppear</td>
+</tr>
+<tr>
+<td>30</td>
+<td>motionBegan</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>motionBegan</td>
+</tr>
+<tr>
+<td>31</td>
+<td>motionEnded</td>
+<td>-</td>
+<td>-</td>
+<td>IOS</td>
+<td>motionEnded</td>
+</tr>
+</tbody></table>
+
+<h1 id="bundle">Bundle</h1>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>API</th>
+<th>参数</th>
+<th>返回值</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>addResourcePath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>资源搜索路径</td>
+</tr>
+<tr>
+<td>2</td>
+<td>removeResourcePath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>资源搜索路径</td>
+</tr>
+<tr>
+<td>3</td>
+<td>addScriptPath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>脚本搜索路径</td>
+</tr>
+<tr>
+<td>4</td>
+<td>removeScriptPath</td>
+<td>path:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>脚本搜索路径</td>
+</tr>
+<tr>
+<td>5</td>
+<td>resourcePathWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>资源</td>
+</tr>
+<tr>
+<td>6</td>
+<td>resourceWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取资源</td>
+</tr>
+<tr>
+<td>7</td>
+<td>imageWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取图片</td>
+</tr>
+<tr>
+<td>8</td>
+<td>scriptPathWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取脚本路径</td>
+</tr>
+<tr>
+<td>9</td>
+<td>scriptWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取脚本</td>
+</tr>
+<tr>
+<td>10</td>
+<td>signedScriptWithName</td>
+<td>name:String</td>
+<td>-</td>
+<td>IOS</td>
+<td>获取签名脚本</td>
 </tr>
 </tbody></table>
